@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Pulso · Estudio de muestra</title>
+<meta name="description" content="Web de muestra para un estudio de pilates y yoga, con grilla de clases y reservas. Hecha por Trama.">
+<meta name="theme-color" content="#0F3D3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230F3D3E'/%3E%3Cpath d='M8 34h12l6-14 8 26 6-12h16' stroke='%23FF6F59' stroke-width='5' fill='none' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../kit/armado.css">
+<style>
+:root{
+  --petroleo:#0F3D3E; --petroleo-2:#175556; --coral:#FF6F59; --cielo:#D8E8F5; --cielo-2:#EEF5FB; --lima:#D7F36B; --tinta:#0B2526; --gris:#4F6667;
+  --f-display:"Unbounded",ui-sans-serif,system-ui,sans-serif;
+  --f-texto:"Figtree",ui-sans-serif,system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cielo-2);color:var(--tinta);font:17px/1.6 var(--f-texto);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+h1,h2,h3{font-family:var(--f-display);margin:0;line-height:.95;letter-spacing:-.03em;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:20px}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:6px}
+
+.nav .wrap{display:flex;align-items:center;gap:20px;height:72px}
+.logo{display:flex;align-items:center;gap:10px;font:900 24px/1 var(--f-display);text-decoration:none;color:var(--petroleo)}
+.logo svg{width:34px}
+.nav nav{margin-left:auto;display:flex;gap:22px;font-weight:600;font-size:15px}
+.nav nav a{text-decoration:none}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:14px;padding:15px 22px;font-weight:700;text-decoration:none;border:0;transition:transform .3s var(--ease)}
+.btn:hover{transform:translateY(-2px)}
+.btn-c{background:var(--coral);color:#fff}
+.btn-p{background:var(--petroleo);color:#fff}
+.btn-b{background:transparent;box-shadow:inset 0 0 0 2px currentColor}
+.nav .btn{padding:11px 16px;font-size:15px}
+@media (max-width:760px){.nav nav{display:none}.nav .btn{margin-left:auto}}
+
+/* héroe */
+.heroe{padding:12px 0 80px}
+.lienzo{position:relative;border-radius:36px;overflow:hidden;min-height:min(78svh,720px);display:flex;align-items:flex-end}
+.lienzo .tiras{position:absolute;inset:0}
+.lienzo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,37,38,0) 30%,rgba(11,37,38,.75) 100%);pointer-events:none}
+.lienzo .texto{position:relative;z-index:1;color:#fff;padding:40px;width:100%;display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap}
+.heroe h1{font-size:clamp(46px,7.4vw,112px);font-weight:900;text-transform:uppercase}
+.heroe h1 span{display:block;color:var(--lima)}
+.heroe p{font-size:19px;max-width:30ch;margin-bottom:18px}
+.pulso{position:absolute;top:28px;left:28px;z-index:1;background:rgba(255,255,255,.92);border-radius:999px;padding:8px 16px 8px 12px;display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px}
+.pulso svg{width:46px;height:20px}
+.pulso path{stroke-dasharray:120;stroke-dashoffset:120;animation:late 2.2s linear infinite}
+@keyframes late{to{stroke-dashoffset:-120}}
+@media (max-width:700px){.lienzo{min-height:80svh;border-radius:26px}.lienzo .texto{padding:24px}}
+
+/* disciplinas */
+.disc{background:var(--petroleo);color:#fff;position:relative}
+.disc-pin{min-height:100svh;display:flex;align-items:center;padding-block:72px;overflow:hidden}
+.disc.fija{height:520vh}
+.disc.fija .disc-pin{position:sticky;top:0;height:100svh;min-height:0}
+.disc-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center;width:100%}
+.disc .k{font-weight:700;color:var(--lima)}
+.nombre{font:900 clamp(44px,6.6vw,96px)/.9 var(--f-display);text-transform:uppercase;margin-top:14px;min-height:1.9em;display:flex;align-items:flex-end}
+.nombre span{display:inline-block;animation:letra .5s var(--ease) both}
+@keyframes letra{from{transform:translateY(60%) rotate(8deg);opacity:0}}
+.desc{margin-top:18px;font-size:19px;max-width:32ch;color:#CFE3E3;min-height:4.8em}
+.datos{display:flex;gap:22px;margin-top:18px;flex-wrap:wrap}
+.datos div{border-left:3px solid var(--coral);padding-left:12px}
+.datos b{display:block;font:700 22px/1.1 var(--f-display)}
+.datos small{color:#CFE3E3}
+.ventana{justify-self:center;width:100%;max-width:520px}
+.ventana .mosaico{aspect-ratio:4/5;width:100%;border-radius:4px}
+@media (max-width:860px){.disc-grid{grid-template-columns:minmax(0,1fr);gap:14px}.ventana{order:-1;max-width:280px}.disc-pin{padding-block:36px}.nombre{font-size:36px;min-height:1.1em;margin-top:6px}.desc{font-size:16px;min-height:5em;margin-top:8px}.datos b{font-size:17px}}
+
+/* grilla de clases */
+.clases{padding:110px 0 80px}
+.cab{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.cab h2{font-size:clamp(40px,6vw,80px);font-weight:900;text-transform:uppercase;color:var(--petroleo)}
+.cab p{max-width:34ch;color:var(--gris)}
+.barra-dias{display:flex;gap:6px;margin-top:36px;overflow-x:auto;padding-bottom:6px}
+.barra-dias button{flex:none;border:0;background:#fff;border-radius:12px;padding:12px 18px;font-weight:700}
+.barra-dias button[aria-pressed="true"]{background:var(--petroleo);color:#fff}
+.filtros{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 22px}
+.filtros button{border:2px solid var(--petroleo);background:transparent;border-radius:999px;padding:7px 14px;font-weight:600;font-size:14px}
+.filtros button[aria-pressed="true"]{background:var(--lima);border-color:var(--lima);color:var(--tinta)}
+.lista{display:flex;flex-direction:column;gap:10px}
+.clase{display:grid;grid-template-columns:90px 72px minmax(0,1fr) 200px auto;gap:18px;align-items:center;background:#fff;border-radius:20px;padding:12px 14px}
+.clase .h{font:700 22px/1 var(--f-display);color:var(--petroleo)}
+.clase .ft{width:72px;height:72px;border-radius:14px}
+.clase h3{font:700 18px/1.15 var(--f-texto);letter-spacing:0}
+.clase small{color:var(--gris)}
+.cupo{display:flex;flex-direction:column;gap:6px;font-size:14px;color:var(--gris)}
+.cupo .b{height:8px;border-radius:4px;background:var(--cielo);overflow:hidden}
+.cupo .b i{display:block;height:100%;background:var(--coral);transition:width .5s var(--ease)}
+.reservar{border:0;background:var(--petroleo);color:#fff;border-radius:12px;padding:12px 16px;font-weight:700;white-space:nowrap}
+.reservar.ok{background:var(--lima);color:var(--tinta)}
+.reservar:disabled{opacity:.4;cursor:not-allowed}
+.sin{color:var(--gris);padding:20px 0}
+@media (max-width:820px){.clase{grid-template-columns:64px minmax(0,1fr) auto;grid-template-areas:"h t r" "f c c"}.clase .h{grid-area:h;font-size:18px}.clase .tx{grid-area:t}.clase .reservar{grid-area:r}.clase .ft{display:none}.cupo{grid-area:c}}
+
+/* planes */
+.planes{background:var(--cielo);padding:90px 0}
+.planes h2{font-size:clamp(36px,5vw,64px);font-weight:900;text-transform:uppercase;color:var(--petroleo)}
+.tabla{margin-top:34px;display:flex;flex-direction:column;border-top:3px solid var(--petroleo)}
+.plan{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.6fr) auto auto;gap:24px;align-items:center;padding:24px 0;border-bottom:1.5px solid rgba(15,61,62,.2)}
+.plan h3{font:700 26px/1 var(--f-display)}
+.plan p{color:var(--gris)}
+.plan .precio{font:900 30px/1 var(--f-display);color:var(--petroleo);white-space:nowrap}
+.plan .precio small{font:500 14px var(--f-texto);color:var(--gris)}
+.plan.dest{background:var(--petroleo);color:#fff;border-radius:22px;padding:24px;margin:8px -24px;border:0}
+.plan.dest p,.plan.dest .precio small{color:#CFE3E3}
+.plan.dest .precio{color:var(--lima)}
+.plan .tag{display:inline-block;margin-left:10px;background:var(--coral);color:#fff;font:700 12px/1 var(--f-texto);padding:5px 9px;border-radius:999px;vertical-align:middle}
+@media (max-width:760px){.plan{grid-template-columns:minmax(0,1fr) auto}.plan p{grid-column:1/-1;grid-row:2}.plan .btn{grid-column:1/-1}.plan.dest{margin:8px -12px;padding:20px}}
+
+.prueba{padding:90px 0 130px}
+.prueba .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+.prueba .ft{aspect-ratio:5/4;border-radius:30px}
+.prueba h2{font-size:clamp(36px,5vw,66px);font-weight:900;text-transform:uppercase;color:var(--petroleo)}
+.prueba p{margin:18px 0 26px;max-width:34ch;color:var(--gris);font-size:19px}
+@media (max-width:820px){.prueba .wrap{grid-template-columns:minmax(0,1fr)}}
+.pie{background:var(--petroleo);color:#fff;padding:56px 0 130px}
+.pie .gr{font:900 clamp(80px,19vw,280px)/.8 var(--f-display);text-transform:uppercase;color:var(--lima)}
+.pie p{margin-top:16px;font-size:15px;color:#CFE3E3}
+
+.aviso{position:fixed;left:50%;bottom:80px;transform:translate(-50%,30px);opacity:0;z-index:45;background:var(--tinta);color:#fff;border-radius:18px;padding:16px 18px;max-width:min(420px,calc(100% - 24px));width:100%;transition:opacity .3s,transform .4s var(--ease);box-shadow:0 20px 40px -16px rgba(0,0,0,.5)}
+.aviso.on{opacity:1;transform:translate(-50%,0)}
+.aviso .burbuja{background:#DCF8C6;color:#1b2a1f;border-radius:12px 12px 4px 12px;padding:10px 12px;font-size:14px;white-space:pre-wrap;margin-top:8px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0F3D3E"/><path d="M8 34h12l6-14 8 26 6-12h16" stroke="#FF6F59" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round"/></svg>PULSO</a>
+    <nav aria-label="Secciones"><a href="#disciplinas">Disciplinas</a><a href="#clases">Clases</a><a href="#planes">Planes</a></nav>
+    <a class="btn btn-c" href="#clases">Reservar clase</a>
+  </div>
+</header>
+
+<main>
+<section class="heroe">
+  <div class="wrap">
+    <div class="lienzo">
+      <div id="tirasHeroe" role="img" aria-label="Clase de pilates en reformer"></div>
+      <div class="pulso"><svg viewBox="0 0 46 20" aria-hidden="true"><path d="M0 10h10l4-8 6 16 4-8h22" stroke="#FF6F59" stroke-width="2.5" fill="none" stroke-linejoin="round"/></svg>Clases de 50 minutos</div>
+      <div class="texto">
+        <h1>Movete<span>a tu ritmo.</span></h1>
+        <div><p>Pilates reformer, yoga y estiramiento en grupos de hasta 8 personas.</p><a class="btn btn-c" href="#clases">Ver clases de esta semana</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="disc" id="disciplinas" aria-label="Disciplinas del estudio">
+  <div class="disc-pin">
+    <div class="wrap disc-grid">
+      <div class="sobre">
+        <div class="k" id="discNum">Disciplina 1 de 4</div>
+        <div class="nombre" id="discNombre" aria-live="polite"></div>
+        <p class="desc" id="discDesc"></p>
+        <div class="datos"><div><b id="discNivel"></b><small>Nivel</small></div><div><b id="discCupo"></b><small>Por clase</small></div></div>
+      </div>
+      <div class="ventana"><div id="mosaicoDisc" role="img" aria-label="Fotos de las disciplinas"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="clases" id="clases">
+  <div class="wrap">
+    <div class="cab"><h2>Clases de la semana</h2><p>Reservá tu lugar en un toque. Si no podés ir, lo liberás hasta 2 horas antes.</p></div>
+    <div class="barra-dias" id="barraDias" role="group" aria-label="Día"></div>
+    <div class="filtros" id="filtros" role="group" aria-label="Disciplina"></div>
+    <div class="lista" id="lista"></div>
+  </div>
+</section>
+
+<section class="planes" id="planes">
+  <div class="wrap">
+    <h2>Planes</h2>
+    <div class="tabla">
+      <div class="plan"><h3>4 clases</h3><p>Una vez por semana. Ideal para arrancar.</p><span class="precio">$28.000 <small>/ mes</small></span><a class="btn btn-b" href="#clases">Elegir</a></div>
+      <div class="plan dest"><h3>8 clases <span class="tag">El más elegido</span></h3><p>Dos veces por semana, combinando las disciplinas que quieras.</p><span class="precio">$48.000 <small>/ mes</small></span><a class="btn btn-c" href="#clases">Elegir</a></div>
+      <div class="plan"><h3>Libre</h3><p>Todas las clases que quieras, con prioridad para reservar.</p><span class="precio">$72.000 <small>/ mes</small></span><a class="btn btn-b" href="#clases">Elegir</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="prueba">
+  <div class="wrap">
+    <div class="ft" id="fotoPrueba" data-cortes="4"></div>
+    <div><h2>Tu primera clase va por nuestra cuenta.</h2><p>Vení a probar sin compromiso. Te mostramos los aparatos y armamos una rutina para vos.</p><a class="btn btn-p" href="#clases">Reservar clase de prueba</a></div>
+  </div>
+</section>
+</main>
+
+<footer class="pie"><div class="wrap"><div class="gr">Pulso</div><p>Estudio inventado para mostrar cómo se ve una web con reservas hecha por Trama. Clases y precios de ejemplo.</p><p class="creditos">Fotos: Unsplash.</p></div></footer>
+
+<div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+<div class="trama"><span>Sitio de muestra hecho por Trama</span><a href="https://trama-dev.netlify.app/#proyectos">Quiero uno así</a></div>
+
+<script src="../kit/armado.js"></script>
+<script>
+(function(){
+var A=Armado,F=A.foto,reduce=A.reduce;
+function $(s){return document.querySelector(s)}
+
+A.tiras($('#tirasHeroe'),F('1747239069226-55382c570116',1800),6);
+$('#fotoPrueba').setAttribute('data-foto',F('1761035005546-62b8018b212a',1100));A.cortes(document.querySelector('.prueba'));
+
+/* disciplinas */
+var D=[
+ {n:'Reformer',d:'Pilates en máquina: fuerza, postura y control. El resorte se adapta a vos.',nivel:'Todos',cupo:'6 personas',f:'1747238415033-b74eec07eb59'},
+ {n:'Yoga',d:'Posturas y respiración para soltar el cuerpo y bajar un cambio.',nivel:'Inicial',cupo:'8 personas',f:'1552196563-55cd4e45efb3'},
+ {n:'Yoga flow',d:'Secuencias en movimiento, más dinámicas, para transpirar un poco.',nivel:'Intermedio',cupo:'8 personas',f:'1683056255281-e52a141924f0'},
+ {n:'Estiramiento',d:'Movilidad y elongación para después del trabajo o del entrenamiento.',nivel:'Todos',cupo:'10 personas',f:'1552196527-bffef41ef674'}];
+var sec=$('#disciplinas'),actual=-1;
+var mos=A.mosaico($('#mosaicoDisc'),D.map(function(x){return F(x.f,1000)}),{cols:5,rows:6,semilla:23});
+function mostrar(i){if(i===actual)return;actual=i;var x=D[i];
+  $('#discNombre').innerHTML=x.n.split('').map(function(c,k){return '<span style="animation-delay:'+(k*.03)+'s">'+(c===' '?'&nbsp;':c)+'</span>'}).join('');
+  $('#discDesc').textContent=x.d;$('#discNivel').textContent=x.nivel;$('#discCupo').textContent=x.cupo;$('#discNum').textContent='Disciplina '+(i+1)+' de 4';}
+A.fija(sec,function(p){var r=mos(p);mostrar(r.foto);});
+
+/* clases */
+var hoy=new Date(),DIAS=[],fd=new Intl.DateTimeFormat('es-AR',{weekday:'long',day:'numeric'});
+for(var k=0;DIAS.length<6;k++){var d=new Date(hoy);d.setDate(hoy.getDate()+k);if(d.getDay()!==0)DIAS.push(d);}
+var PROF=['Caro','Juli','Martín','Lu'];
+var BASE=[['07:30',0],['09:00',1],['12:30',0],['18:00',2],['19:00',0],['20:15',3]];
+var clases={};
+DIAS.forEach(function(d,i){clases[i]=BASE.filter(function(b,j){return !(d.getDay()===6&&j>2)}).map(function(b,j){var disc=(b[1]+i)%4,cap=parseInt(D[disc].cupo);
+  return {h:b[0],disc:disc,prof:PROF[(i+j)%4],cap:cap,libres:Math.max(0,(i*5+j*3)%(cap+1)),mia:false};});});
+var dia=0,filtro=-1;
+var bd=$('#barraDias');DIAS.forEach(function(d,i){var b=document.createElement('button');b.textContent=i===0?'Hoy':fd.format(d);b.style.textTransform=i===0?'none':'capitalize';b.setAttribute('aria-pressed',i===0);b.onclick=function(){dia=i;[].forEach.call(bd.children,function(x){x.setAttribute('aria-pressed',x===b)});lista();};bd.appendChild(b);});
+var fl=$('#filtros');[['Todas',-1]].concat(D.map(function(x,i){return [x.n,i]})).forEach(function(f){var b=document.createElement('button');b.textContent=f[0];b.setAttribute('aria-pressed',f[1]===-1);b.onclick=function(){filtro=f[1];[].forEach.call(fl.children,function(x){x.setAttribute('aria-pressed',x===b)});lista();};fl.appendChild(b);});
+function lista(){var L=$('#lista');L.innerHTML='';var cs=clases[dia].filter(function(c){return filtro<0||c.disc===filtro});
+  if(!cs.length){L.innerHTML='<p class="sin">No hay clases de esa disciplina este día. Probá con otro día.</p>';return;}
+  cs.forEach(function(c){var x=D[c.disc],el=document.createElement('div');el.className='clase';var ocup=c.cap-c.libres;
+    el.innerHTML='<span class="h">'+c.h+'</span><div class="ft" data-foto="'+F(x.f,200)+'" data-cortes="2"></div><div class="tx"><h3>'+x.n+'</h3><small>con '+c.prof+' · 50 min</small></div>'+
+      '<div class="cupo"><span>'+(c.libres?c.libres+(c.libres===1?' lugar libre':' lugares libres'):'Clase completa')+'</span><div class="b"><i style="width:'+(ocup/c.cap*100)+'%"></i></div></div>'+
+      '<button class="reservar'+(c.mia?' ok':'')+'"'+(!c.libres&&!c.mia?' disabled':'')+'>'+(c.mia?'Reservada ✓':c.libres?'Reservar':'Lista de espera')+'</button>';
+    el.querySelector('.reservar').onclick=function(){if(c.mia){c.mia=false;c.libres++;lista();aviso('Liberaste tu lugar en '+x.n+' de las '+c.h+'.');return;}
+      if(!c.libres)return;c.mia=true;c.libres--;lista();
+      aviso('¡Lugar reservado!','Pulso: ¡Listo! Tenés lugar en '+x.n+' con '+c.prof+', '+(dia===0?'hoy':fd.format(DIAS[dia]))+' a las '+c.h+'. Si no podés venir, avisá hasta 2 h antes.');};
+    L.appendChild(el);});
+  A.cortes(L);}
+lista();
+var tm;function aviso(t,msg){var a=$('#aviso');a.innerHTML='<b>'+t+'</b>'+(msg?'<div class="burbuja">'+msg+'</div><small style="display:block;margin-top:8px;opacity:.8">En una web real, esto llega por WhatsApp.</small>':'');a.classList.add('on');clearTimeout(tm);tm=setTimeout(function(){a.classList.remove('on')},4200);}
+})();
+</script>
+</body>
+</html>

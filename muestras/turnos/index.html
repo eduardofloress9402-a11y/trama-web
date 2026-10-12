@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Bruma · Turnos de muestra</title>
+<meta name="description" content="Web de muestra con turnos online para una peluquería y estética. Hecha por Trama.">
+<meta name="theme-color" content="#3A1838">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%233A1838'/%3E%3Cpath d='M20 40c8-14 16-14 24-24' stroke='%23FFB59E' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap">
+<link rel="stylesheet" href="../kit/armado.css">
+<style>
+:root{
+  --ciruela:#3A1838; --ciruela-2:#52244F; --durazno:#FFB59E; --durazno-claro:#FFE3D8; --menta:#A8E6CF; --papel:#FCF4F1; --tinta:#2A1229; --gris:#6E5A6C;
+  --f-display:"Young Serif",Georgia,serif;
+  --f-texto:"DM Sans",ui-sans-serif,system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--papel);color:var(--tinta);font:17px/1.6 var(--f-texto);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;margin:0;line-height:1;letter-spacing:-.02em;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:20px}
+:focus-visible{outline:3px solid var(--ciruela);outline-offset:3px;border-radius:6px}
+
+.nav{position:absolute;inset:0 0 auto 0;z-index:20}
+.nav .wrap{display:flex;align-items:center;height:76px;gap:20px}
+.logo{font:400 30px/1 var(--f-display);text-decoration:none;color:var(--papel)}
+.nav nav{margin-left:auto;display:flex;gap:22px;color:var(--papel);font-weight:500;font-size:15px}
+.nav nav a{text-decoration:none;opacity:.85}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:15px 24px;font-weight:700;text-decoration:none;border:0;transition:transform .3s var(--ease),background .3s}
+.btn:hover{transform:translateY(-2px)}
+.btn-d{background:var(--durazno);color:var(--ciruela)}
+.btn-b{background:transparent;color:inherit;box-shadow:inset 0 0 0 2px currentColor}
+.nav .btn{padding:11px 18px;font-size:15px}
+@media (max-width:760px){.nav nav{display:none}.nav .btn{margin-left:auto}}
+
+/* héroe */
+.heroe{background:var(--ciruela);color:var(--papel);padding:120px 0 90px;position:relative;overflow:hidden}
+.heroe .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+.heroe h1{font-size:clamp(54px,7.6vw,112px)}
+.heroe h1 em{font-style:normal;color:var(--durazno)}
+.heroe p{font-size:20px;max-width:32ch;margin-top:24px;color:#EBD7E6}
+.acciones{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.collage{position:relative;aspect-ratio:1/1.05;max-width:540px;width:100%;justify-self:center}
+.collage .grande{position:absolute;left:12%;top:0;width:66%;height:84%;border-radius:999px 999px 24px 24px;overflow:hidden}
+.collage .chica{position:absolute;border-radius:24px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.5)}
+.collage .c1{right:0;bottom:4%;width:42%;aspect-ratio:1}
+.collage .c2{left:0;bottom:0;width:34%;aspect-ratio:3/4;border-radius:999px}
+.collage .sello{position:absolute;right:6%;top:6%;width:110px;height:110px;border-radius:50%;background:var(--menta);color:var(--ciruela);display:grid;place-items:center;text-align:center;font:400 18px/1.1 var(--f-display);transform:rotate(10deg);animation:aparece .8s var(--ease) 1s both}
+@keyframes aparece{from{opacity:0;transform:rotate(-30deg) scale(.6)}}
+@media (max-width:860px){.heroe .wrap{grid-template-columns:minmax(0,1fr)}.collage{max-width:380px;order:-1}.heroe{padding-top:96px}}
+
+/* un día en el salón */
+.dia{background:var(--durazno-claro);position:relative}
+.dia-pin{min-height:100svh;display:flex;align-items:center;padding-block:72px;overflow:hidden}
+.dia.fija{height:520vh}
+.dia.fija .dia-pin{position:sticky;top:0;height:100svh;min-height:0}
+.dia-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:48px;align-items:center;width:100%}
+.ventana{position:relative;width:100%}
+.ventana .mosaico{aspect-ratio:16/11;width:100%}
+.hora{font:400 clamp(64px,9vw,128px)/.9 var(--f-display);color:var(--ciruela);font-variant-numeric:tabular-nums}
+.dia h2{font-size:clamp(30px,3.4vw,44px);margin-top:16px}
+.frases{position:relative;margin-top:16px;min-height:5em}
+.frase{font-size:19px;max-width:30ch;color:var(--gris)}
+.fija .frase{position:absolute;inset:0 auto auto 0;opacity:0;transform:translateY(12px);transition:opacity .2s,transform .2s}
+.fija .frase.on{opacity:1;transform:none;transition:opacity .45s .12s,transform .45s .12s var(--ease)}
+.reloj{display:flex;gap:6px;margin-top:20px}
+.reloj i{flex:1;max-width:60px;height:4px;border-radius:2px;background:rgba(58,24,56,.15)}
+.reloj i.on{background:var(--ciruela)}
+@media (max-width:860px){.dia-grid{grid-template-columns:minmax(0,1fr);gap:16px}.hora{font-size:56px}.dia-pin{padding-block:40px}.frases{min-height:4.4em}.dia h2{font-size:26px;margin-top:8px}}
+
+/* reserva */
+.reserva{padding:110px 0 120px}
+.reserva-cab{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:40px}
+.reserva-cab h2{font-size:clamp(46px,6.4vw,88px);color:var(--ciruela)}
+.reserva-cab p{max-width:36ch;color:var(--gris)}
+.reserva-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.8fr);gap:32px;align-items:start}
+@media (max-width:900px){.reserva-grid{grid-template-columns:minmax(0,1fr)}}
+.paso{margin-bottom:44px}
+.paso h3{font-size:28px;display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.paso h3 span{width:36px;height:36px;border-radius:50%;background:var(--ciruela);color:var(--papel);display:grid;place-items:center;font:700 16px/1 var(--f-texto)}
+.servicios{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:640px){.servicios{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.serv{border:0;background:#fff;border-radius:20px;padding:0;text-align:left;overflow:hidden;box-shadow:0 0 0 2px transparent;transition:box-shadow .25s,transform .25s var(--ease)}
+.serv:hover{transform:translateY(-3px)}
+.serv[aria-pressed="true"]{box-shadow:0 0 0 3px var(--ciruela)}
+.serv .ft{aspect-ratio:4/3}
+.serv .tx{padding:12px 14px 14px;display:flex;flex-direction:column;gap:2px}
+.serv b{font-size:16px}
+.serv small{color:var(--gris);font-size:14px}
+.dias{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px;scrollbar-width:thin}
+.dias button{flex:none;width:68px;border:0;background:#fff;border-radius:16px;padding:10px 0;display:flex;flex-direction:column;align-items:center;gap:2px;box-shadow:0 0 0 2px transparent}
+.dias button small{font-size:12px;color:var(--gris);text-transform:capitalize}
+.dias button b{font:400 26px/1 var(--f-display)}
+.dias button[aria-pressed="true"]{background:var(--ciruela);color:var(--papel)}
+.dias button[aria-pressed="true"] small{color:var(--durazno)}
+.dias button:disabled{opacity:.35;cursor:not-allowed}
+.horas{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px}
+.horas button{border:0;background:#fff;border-radius:12px;padding:12px 0;font-weight:700;box-shadow:0 0 0 2px transparent}
+.horas button[aria-pressed="true"]{background:var(--durazno);box-shadow:0 0 0 2px var(--ciruela)}
+.horas button:disabled{text-decoration:line-through;opacity:.35;cursor:not-allowed}
+.vacio{color:var(--gris)}
+.campos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.campos input{border:0;background:#fff;border-radius:14px;padding:14px 16px;box-shadow:inset 0 0 0 2px rgba(58,24,56,.12)}
+@media (max-width:560px){.campos{grid-template-columns:minmax(0,1fr)}}
+.resumen{position:sticky;top:20px;background:var(--ciruela);color:var(--papel);border-radius:28px;padding:26px}
+.resumen h3{font-size:30px;margin-bottom:14px}
+.resumen dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 14px;font-size:16px}
+.resumen dt{color:var(--durazno)}
+.resumen dd{margin:0;font-weight:500}
+.confirmar{width:100%;margin-top:22px;border:0;border-radius:999px;padding:16px;background:var(--durazno);color:var(--ciruela);font-weight:700;font-size:17px}
+.confirmar:disabled{opacity:.45;cursor:not-allowed}
+.falta{font-size:14px;color:#EBD7E6;margin-top:10px;min-height:1.3em}
+
+.ticket{position:fixed;inset:0;display:grid;place-items:center;padding:16px;z-index:50;background:rgba(42,18,41,.55);opacity:0;pointer-events:none;transition:opacity .3s}
+.ticket.on{opacity:1;pointer-events:auto}
+.tk{background:var(--papel);border-radius:28px;max-width:420px;width:100%;overflow:hidden;transform:translateY(40px) rotate(-3deg);transition:transform .6s var(--ease)}
+.ticket.on .tk{transform:none}
+.tk .top{background:var(--menta);padding:24px;text-align:center}
+.tk .top h3{font-size:34px;color:var(--ciruela)}
+.tk .cuerpo{padding:22px 24px 24px;border-top:3px dashed rgba(58,24,56,.25)}
+.tk .cuerpo p{margin-bottom:8px}
+.burbuja{background:#DCF8C6;border-radius:14px 14px 4px 14px;padding:12px 14px;margin:14px 0;font-size:14px;white-space:pre-wrap;color:#1b2a1f}
+.tk .acciones{margin-top:12px}
+.tk .btn{padding:12px 18px;font-size:15px}
+.tk .btn-b{color:var(--ciruela)}
+
+.info{background:var(--ciruela);color:var(--papel);padding:72px 0}
+.info .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px}
+.info h3{font-size:28px;color:var(--durazno);margin-bottom:8px}
+@media (max-width:760px){.info .wrap{grid-template-columns:minmax(0,1fr)}}
+.pie{background:var(--durazno);color:var(--ciruela);padding:56px 0 130px}
+.pie .gr{font:400 clamp(90px,20vw,280px)/.8 var(--f-display)}
+.pie p{margin-top:16px;font-size:15px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#">bruma</a>
+    <nav aria-label="Secciones"><a href="#dia">El salón</a><a href="#reserva">Servicios</a><a href="#info">Dónde estamos</a></nav>
+    <a class="btn btn-d" href="#reserva">Reservar turno</a>
+  </div>
+</header>
+
+<main>
+<section class="heroe">
+  <div class="wrap">
+    <div>
+      <h1>Tu turno, <em>en dos toques.</em></h1>
+      <p>Peluquería y estética en un salón tranquilo. Elegí servicio, día y horario, y listo: te llega la confirmación al celular.</p>
+      <div class="acciones"><a class="btn btn-d" href="#reserva">Reservar turno</a><a class="btn btn-b" href="#dia">Conocer el salón</a></div>
+    </div>
+    <div class="collage" aria-hidden="true">
+      <div class="grande" id="fotoGrande"></div>
+      <div class="chica c1" data-foto="" id="c1"></div>
+      <div class="chica c2" data-foto="" id="c2"></div>
+      <div class="sello">Turnos<br>online</div>
+    </div>
+  </div>
+</section>
+
+<section class="dia" id="dia" aria-label="Un día en el salón">
+  <div class="dia-pin">
+    <div class="wrap dia-grid">
+      <div class="ventana"><div id="mosaicoDia" role="img" aria-label="Fotos del salón y sus servicios"></div></div>
+      <div class="sobre">
+        <div class="hora" id="hora">10:00</div>
+        <h2>Así es un turno en Bruma.</h2>
+        <div class="frases">
+          <p class="frase on">Llegás, te recibimos con un café y charlamos qué querés hacerte.</p>
+          <p class="frase">Lavado con masajes y productos sin sulfatos, elegidos para tu tipo de pelo.</p>
+          <p class="frase">Corte, color o brushing con el tiempo que necesita: sin apuros.</p>
+          <p class="frase">Y si querés, terminás con manos o pies mientras se seca el color.</p>
+        </div>
+        <div class="reloj" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reserva" id="reserva">
+  <div class="wrap">
+    <div class="reserva-cab"><h2>Reservá tu turno</h2><p>Ves los horarios libres al instante. Si algo cambia, lo reprogramás desde el mismo mensaje.</p></div>
+    <div class="reserva-grid">
+      <div>
+        <div class="paso"><h3><span>1</span>¿Qué te querés hacer?</h3><div class="servicios" id="servicios"></div></div>
+        <div class="paso"><h3><span>2</span>Elegí el día</h3><div class="dias" id="dias"></div></div>
+        <div class="paso"><h3><span>3</span>Elegí el horario</h3><div class="horas" id="horas"><p class="vacio">Primero elegí un día.</p></div></div>
+        <div class="paso"><h3><span>4</span>Tus datos</h3><div class="campos"><input id="nombre" placeholder="Nombre" autocomplete="given-name"><input id="cel" placeholder="Celular" inputmode="tel" autocomplete="tel"></div></div>
+      </div>
+      <aside class="resumen" aria-live="polite">
+        <h3>Tu turno</h3>
+        <dl><dt>Servicio</dt><dd id="rServ">Elegí uno</dd><dt>Duración</dt><dd id="rDur">—</dd><dt>Día</dt><dd id="rDia">—</dd><dt>Hora</dt><dd id="rHora">—</dd><dt>Precio</dt><dd id="rPrecio">—</dd></dl>
+        <button class="confirmar" id="confirmar" disabled>Confirmar turno</button>
+        <p class="falta" id="falta">Elegí servicio, día y horario.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="info" id="info">
+  <div class="wrap">
+    <div><h3>Horarios</h3><p>Martes a sábado, de 10 a 20 h.</p></div>
+    <div><h3>Dónde estamos</h3><p>Una dirección inventada, a dos cuadras de la plaza.</p></div>
+    <div><h3>Cancelaciones</h3><p>Avisanos con 12 horas de anticipación y reprogramamos sin cargo.</p></div>
+  </div>
+</section>
+</main>
+
+<footer class="pie"><div class="wrap"><div class="gr">bruma</div><p>Salón inventado para mostrar cómo se ve una web con turnos online hecha por Trama. Servicios y precios de ejemplo.</p><p class="creditos">Fotos: Unsplash.</p></div></footer>
+
+<div class="ticket" id="ticket" role="dialog" aria-modal="true" aria-labelledby="ttit">
+  <div class="tk">
+    <div class="top"><h3 id="ttit">¡Turno reservado!</h3></div>
+    <div class="cuerpo">
+      <p id="tkTexto"></p>
+      <p style="font-size:14px;color:var(--gris)">Así le llega la confirmación a tu celular:</p>
+      <div class="burbuja" id="burbuja"></div>
+      <div class="acciones">
+        <a class="btn btn-d" id="ics" download="turno-bruma.ics">Agregar al calendario</a>
+        <button class="btn btn-b" id="cerrarTk">Listo</button>
+      </div>
+      <p style="margin-top:14px;font-size:14px"><a href="https://wa.me/5493519070196?text=Hola%20Trama%2C%20vi%20la%20web%20de%20turnos%20de%20muestra%20y%20quiero%20una%20as%C3%AD" target="_blank" rel="noopener">¿Tenés un salón? Quiero una web con turnos así</a></p>
+    </div>
+  </div>
+</div>
+<div class="trama"><span>Sitio de muestra hecho por Trama</span><a href="https://trama-dev.netlify.app/#proyectos">Quiero uno así</a></div>
+
+<script src="../kit/armado.js"></script>
+<script>
+(function(){
+var A=Armado,F=A.foto,reduce=A.reduce;
+function $(s){return document.querySelector(s)}
+var fmt=new Intl.NumberFormat('es-AR',{style:'currency',currency:'ARS',maximumFractionDigits:0});
+
+A.tiras($('#fotoGrande'),F('1634449571010-02389ed0f9b0',1000),4);
+$('#c1').setAttribute('data-foto',F('1610992015762-45dca7fa3a85',600));
+$('#c2').setAttribute('data-foto',F('1580618672591-eb180b1a973f',600));
+A.cortes(document.querySelector('.collage'));
+
+/* un día en el salón */
+var sec=$('#dia'),frases=[].slice.call(sec.querySelectorAll('.frase')),marcas=[].slice.call(sec.querySelectorAll('.reloj i')),hora=$('#hora');
+var mos=A.mosaico($('#mosaicoDia'),[F('1633681926022-84c23e8cb2d6',1400),F('1562322140-8baeececf3df',1400),F('1675034743339-0b0747047727',1400),F('1632345031435-8727f6897d53',1400)],{cols:8,rows:5,semilla:5,abre:640});
+var HORAS=['10:00','10:20','11:00','12:15'];
+A.fija(sec,function(p,fijo){var r=mos(p);if(fijo){frases.forEach(function(e){e.classList.add('on')});return;}
+  frases.forEach(function(e,i){e.classList.toggle('on',i===r.foto)});marcas.forEach(function(e,i){e.classList.toggle('on',i<=r.foto)});hora.textContent=HORAS[r.foto];});
+
+/* reserva */
+var S=[
+ {n:'Corte',d:45,p:18000,f:'1634449571010-02389ed0f9b0'},
+ {n:'Color completo',d:120,p:45000,f:'1675034743339-0b0747047727'},
+ {n:'Brushing',d:40,p:10000,f:'1580618672591-eb180b1a973f'},
+ {n:'Barbería',d:30,p:12000,f:'1599351431202-1e0f0137899a'},
+ {n:'Manicura semipermanente',d:60,p:14000,f:'1632345031435-8727f6897d53'},
+ {n:'Peinado para eventos',d:60,p:22000,f:'1562322140-8baeececf3df'}];
+var sel={s:null,d:null,h:null};
+var cs=$('#servicios');
+S.forEach(function(s,i){var b=document.createElement('button');b.className='serv';b.setAttribute('aria-pressed','false');b.dataset.i=i;
+  b.innerHTML='<div class="ft" data-foto="'+F(s.f,500)+'"></div><div class="tx"><b>'+s.n+'</b><small>'+s.d+' min · '+fmt.format(s.p)+'</small></div>';cs.appendChild(b);});
+A.cortes(cs);
+cs.addEventListener('click',function(e){var b=e.target.closest('.serv');if(!b)return;sel.s=+b.dataset.i;[].forEach.call(cs.children,function(x){x.setAttribute('aria-pressed',x===b)});sel.h=null;horas();resumen();});
+
+var dias=$('#dias'),hoy=new Date();hoy.setHours(0,0,0,0);
+var fd=new Intl.DateTimeFormat('es-AR',{weekday:'short'}),fl=new Intl.DateTimeFormat('es-AR',{weekday:'long',day:'numeric',month:'long'});
+for(var k=1;k<=14;k++){var d=new Date(hoy);d.setDate(hoy.getDate()+k);var b=document.createElement('button');var cerrado=d.getDay()===0||d.getDay()===1;
+  b.innerHTML='<small>'+fd.format(d).replace('.','')+'</small><b>'+d.getDate()+'</b>';b.disabled=cerrado;b.title=cerrado?'Cerrado':'';b.setAttribute('aria-pressed','false');b._d=d;
+  b.setAttribute('aria-label',fl.format(d)+(cerrado?', cerrado':''));dias.appendChild(b);}
+dias.addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.disabled)return;sel.d=b._d;sel.h=null;[].forEach.call(dias.children,function(x){x.setAttribute('aria-pressed',x===b)});horas();resumen();});
+
+function ocupado(d,m){var x=(d.getDate()*37+m*13+d.getMonth()*7)%10;return x<3;}
+function horas(){var c=$('#horas');c.innerHTML='';if(!sel.d){c.innerHTML='<p class="vacio">Primero elegí un día.</p>';return;}
+  var dur=sel.s!==null?S[sel.s].d:30;
+  for(var m=600;m+dur<=1200;m+=30){var b=document.createElement('button');var t=('0'+Math.floor(m/60)).slice(-2)+':'+('0'+m%60).slice(-2);b.textContent=t;b._t=t;
+    b.disabled=ocupado(sel.d,m);b.setAttribute('aria-pressed',t===sel.h);if(b.disabled)b.setAttribute('aria-label',t+', ocupado');c.appendChild(b);}}
+$('#horas').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.disabled)return;sel.h=b._t;[].forEach.call(this.children,function(x){x.setAttribute('aria-pressed',x===b)});resumen();});
+['nombre','cel'].forEach(function(id){$('#'+id).addEventListener('input',resumen)});
+function resumen(){var s=sel.s!==null?S[sel.s]:null;
+  $('#rServ').textContent=s?s.n:'Elegí uno';$('#rDur').textContent=s?s.d+' min':'—';$('#rPrecio').textContent=s?fmt.format(s.p):'—';
+  $('#rDia').textContent=sel.d?fl.format(sel.d):'—';$('#rHora').textContent=sel.h||'—';
+  var falta=[];if(!s)falta.push('el servicio');if(!sel.d)falta.push('el día');if(!sel.h)falta.push('el horario');if(!$('#nombre').value.trim())falta.push('tu nombre');
+  $('#confirmar').disabled=falta.length>0;$('#falta').textContent=falta.length?'Falta: '+falta.join(', ')+'.':'Todo listo.';}
+resumen();
+
+$('#confirmar').onclick=function(){var s=S[sel.s],n=$('#nombre').value.trim(),dia=fl.format(sel.d);
+  $('#tkTexto').innerHTML='<b>'+n+'</b>, te esperamos el <b>'+dia+'</b> a las <b>'+sel.h+'</b> para <b>'+s.n.toLowerCase()+'</b>.';
+  $('#burbuja').textContent='Bruma: ¡Hola '+n+'! Tu turno quedó confirmado ✨\n'+s.n+' · '+dia+' · '+sel.h+' h\nDuración aprox.: '+s.d+' min\nSi necesitás cambiarlo, respondé a este mensaje.';
+  var ini=new Date(sel.d);ini.setHours(+sel.h.slice(0,2),+sel.h.slice(3));var fin=new Date(ini.getTime()+s.d*60000);
+  function ics(x){return x.getFullYear()+('0'+(x.getMonth()+1)).slice(-2)+('0'+x.getDate()).slice(-2)+'T'+('0'+x.getHours()).slice(-2)+('0'+x.getMinutes()).slice(-2)+'00';}
+  var cal='BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Bruma muestra//ES\r\nBEGIN:VEVENT\r\nUID:'+Date.now()+'@bruma\r\nDTSTAMP:'+ics(new Date())+'\r\nDTSTART:'+ics(ini)+'\r\nDTEND:'+ics(fin)+'\r\nSUMMARY:'+s.n+' en Bruma\r\nEND:VEVENT\r\nEND:VCALENDAR';
+  $('#ics').href='data:text/calendar;charset=utf-8,'+encodeURIComponent(cal);
+  $('#ticket').classList.add('on');$('#cerrarTk').focus();};
+$('#cerrarTk').onclick=function(){$('#ticket').classList.remove('on')};
+$('#ticket').addEventListener('click',function(e){if(e.target===this)this.classList.remove('on')});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')$('#ticket').classList.remove('on')});
+})();
+</script>
+</body>
+</html>

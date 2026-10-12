@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Young+Serif&family=Unbounded:wght@900&family=Bagel+Fat+One&family=DM+Serif+Display&text=hilv%C3%A1nbrumaPULSOgrnfiU%20&display=swap">
 <style>
 /* Layout: héroe a pantalla con un tejido de hilos animado, cinta en movimiento, casos con maqueta de navegador, servicios oscuros, proceso con un hilo que se dibuja, cierre de contacto. Identidad de marca única. */
 :root{
@@ -141,13 +142,17 @@ section{padding-block:120px}
 .muestras-cab{margin-top:110px;display:flex;align-items:end;justify-content:space-between;gap:24px;flex-wrap:wrap}
 .muestras-cab h3{font-size:clamp(34px,4.4vw,56px);line-height:1;color:var(--indigo);max-width:16ch}
 .muestras-cab p{max-width:40ch;color:#3A3F5C}
-.muestras{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:40px}
+.muestras{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:32px 24px;margin-top:40px}
+.muestras .muestra{grid-column:span 2}
+.muestras .muestra:nth-child(4),.muestras .muestra:nth-child(5){grid-column:span 3}
 .muestra{display:flex;flex-direction:column;gap:14px;text-decoration:none;color:inherit}
 .muestra .browser{transform:none;border-radius:14px}
 .muestra .browser .top{padding:9px 12px}
 .muestra .browser .top i{width:9px;height:9px}
 .muestra .browser .top span{font-size:11px;padding:5px 10px}
-.muestra .pant{aspect-ratio:8/5;overflow:hidden;background:#151935}
+.muestra .pant{aspect-ratio:8/5;overflow:hidden;background:#151935;position:relative}
+.muestra .marca{position:absolute;left:14px;bottom:14px;font-size:24px;line-height:1;padding:10px 14px;border-radius:10px;letter-spacing:-.02em;box-shadow:0 10px 24px -10px rgba(0,0,0,.5);transition:transform .6s var(--ease)}
+.muestra:hover .marca{transform:translateY(-4px) rotate(-2deg)}
 .muestra .pant img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
 .muestra:hover .pant img{transform:scale(1.06)}
 .muestra:hover .browser{box-shadow:0 40px 70px -30px rgba(18,20,42,.6),0 0 0 3px var(--hilo)}
@@ -155,7 +160,7 @@ section{padding-block:120px}
 .muestra h4{margin:0;font-size:26px;line-height:1.05;letter-spacing:-.03em;color:var(--indigo)}
 .muestra p{font-size:16px;color:#3A3F5C}
 .muestra .ver{font-weight:700;color:var(--indigo);display:inline-flex;gap:8px;align-items:center;border-bottom:2px solid var(--hilo);align-self:start;padding-bottom:2px}
-@media (max-width:980px){.muestras{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media (max-width:980px){.muestras{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.muestras .muestra,.muestras .muestra:nth-child(4),.muestras .muestra:nth-child(5){grid-column:auto}}
 @media (max-width:640px){.muestras{grid-template-columns:minmax(0,1fr)}}
 
 
@@ -417,28 +422,42 @@ if(window.caches&&caches.keys){caches.keys().then(function(ks){ks.forEach(functi
 
       <div class="muestras-cab rv">
         <h3>Webs para emprendimientos</h3>
-        <p>Tres demos que podés recorrer como si fueras un cliente. Las marcas son inventadas; la tuya va a tener sus productos, sus fotos y su estilo.</p>
+        <p>Cinco demos que podés recorrer como si fueras un cliente. Las marcas son inventadas; la tuya va a tener sus productos, sus fotos y su estilo.</p>
       </div>
       <div class="muestras">
-        <a class="muestra rv" href="muestras/cosmetica/" target="_blank" rel="noopener">
-          <div class="browser"><div class="top"><i></i><i></i><i></i><span>monte-lila · tienda</span></div><div class="pant"><img src="muestras/img/cosmetica.webp" alt="" width="800" height="500" loading="lazy"></div></div>
-          <span class="rub">Tienda online · Cosmética</span>
-          <h4>Monte Lila</h4>
-          <p>Catálogo con filtros, carrito y pedido por WhatsApp. El jabón se desarma en sus ingredientes al bajar.</p>
+        <a class="muestra rv" href="muestras/ropa/" target="_blank" rel="noopener">
+          <div class="browser"><div class="top"><i></i><i></i><i></i><span>hilvan · tienda</span></div><div class="pant"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=75" alt="" width="900" height="563" loading="lazy"><b class="marca" style="background:#2747D9;color:#FBE4E7;font-family:"Syne",sans-serif;font-weight:800">hilván</b></div></div>
+          <span class="rub">Tienda online · Indumentaria</span>
+          <h4>Hilván</h4>
+          <p>La colección se arma pieza por pieza al bajar. Talles, stock por color y bolsa con envío gratis.</p>
           <span class="ver">Ver demo en vivo</span>
         </a>
-        <a class="muestra rv" href="muestras/pizzeria/" target="_blank" rel="noopener">
-          <div class="browser"><div class="top"><i></i><i></i><i></i><span>horno-norte · carta</span></div><div class="pant"><img src="muestras/img/pizzeria.webp" alt="" width="800" height="500" loading="lazy"></div></div>
-          <span class="rub">Carta digital · Gastronomía</span>
-          <h4>Horno Norte</h4>
-          <p>La pizza se arma mientras scrolleás. Carta con buscador, secciones y pedido para delivery o retiro.</p>
+        <a class="muestra rv" href="muestras/turnos/" target="_blank" rel="noopener">
+          <div class="browser"><div class="top"><i></i><i></i><i></i><span>bruma · turnos</span></div><div class="pant"><img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?auto=format&fit=crop&w=900&q=75" alt="" width="900" height="563" loading="lazy"><b class="marca" style="background:#3A1838;color:#FFB59E;font-family:"Young Serif",Georgia,serif;font-weight:400">bruma</b></div></div>
+          <span class="rub">Turnos online · Estética</span>
+          <h4>Bruma</h4>
+          <p>Elegís servicio, día y horario libre, y te llega la confirmación con recordatorio para el calendario.</p>
           <span class="ver">Ver demo en vivo</span>
         </a>
-        <a class="muestra rv" href="muestras/construccion/" target="_blank" rel="noopener">
-          <div class="browser"><div class="top"><i></i><i></i><i></i><span>obra-austral · servicios</span></div><div class="pant"><img src="muestras/img/construccion.webp" alt="" width="800" height="500" loading="lazy"></div></div>
-          <span class="rub">Web de servicios · Oficios</span>
-          <h4>Obra Austral</h4>
-          <p>La cabaña se construye día a día. Antes y después interactivo y presupuesto directo a WhatsApp.</p>
+        <a class="muestra rv" href="muestras/estudio/" target="_blank" rel="noopener">
+          <div class="browser"><div class="top"><i></i><i></i><i></i><span>pulso · clases</span></div><div class="pant"><img src="https://images.unsplash.com/photo-1747239069226-55382c570116?auto=format&fit=crop&w=900&q=75" alt="" width="900" height="563" loading="lazy"><b class="marca" style="background:#0F3D3E;color:#D7F36B;font-family:"Unbounded",sans-serif;font-weight:900">PULSO</b></div></div>
+          <span class="rub">Reservas · Pilates y yoga</span>
+          <h4>Pulso</h4>
+          <p>Grilla semanal de clases con cupos en vivo, planes y clase de prueba. Las disciplinas se arman con el scroll.</p>
+          <span class="ver">Ver demo en vivo</span>
+        </a>
+        <a class="muestra rv" href="muestras/cafe/" target="_blank" rel="noopener">
+          <div class="browser"><div class="top"><i></i><i></i><i></i><span>grano-fino · carta</span></div><div class="pant"><img src="https://images.unsplash.com/photo-1596018589878-217d8603c4c6?auto=format&fit=crop&w=900&q=75" alt="" width="900" height="563" loading="lazy"><b class="marca" style="background:#2B1B14;color:#C98B4A;font-family:"Bagel Fat One",sans-serif;font-weight:400">grano fino</b></div></div>
+          <span class="rub">Pedidos para llevar · Cafetería</span>
+          <h4>Grano Fino</h4>
+          <p>Carta con tamaños, pedido para retirar a la hora que elijas y el proceso del café foto por foto.</p>
+          <span class="ver">Ver demo en vivo</span>
+        </a>
+        <a class="muestra rv" href="muestras/inmobiliaria/" target="_blank" rel="noopener">
+          <div class="browser"><div class="top"><i></i><i></i><i></i><span>umbral · propiedades</span></div><div class="pant"><img src="https://images.unsplash.com/photo-1748063578185-3d68121b11ff?auto=format&fit=crop&w=900&q=75" alt="" width="900" height="563" loading="lazy"><b class="marca" style="background:#1F3A2E;color:#C59B4A;font-family:"DM Serif Display",Georgia,serif;font-weight:400">Umbral</b></div></div>
+          <span class="rub">Buscador · Inmobiliaria</span>
+          <h4>Umbral</h4>
+          <p>Buscador por operación y zona, favoritas, recorrido por ambientes y consulta directa por WhatsApp.</p>
           <span class="ver">Ver demo en vivo</span>
         </a>
       </div>

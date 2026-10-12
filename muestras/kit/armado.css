@@ -1,0 +1,33 @@
+/* Piezas compartidas por las muestras de Trama: fotos que se arman y se desarman */
+.sobre{position:relative;z-index:2}
+.mosaico{z-index:0;position:relative;perspective:1400px;transform-style:preserve-3d}
+.mosaico i{position:absolute;display:block;background-repeat:no-repeat;background-color:rgba(0,0,0,.08);will-change:transform,opacity;backface-visibility:hidden}
+
+.tiras{position:relative;overflow:hidden}
+.tiras i{position:absolute;top:0;bottom:0;display:block;background-repeat:no-repeat;will-change:transform;animation:tiraEntra 1.2s cubic-bezier(.2,.7,.2,1) both}
+.tiras i.arriba{--desde:-105%}
+.tiras i.abajo{--desde:105%}
+@keyframes tiraEntra{from{transform:translateY(var(--desde))}}
+
+.corte{position:relative;overflow:hidden;background:rgba(0,0,0,.06)}
+.corte i{position:absolute;left:0;right:0;display:block;background-repeat:no-repeat;transition:transform 1s cubic-bezier(.2,.7,.2,1),opacity .8s}
+.corte i:nth-child(odd){transform:translateX(-46%);opacity:0}
+.corte i:nth-child(even){transform:translateX(46%);opacity:0}
+.corte.dentro i{transform:none;opacity:1}
+.corte.dentro i:nth-child(2){transition-delay:.08s}
+.corte.dentro i:nth-child(3){transition-delay:.16s}
+.corte.dentro i:nth-child(4){transition-delay:.24s}
+.corte.dentro:hover i:nth-child(odd){transform:translateX(-3%)}
+.corte.dentro:hover i:nth-child(even){transform:translateX(3%)}
+
+.trama{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:35;display:flex;align-items:center;gap:10px;background:#20264A;color:#fff;border-radius:999px;padding:8px 8px 8px 16px;font:500 14px/1.2 system-ui,sans-serif;box-shadow:0 12px 30px -10px rgba(0,0,0,.4);white-space:nowrap;max-width:calc(100% - 24px)}
+.trama a{background:#F0B23A;color:#20264A;text-decoration:none;font-weight:700;border-radius:999px;padding:8px 14px}
+@media (max-width:440px){.trama span{font-size:12.5px}.trama{gap:8px;padding-left:12px}}
+@media (max-width:360px){.trama span{display:none}}
+
+.creditos{font-size:13px;opacity:.75;margin-top:10px}
+
+@media (prefers-reduced-motion:reduce){
+  .tiras i{animation:none}
+  .corte i{transition:none;transform:none!important;opacity:1!important}
+}
