@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pizza Panizzo · Carta digital</title>
+<meta name="description" content="Carta digital de Pizza Panizzo: pizzas, empanadas, ensaladas, sándwiches, cafetería y bebidas.">
+<meta name="theme-color" content="#1c1c1c">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courgette&family=Saira+Semi+Condensed:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --pizarra:#1c1c1c; --pizarra-2:#262626; --pizarra-3:#303030; --tiza:#efe4c8; --tiza-2:#b9b09a;
+  --verde:#2fb35a; --rojo:#e0453c; --linea:#3a3a3a;
+  --script:"Courgette",cursive; --texto:"Saira Semi Condensed",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:120px}
+body{margin:0;background:var(--pizarra);color:var(--tiza);font:17px/1.45 var(--texto);
+  background-image:radial-gradient(rgba(255,255,255,.035) 1px,transparent 1px);background-size:4px 4px}
+button{font:inherit;color:inherit}
+.wrap{max-width:760px;margin:0 auto;padding-inline:16px}
+
+/* encabezado */
+.top{padding:28px 0 18px;text-align:center;position:relative}
+.top h1{font:400 clamp(44px,12vw,72px)/1 var(--script);margin:0;color:var(--tiza)}
+.top h1 span{color:var(--verde)}
+.raya{height:3px;width:150px;margin:12px auto 0;background:linear-gradient(90deg,var(--verde) 0 60%,var(--rojo) 60%);border-radius:3px}
+.top p{margin:12px 0 0;color:var(--tiza-2);font-size:15px;letter-spacing:.04em;text-transform:uppercase}
+.badge-demo{display:inline-block;margin-top:14px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--pizarra);background:var(--tiza);padding:5px 10px;border-radius:999px}
+
+/* menú del día */
+.dia{margin:6px 0 18px;border:2px dashed var(--rojo);border-radius:18px;padding:16px 18px;display:flex;gap:14px;align-items:center;background:rgba(224,69,60,.07)}
+.dia .ic{font-size:30px}
+.dia b{display:block;font:400 24px/1.1 var(--script);color:var(--rojo)}
+.dia span{color:var(--tiza-2);font-size:15px}
+
+/* buscador y categorías */
+.barra{position:sticky;top:0;z-index:5;background:rgba(28,28,28,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--linea);padding:10px 0 0}
+.buscar{display:flex;align-items:center;gap:8px;background:var(--pizarra-3);border-radius:12px;padding:0 12px;margin-bottom:10px}
+.buscar input{flex:1;min-width:0;background:none;border:0;color:var(--tiza);font:16px var(--texto);padding:11px 0;outline:none}
+.buscar input::placeholder{color:#8f887a}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chips a{flex:none;text-decoration:none;color:var(--tiza);background:var(--pizarra-2);border:1px solid var(--linea);padding:7px 13px;border-radius:999px;font-size:15px;font-weight:500;white-space:nowrap}
+.chips a.on{background:var(--verde);border-color:var(--verde);color:#0d1f12}
+
+/* secciones */
+section{padding:22px 0 6px}
+section h2{font:400 34px/1 var(--script);color:var(--verde);margin:0 0 4px}
+section h2::after{content:"";display:block;width:90px;height:3px;margin-top:8px;background:var(--rojo);border-radius:3px}
+.nota{color:var(--tiza-2);font-size:14px;margin:10px 0 0}
+.item{display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px dashed var(--linea)}
+.item .txt{flex:1;min-width:0}
+.item h3{margin:0;font-size:19px;font-weight:600;color:var(--tiza)}
+.item p{margin:2px 0 0;color:var(--tiza-2);font-size:15px}
+.precio{color:var(--verde);font-weight:600;font-size:16px;margin-top:4px}
+.precio.vacio{color:#8f887a;font-weight:500}
+.add{flex:none;width:40px;height:40px;border-radius:12px;border:2px solid var(--verde);background:none;color:var(--verde);font-size:24px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s}
+.add:active,.add.si{background:var(--verde);color:#0d1f12}
+.cant{min-width:22px;text-align:center;font-weight:700;color:var(--verde);align-self:center}
+.oculto{display:none!important}
+.vacio-busqueda{color:var(--tiza-2);text-align:center;padding:30px 0}
+
+/* pedido */
+.pedido{position:fixed;left:0;right:0;bottom:0;z-index:10;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(transparent,rgba(28,28,28,.96) 30%);transform:translateY(120%);transition:transform .35s}
+.pedido.si{transform:none}
+.pedido button{width:100%;max-width:728px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;border:0;border-radius:16px;padding:15px 18px;background:#25d366;color:#08210f;font-weight:700;font-size:17px;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.pedido small{font-weight:600;opacity:.8}
+.hoja{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.6);display:flex;align-items:flex-end;justify-content:center}
+.hoja[hidden]{display:none}
+.hoja .caja{width:100%;max-width:760px;max-height:85vh;overflow:auto;background:var(--pizarra-2);border-radius:22px 22px 0 0;padding:20px 18px calc(20px + env(safe-area-inset-bottom))}
+.hoja h2{font:400 30px/1 var(--script);color:var(--verde);margin:0 0 12px}
+.fila{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px dashed var(--linea)}
+.fila span{flex:1}
+.fila button{width:34px;height:34px;border-radius:10px;border:1px solid var(--linea);background:var(--pizarra-3);cursor:pointer;font-size:18px}
+.hoja textarea,.hoja input{width:100%;margin-top:12px;background:var(--pizarra-3);border:1px solid var(--linea);border-radius:12px;color:var(--tiza);font:16px var(--texto);padding:11px 12px}
+.hoja .acc{display:flex;gap:10px;margin-top:14px}
+.hoja .acc button{flex:1;border:0;border-radius:14px;padding:14px;font-weight:700;cursor:pointer}
+.btn-wa{background:#25d366;color:#08210f}
+.btn-sec{background:var(--pizarra-3);color:var(--tiza)}
+
+footer{margin:40px 0 110px;text-align:center;color:var(--tiza-2);font-size:14px}
+footer a{color:var(--tiza)}
+.trama{display:inline-flex;align-items:center;gap:8px;margin-top:10px;padding:8px 14px;border:1px solid var(--linea);border-radius:999px;text-decoration:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.pedido{transition:none}}
+</style>
+</head>
+<body>
+<header class="top wrap">
+  <h1>Pizza <span>Panizzo</span></h1>
+  <div class="raya" aria-hidden="true"></div>
+  <p>Carta digital · Pizzas, empanadas y más</p>
+  <span class="badge-demo">Muestra preparada por Trama</span>
+</header>
+
+<div class="wrap">
+  <div class="dia" id="dia">
+    <div class="ic" aria-hidden="true">🍽️</div>
+    <div><b>Menú del día</b><span>Consultá el plato de hoy. Desde la carta digital lo actualizan en un minuto.</span></div>
+  </div>
+</div>
+
+<div class="barra">
+  <div class="wrap">
+    <label class="buscar"><span aria-hidden="true">🔎</span><input id="q" type="search" placeholder="Buscar: fugazzeta, café, empanadas…" aria-label="Buscar en la carta"></label>
+    <nav class="chips" id="chips" aria-label="Secciones"></nav>
+  </div>
+</div>
+
+<main class="wrap" id="carta"></main>
+<p class="wrap vacio-busqueda oculto" id="sinres">No encontramos nada con esa búsqueda.</p>
+
+<footer class="wrap">
+  <div>Elegí lo que quieras con <b>+</b> y mandá el pedido por WhatsApp.</div>
+  <a class="trama" href="https://trama-dev.netlify.app" target="_blank" rel="noopener">Hecho por <b>Trama</b> · software a medida</a>
+</footer>
+
+<div class="pedido" id="pedido"><button type="button" id="ver"><span>🛒 Ver pedido <small id="cuenta"></small></span><span>Pedir por WhatsApp →</span></button></div>
+
+<div class="hoja" id="hoja" hidden>
+  <div class="caja" role="dialog" aria-modal="true" aria-labelledby="hoja-t">
+    <h2 id="hoja-t">Tu pedido</h2>
+    <div id="filas"></div>
+    <input id="nombre" placeholder="Tu nombre" autocomplete="name">
+    <textarea id="nota" rows="2" placeholder="¿Algo más? (retiro o envío, dirección, aclaraciones)"></textarea>
+    <div class="acc"><button class="btn-sec" type="button" id="cerrar">Seguir eligiendo</button><button class="btn-wa" type="button" id="enviar">Enviar por WhatsApp</button></div>
+  </div>
+</div>
+
+<script>
+// Número de WhatsApp del local (vacío: WhatsApp pregunta a quién mandarlo). Ej: "5493511234567"
+const WHATSAPP = "";
+// Precios: completar acá (0 = "a confirmar")
+const CARTA = [
+  {id:"pizzas", t:"Pizzas", items:[
+    ["Muzzarella","Salsa, sardo, muzza"],
+    ["Especial","Salsa, sardo, jamón, muzza, morrón"],
+    ["4 Quesos","Sardo, roquefort, provolone, semillas de sésamo negro"],
+    ["Mediterránea","Salsa, sardo, muzza, rúcula, jamón crudo, parmesano"],
+    ["Palmitos","Salsa, sardo, jamón cocido, muzza, palmitos cubeteados, salsa golf"],
+    ["Tropical","Sardo, muzza, ananá, azúcar negra"],
+    ["Fugazzeta","Salsa, sardo, muzza, mix de cebolla"],
+    ["Napolitana","Salsa, sardo, muzza, tomate"],
+    ["Calabresa","Salsa, sardo, muzza, salame de milán"],
+    ["Champignones","Salsa, sardo, muzza, champignones"],
+    ["Choclo","Salsa, sardo, muzza, choclo"],
+    ["Margarita","Salsa, sardo, ajo picado, muzza"],
+    ["Vegetariana","Salsa, muzza, cebolla, morrón, berenjena, zucchini, zanahoria"]]},
+  {id:"empanadas", t:"Empanadas", items:[["Carne",""],["Pollo",""],["Jamón y queso",""]]},
+  {id:"ensaladas", t:"Ensaladas", items:[
+    ["De la casa","Rúcula, aceitunas verdes y negras, tomates cherry y queso en hebras"],
+    ["Atún","Hojas verdes mixtas, atún, huevo, tomates cherry y choclo"],
+    ["Pollo","Hojas verdes mixtas, pollo y queso en hebras"]]},
+  {id:"sandwiches", t:"Sándwiches", items:[
+    ["Tostado de jamón y queso",""],["Tostado de jamón y queso a la pizza",""],["Tostado de jamón y queso en pan de pizza",""],
+    ["Sándwich de jamón crudo","Rúcula, queso y tomate"],["Sándwich de bondiola","Queso y manteca"]]},
+  {id:"cafeteria", t:"Cafetería", items:[["Café",""],["Cortado",""],["Café con leche",""],["Submarino",""],["Té",""],["Medialuna",""],["Criollo",""],["Mafalda",""]]},
+  {id:"desayunos", t:"Desayunos", items:[
+    ["Simple","Café con leche, 2 medialunas y jugo de naranja"],
+    ["Completo","Café con leche, 2 medialunas o criollos, mermelada, manteca y jugo de naranja"],
+    ["Campo","Café con leche, tostadas de pan casero, mermelada, manteca, jamón cocido, queso y jugo de naranja"],
+    ["Saludable","Café con leche, tostadas de pan integral, mermelada, queso crema, jugo de naranja y ensalada de frutas"]]},
+  {id:"licuados", t:"Licuados", items:[["Banana",""],["Frutilla",""],["Durazno",""],["Multifrutal",""]]},
+  {id:"bebidas", t:"Bebidas", items:[
+    ["Gaseosa","Coca-Cola, Fanta o Sprite"],["Agua mineral sin gas",""],["Agua mineral con gas",""],["Agua saborizada",""],
+    ["Limonada grande",""],["Limonada chica",""],["Jugo de naranja",""]]},
+  {id:"cervezas", t:"Cervezas", items:[["Heineken 1 litro",""],["Heineken 330 ml",""],["Imperial 1 litro",""],["Imperial negra 330 ml",""]]},
+  {id:"tragos", t:"Tragos", items:[["Fernet",""],["Gin tonic",""],["Campari",""],["Aperol",""]]},
+  {id:"vinos", t:"Vinos", items:[["Trumpeter",""],["Las Perdices",""],["Fond de Cave",""],["De la casa",""]]},
+];
+const PRECIOS = {}; // ej: PRECIOS["Muzzarella"] = 9500
+
+const $ = s => document.querySelector(s);
+const carta = $("#carta"), chips = $("#chips");
+const pedido = new Map();
+const plata = n => "$ " + n.toLocaleString("es-AR");
+const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
+
+CARTA.forEach(sec=>{
+  const a=document.createElement("a"); a.href="#"+sec.id; a.textContent=sec.t; chips.appendChild(a);
+  const s=document.createElement("section"); s.id=sec.id;
+  s.innerHTML=`<h2>${sec.t}</h2>`;
+  sec.items.forEach(([n,d])=>{
+    const key=sec.t+" · "+n, p=PRECIOS[n]||0;
+    const it=document.createElement("div"); it.className="item"; it.dataset.q=norm(n+" "+d+" "+sec.t);
+    it.innerHTML=`<div class="txt"><h3></h3>${d?"<p></p>":""}<div class="precio ${p?"":"vacio"}">${p?plata(p):"Precio a confirmar"}</div></div><span class="cant" aria-live="polite"></span><button class="add" type="button" aria-label="Agregar ${n}">+</button>`;
+    it.querySelector("h3").textContent=n; if(d) it.querySelector("p").textContent=d;
+    it.querySelector(".add").addEventListener("click",()=>{pedido.set(key,(pedido.get(key)||0)+1);pinta()});
+    it.dataset.key=key; s.appendChild(it);
+  });
+  carta.appendChild(s);
+});
+
+function pinta(){
+  let total=0;
+  document.querySelectorAll(".item").forEach(it=>{const c=pedido.get(it.dataset.key)||0; it.querySelector(".cant").textContent=c?c:""; it.querySelector(".add").classList.toggle("si",c>0); total+=c;});
+  $("#cuenta").textContent=total?`(${total})`:"";
+  $("#pedido").classList.toggle("si",total>0);
+  const f=$("#filas"); f.innerHTML="";
+  pedido.forEach((c,k)=>{
+    const r=document.createElement("div"); r.className="fila";
+    r.innerHTML=`<span></span><button type="button" aria-label="Quitar uno">−</button><b>${c}</b><button type="button" aria-label="Agregar uno">+</button>`;
+    r.querySelector("span").textContent=k.split(" · ")[1];
+    const [menos,mas]=r.querySelectorAll("button");
+    menos.onclick=()=>{c>1?pedido.set(k,c-1):pedido.delete(k);pinta();if(!pedido.size)cerrar()};
+    mas.onclick=()=>{pedido.set(k,c+1);pinta()};
+    f.appendChild(r);
+  });
+}
+const hoja=$("#hoja");
+function cerrar(){hoja.hidden=true}
+$("#ver").onclick=()=>{hoja.hidden=false};
+$("#cerrar").onclick=cerrar;
+hoja.addEventListener("click",e=>{if(e.target===hoja)cerrar()});
+$("#enviar").onclick=()=>{
+  const lineas=[...pedido].map(([k,c])=>`• ${c} x ${k.split(" · ")[1]}`);
+  const nombre=$("#nombre").value.trim(), nota=$("#nota").value.trim();
+  const txt=`¡Hola Panizzo! Quiero hacer este pedido:\n${lineas.join("\n")}`+(nota?`\n\n${nota}`:"")+(nombre?`\n\nSoy ${nombre}.`:"");
+  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(txt)}`,"_blank","noopener");
+};
+
+// buscador
+$("#q").addEventListener("input",e=>{
+  const q=norm(e.target.value.trim()); let vis=0;
+  document.querySelectorAll("section").forEach(s=>{let n=0;s.querySelectorAll(".item").forEach(it=>{const ok=!q||it.dataset.q.includes(q);it.classList.toggle("oculto",!ok);if(ok)n++});s.classList.toggle("oculto",!n);vis+=n});
+  $("#sinres").classList.toggle("oculto",vis>0);
+});
+
+// categoría activa al scrollear
+const links=[...chips.querySelectorAll("a")];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle("on",a.hash==="#"+e.target.id));const on=chips.querySelector(".on");if(on)on.scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"})}}),{rootMargin:"-45% 0px -50% 0px"});
+document.querySelectorAll("section").forEach(s=>io.observe(s));
+</script>
+</body>
+</html>
