@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Hilván · Tienda de muestra</title>
+<meta name="description" content="Tienda online de muestra para una marca de ropa. Hecha por Trama.">
+<meta name="theme-color" content="#2747D9">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232747D9'/%3E%3Cpath d='M12 32h40' stroke='%23F4B8C1' stroke-width='5' stroke-dasharray='7 5'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Work+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../kit/armado.css">
+<style>
+:root{
+  --cobalto:#2747D9; --rosa:#F4B8C1; --rosa-claro:#FBE4E7; --mostaza:#E9B23F; --tinta:#16161D; --blanco:#FFFFFF; --gris:#5C5C6B;
+  --f-display:"Syne",ui-sans-serif,system-ui,sans-serif;
+  --f-texto:"Work Sans",ui-sans-serif,system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--rosa-claro);color:var(--tinta);font:17px/1.6 var(--f-texto);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+h1,h2,h3{font-family:var(--f-display);margin:0;letter-spacing:-.04em;line-height:.92;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:20px}
+:focus-visible{outline:3px solid var(--cobalto);outline-offset:3px;border-radius:4px}
+
+.nav{position:sticky;top:0;z-index:30;background:var(--rosa-claro);border-bottom:2px solid var(--tinta)}
+.nav .wrap{display:flex;align-items:center;gap:24px;height:64px}
+.logo{font:800 26px/1 var(--f-display);text-decoration:none;letter-spacing:-.05em;display:flex;align-items:center;gap:10px}
+.logo i{display:block;width:34px;height:3px;background:repeating-linear-gradient(90deg,var(--cobalto) 0 7px,transparent 7px 11px)}
+.nav nav{display:flex;gap:22px;margin-left:auto;font-weight:600;font-size:15px}
+.nav nav a{text-decoration:none}
+.bolsa{display:flex;align-items:center;gap:8px;border:2px solid var(--tinta);background:var(--blanco);border-radius:999px;padding:8px 14px;font-weight:700;font-size:15px}
+.bolsa b{background:var(--cobalto);color:#fff;min-width:24px;height:24px;border-radius:12px;display:grid;place-items:center;font-size:13px}
+.bolsa.salta{animation:salta .5s var(--ease)}
+@keyframes salta{40%{transform:scale(1.15) rotate(-4deg)}}
+@media (max-width:720px){.nav nav{display:none}.bolsa{margin-left:auto}}
+
+/* héroe */
+.heroe{padding:36px 0 0;overflow:hidden}
+.heroe .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+.heroe h1{font-size:clamp(58px,8.6vw,128px)}
+.heroe h1 .l{display:block;overflow:hidden;padding-bottom:.05em}
+.heroe h1 .l span{display:block;animation:sube .9s var(--ease) both}
+.heroe h1 .l:nth-child(2) span{animation-delay:.08s;color:var(--cobalto)}
+.heroe h1 .l:nth-child(3) span{animation-delay:.16s}
+@keyframes sube{from{transform:translateY(105%) skewY(6deg)}}
+.heroe p{font-size:20px;max-width:32ch;margin-top:24px;color:#3A3A48}
+.acciones{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:15px 24px;font-weight:700;text-decoration:none;border:2px solid var(--tinta);background:var(--blanco);transition:transform .3s var(--ease),box-shadow .3s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--tinta)}
+.btn-c{background:var(--cobalto);color:#fff;border-color:var(--cobalto)}
+.foto-heroe{position:relative}
+.foto-heroe .tiras{aspect-ratio:4/5;border:2px solid var(--tinta);border-radius:220px 220px 8px 8px;overflow:hidden;background:var(--rosa)}
+.etiqueta{position:absolute;left:-28px;bottom:48px;background:var(--mostaza);border:2px solid var(--tinta);padding:14px 18px;border-radius:6px;transform:rotate(-8deg);font:800 20px/1.05 var(--f-display);box-shadow:5px 5px 0 var(--tinta);animation:cuelga 1s var(--ease) .9s both}
+.etiqueta small{display:block;font:600 13px/1.3 var(--f-texto)}
+@keyframes cuelga{from{transform:rotate(-40deg) translateY(-30px);opacity:0}}
+.cinta{margin-top:64px;background:var(--tinta);color:var(--rosa);white-space:nowrap;overflow:hidden;padding:14px 0;font:700 20px/1 var(--f-display);transform:rotate(-1.5deg);width:104%;margin-left:-2%}
+.cinta div{display:inline-block;animation:corre 30s linear infinite}
+.cinta span{margin-right:28px}
+@keyframes corre{to{transform:translateX(-50%)}}
+@media (max-width:860px){.heroe .wrap{grid-template-columns:minmax(0,1fr)}.foto-heroe{order:-1;width:min(340px,86%);justify-self:center}.etiqueta{left:-14px}}
+
+/* colección: mosaico */
+.coleccion{background:var(--cobalto);color:#fff;position:relative}
+.col-pin{min-height:100svh;display:flex;align-items:center;padding-block:80px;overflow:hidden}
+.coleccion.fija{height:520vh}
+.coleccion.fija .col-pin{position:sticky;top:0;height:100svh;min-height:0}
+.col-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:48px;align-items:center;width:100%}
+.coleccion h2{font-size:clamp(42px,6vw,82px)}
+.cuenta{font:800 18px/1 var(--f-display);color:var(--rosa);margin-bottom:18px;font-variant-numeric:tabular-nums}
+.frases{position:relative;margin-top:26px;min-height:5.5em}
+.frase{font-size:clamp(19px,2vw,23px);max-width:28ch}
+.fija .frase{position:absolute;inset:0 auto auto 0;opacity:0;transform:translateY(14px);transition:opacity .2s,transform .2s}
+.fija .frase.on{opacity:1;transform:none;transition:opacity .45s .12s,transform .45s .12s var(--ease)}
+.frase b{color:var(--rosa)}
+.marco{position:relative;justify-self:center;width:100%;max-width:560px}
+.marco .mosaico{aspect-ratio:4/5;width:100%}
+.marco::after{content:"";position:absolute;inset:-14px;border:2px dashed rgba(255,255,255,.45);border-radius:10px;pointer-events:none}
+@media (max-width:860px){.col-grid{grid-template-columns:minmax(0,1fr);gap:18px}.marco{order:-1;max-width:300px}.col-pin{padding-block:40px}.frases{min-height:4.6em;margin-top:12px}.coleccion h2{font-size:36px}.cuenta{margin-bottom:8px}}
+
+/* tienda */
+.tienda{padding:110px 0 100px}
+.cab{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.cab h2{font-size:clamp(48px,7vw,96px)}
+.cab p{max-width:36ch;color:#3A3A48}
+.grilla{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 24px;margin-top:44px}
+@media (max-width:960px){.grilla{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.grilla{grid-template-columns:minmax(0,1fr)}}
+.prenda{display:flex;flex-direction:column;gap:12px}
+.vidriera{position:relative}
+.vidriera .corte{aspect-ratio:4/5;border:2px solid var(--tinta);border-radius:6px}
+.vidriera .nuevo{position:absolute;top:12px;left:12px;z-index:2;background:var(--mostaza);border:2px solid var(--tinta);font-weight:700;font-size:13px;padding:3px 10px;border-radius:999px}
+.prenda .fila{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.prenda h3{font:700 22px/1.1 var(--f-display);letter-spacing:-.03em}
+.prenda .precio{font-weight:700}
+.detalle{font-size:15px;color:var(--gris)}
+.colores,.talles{display:flex;gap:8px;flex-wrap:wrap}
+.colores button{width:28px;height:28px;border-radius:50%;border:2px solid var(--tinta);background:var(--c);box-shadow:inset 0 0 0 3px #fff}
+.colores button[aria-pressed="true"]{outline:2px solid var(--tinta);outline-offset:2px}
+.talles button{min-width:42px;height:36px;border:2px solid var(--tinta);background:var(--blanco);border-radius:6px;font-weight:700;font-size:14px}
+.talles button[aria-pressed="true"]{background:var(--tinta);color:#fff}
+.talles button:disabled{opacity:.3;text-decoration:line-through;cursor:not-allowed}
+.sumar{border:2px solid var(--tinta);background:var(--cobalto);color:#fff;border-radius:999px;padding:12px;font-weight:700;transition:transform .25s var(--ease),box-shadow .25s}
+.sumar:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--tinta)}
+.sumar.ok{background:#1F9D55}
+.aviso-talle{font-size:14px;color:#B3261E;min-height:1.2em}
+
+.guia{background:var(--tinta);color:var(--rosa-claro);padding:72px 0}
+.guia .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px}
+.guia h3{font-size:30px;color:var(--rosa);margin-bottom:10px}
+@media (max-width:760px){.guia .wrap{grid-template-columns:minmax(0,1fr)}}
+.pie{background:var(--rosa);padding:56px 0 130px}
+.pie .gr{font:800 clamp(80px,18vw,260px)/.8 var(--f-display);letter-spacing:-.06em;color:var(--cobalto)}
+.pie p{margin-top:16px;font-size:15px}
+
+/* bolsa */
+.velo{position:fixed;inset:0;background:rgba(22,22,29,.5);opacity:0;pointer-events:none;transition:opacity .3s;z-index:40}
+.velo.on{opacity:1;pointer-events:auto}
+.cajon{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--blanco);border-left:2px solid var(--tinta);z-index:41;transform:translateX(105%);transition:transform .45s var(--ease);display:flex;flex-direction:column}
+.cajon.on{transform:none}
+.cajon header{display:flex;justify-content:space-between;align-items:center;padding:20px 22px 10px}
+.cajon h2{font-size:34px}
+.cerrar{border:2px solid var(--tinta);background:var(--rosa-claro);width:40px;height:40px;border-radius:50%;font-size:20px}
+.items{flex:1;overflow:auto;padding:8px 22px;display:flex;flex-direction:column;gap:14px}
+.item{display:grid;grid-template-columns:60px minmax(0,1fr) auto;gap:12px;align-items:center}
+.item .mini{width:60px;height:74px;border:2px solid var(--tinta);border-radius:6px;background-size:cover;background-position:center}
+.item h4{margin:0;font-size:15px}
+.item small{color:var(--gris)}
+.quitar{border:0;background:none;text-decoration:underline;font-size:14px;color:var(--gris)}
+.vacio{padding:40px 0;text-align:center;color:var(--gris)}
+.cajon footer{padding:18px 22px 24px;border-top:2px solid var(--tinta);display:flex;flex-direction:column;gap:14px}
+.total{display:flex;justify-content:space-between;font:800 24px/1 var(--f-display)}
+.envio{font-size:14px;color:var(--gris)}
+.barra-envio{height:8px;background:var(--rosa-claro);border-radius:4px;overflow:hidden;border:1.5px solid var(--tinta)}
+.barra-envio i{display:block;height:100%;background:var(--cobalto);transition:width .5s var(--ease)}
+.pedir{border:2px solid var(--tinta);background:#1F9D55;color:#fff;border-radius:999px;padding:15px;font-weight:700}
+.pedir:disabled{opacity:.4;cursor:not-allowed}
+.modal{position:fixed;inset:0;display:grid;place-items:center;padding:16px;z-index:50;pointer-events:none;opacity:0;transition:opacity .3s}
+.modal.on{opacity:1;pointer-events:auto}
+.modal .caja{background:var(--blanco);border:2px solid var(--tinta);border-radius:12px;box-shadow:8px 8px 0 var(--tinta);max-width:440px;width:100%;padding:24px}
+.modal h3{font-size:30px;margin-bottom:8px}
+.burbuja{background:#DCF8C6;border-radius:14px 14px 4px 14px;padding:12px 14px;margin:14px 0;font-size:14px;white-space:pre-wrap;max-height:40vh;overflow:auto;color:#1b2a1f}
+.nota{font-size:14px;color:var(--gris)}
+.volador{position:fixed;z-index:60;pointer-events:none;width:90px;height:110px;border:2px solid var(--tinta);border-radius:6px;background-size:cover;background-position:center}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#">hilván<i></i></a>
+    <nav aria-label="Secciones"><a href="#coleccion">Colección</a><a href="#tienda">Tienda</a><a href="#talles">Guía de talles</a></nav>
+    <button class="bolsa" id="abrir" aria-label="Abrir bolsa de compras">Bolsa <b id="cuenta">0</b></button>
+  </div>
+</header>
+
+<main>
+<section class="heroe">
+  <div class="wrap">
+    <div>
+      <h1><span class="l"><span>Ropa</span></span><span class="l"><span>cosida a</span></span><span class="l"><span>dos cuadras.</span></span></h1>
+      <p>Prendas básicas que duran años: algodón peinado, costuras dobles y tiradas cortas en nuestro taller.</p>
+      <div class="acciones"><a class="btn btn-c" href="#tienda">Ver la tienda</a><a class="btn" href="#coleccion">Ver la colección</a></div>
+    </div>
+    <div class="foto-heroe">
+      <div id="tirasHeroe" role="img" aria-label="Perchero con ropa de la marca"></div>
+      <div class="etiqueta">Otoño<br>en el taller<small>Nueva tanda, 120 prendas</small></div>
+    </div>
+  </div>
+  <div class="cinta" aria-hidden="true"><div id="cinta"></div></div>
+</section>
+
+<section class="coleccion" id="coleccion" aria-label="Colección de otoño">
+  <div class="col-pin">
+    <div class="wrap col-grid">
+      <div class="sobre">
+        <div class="cuenta" id="cuentaCol">01 / 04</div>
+        <h2>La colección, pieza por pieza.</h2>
+        <div class="frases">
+          <p class="frase on">Remeras de <b>algodón peinado</b> que no se deforman con los lavados.</p>
+          <p class="frase">Combinaciones para <b>todos los días</b>, en colores que se llevan bien.</p>
+          <p class="frase">Buzos y camperas que <b>aguantan el invierno</b> en serio.</p>
+          <p class="frase">Todo doblado, etiquetado y <b>listo para llegar a tu casa</b>.</p>
+        </div>
+      </div>
+      <div class="marco"><div id="mosaicoCol" role="img" aria-label="Fotos de la colección"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="tienda" id="tienda">
+  <div class="wrap">
+    <div class="cab"><h2>La tienda</h2><p>Elegí talle, sumalo a la bolsa y te llega el pedido armado por WhatsApp.</p></div>
+    <div class="grilla" id="grilla"></div>
+  </div>
+</section>
+
+<section class="guia" id="talles">
+  <div class="wrap">
+    <div><h3>Guía de talles</h3><p>Medí una remera que te quede bien, de axila a axila. S: 50 cm, M: 53 cm, L: 56 cm, XL: 59 cm.</p></div>
+    <div><h3>Cambios</h3><p>Tenés 30 días para cambiar el talle o el color, sin vueltas.</p></div>
+    <div><h3>Envíos</h3><p>A todo el país por correo. Gratis desde $60.000.</p></div>
+  </div>
+</section>
+</main>
+
+<footer class="pie"><div class="wrap"><div class="gr">hilván</div><p>Marca inventada para mostrar cómo se ve una tienda de ropa hecha por Trama. Prendas y precios de ejemplo.</p><p class="creditos">Fotos: Unsplash.</p></div></footer>
+
+<div class="velo" id="velo"></div>
+<aside class="cajon" id="cajon" aria-label="Tu bolsa" aria-hidden="true">
+  <header><h2>Tu bolsa</h2><button class="cerrar" id="cerrar" aria-label="Cerrar bolsa">×</button></header>
+  <div class="items" id="items"></div>
+  <footer>
+    <p class="envio" id="envioTxt"></p>
+    <div class="barra-envio"><i id="envioBar" style="width:0"></i></div>
+    <div class="total"><span>Total</span><span id="total">$0</span></div>
+    <button class="pedir" id="pedir" disabled>Pedir por WhatsApp</button>
+  </footer>
+</aside>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mtit">
+  <div class="caja">
+    <h3 id="mtit">Así le llega el pedido a la marca</h3>
+    <p class="nota">En una tienda real, este botón abre WhatsApp con el mensaje listo para enviar.</p>
+    <div class="burbuja" id="burbuja"></div>
+    <div class="acciones" style="margin-top:8px">
+      <a class="btn btn-c" href="https://wa.me/5493519070196?text=Hola%20Trama%2C%20vi%20la%20tienda%20de%20ropa%20de%20muestra%20y%20quiero%20una%20as%C3%AD" target="_blank" rel="noopener">Quiero una tienda así</a>
+      <button class="btn" id="mcerrar">Seguir mirando</button>
+    </div>
+  </div>
+</div>
+<div class="trama"><span>Sitio de muestra hecho por Trama</span><a href="https://trama-dev.netlify.app/#proyectos">Quiero uno así</a></div>
+
+<script src="../kit/armado.js"></script>
+<script>
+(function(){
+var A=Armado,F=A.foto,reduce=A.reduce;
+function $(s){return document.querySelector(s)}
+var fmt=new Intl.NumberFormat('es-AR',{style:'currency',currency:'ARS',maximumFractionDigits:0});
+
+A.tiras($('#tirasHeroe'),F('1490481651871-ab68de25d43d',1200),5);
+var cw=['Algodón peinado','Costura doble','Hecho en el taller','30 días para cambiar','Envíos a todo el país'],t='';for(var k=0;k<4;k++)cw.forEach(function(w){t+='<span>'+w+'</span><span>✂</span>'});$('#cinta').innerHTML=t;
+
+/* colección */
+var sec=$('#coleccion'),frases=[].slice.call(sec.querySelectorAll('.frase')),cuenta=$('#cuentaCol');
+var mos=A.mosaico($('#mosaicoCol'),[F('1521572163474-6864f9cf17ab',1000),F('1684283377169-e3dcfec7790c',1000),F('1559697242-a465f2578a95',1000),F('1562157873-818bc0726f68',1000)],{cols:5,rows:6,semilla:11});
+A.fija(sec,function(p,fijo){var r=mos(p);if(fijo){frases.forEach(function(e){e.classList.add('on')});return;}
+  frases.forEach(function(e,i){e.classList.toggle('on',i===r.foto)});cuenta.textContent='0'+(r.foto+1)+' / 04';});
+
+/* tienda */
+var TALLES=['S','M','L','XL'];
+var P=[
+ {id:1,n:'Remera básica',d:'Algodón peinado 24/1',p:18900,c:[['Blanco','#F4F4F0','1521572163474-6864f9cf17ab'],['Negro','#22222A','1583743814966-8936f5b7be1a']],sin:{'Negro':['XL']}},
+ {id:2,n:'Buzo canguro',d:'Frisa invisible, capucha forrada',p:42000,c:[['Gris','#A9ADB8','1556821840-3a63f95609a7']],sin:{'Gris':['S']},nuevo:1},
+ {id:3,n:'Campera rompeviento',d:'Impermeable, con capucha',p:68000,c:[['Negro','#22222A','1622567893612-a5345baa5c9a']],sin:{}},
+ {id:4,n:'Pantalón cargo',d:'Gabardina, seis bolsillos',p:49000,c:[['Marrón','#7A5A3A','1511794322962-129ddbd0af38']],sin:{'Marrón':['XL']}},
+ {id:5,n:'Remera oversize',d:'Corte amplio, cuello reforzado',p:22000,c:[['Verde','#3E7D5A','1633966887768-64f9a867bdba']],sin:{},nuevo:1},
+ {id:6,n:'Gorro de lana',d:'Tejido a mano, varios colores',p:15000,c:[['Surtido','#D9483B','1576871337632-b9aef4c17ab9']],sin:{},unico:1}];
+var grilla=$('#grilla'),estado={};
+function tarjeta(p){var st=estado[p.id],col=p.c[st.c];
+  var sw=p.c.length>1?'<div class="colores" role="group" aria-label="Color">'+p.c.map(function(c,i){return '<button style="--c:'+c[1]+'" data-c="'+i+'" aria-label="'+c[0]+'" aria-pressed="'+(i===st.c)+'"></button>'}).join('')+'</div>':'';
+  var faltan=p.sin[col[0]]||[];
+  var tl=p.unico?'<div class="talles"><button aria-pressed="true" disabled style="opacity:1;text-decoration:none">Talle único</button></div>':'<div class="talles" role="group" aria-label="Talle">'+TALLES.map(function(x){var no=faltan.indexOf(x)>-1;return '<button data-t="'+x+'" aria-pressed="'+(x===st.t)+'"'+(no?' disabled title="Sin stock"':'')+'>'+x+'</button>'}).join('')+'</div>';
+  return '<div class="vidriera">'+(p.nuevo?'<span class="nuevo">Nuevo</span>':'')+'<div data-foto="'+F(col[2],800)+'" data-cortes="4" role="img" aria-label="'+p.n+' '+col[0].toLowerCase()+'"></div></div>'+
+    '<div class="fila"><h3>'+p.n+'</h3><span class="precio">'+fmt.format(p.p)+'</span></div><p class="detalle">'+p.d+(p.c.length===1?' · '+col[0]:'')+'</p>'+sw+tl+'<p class="aviso-talle" aria-live="polite"></p><button class="sumar">Sumar a la bolsa</button>';}
+P.forEach(function(p){estado[p.id]={c:0,t:p.unico?'Único':null};var el=document.createElement('article');el.className='prenda';el.dataset.id=p.id;el.innerHTML=tarjeta(p);grilla.appendChild(el);});
+A.cortes(grilla);
+var bolsa=[];
+grilla.addEventListener('click',function(e){var el=e.target.closest('.prenda');if(!el)return;var p=P.filter(function(x){return x.id==el.dataset.id})[0],st=estado[p.id];
+  if(e.target.dataset.c!==undefined){st.c=+e.target.dataset.c;var faltan=p.sin[p.c[st.c][0]]||[];if(faltan.indexOf(st.t)>-1)st.t=null;el.innerHTML=tarjeta(p);A.cortes(el);}
+  else if(e.target.dataset.t){st.t=e.target.dataset.t;[].forEach.call(el.querySelectorAll('[data-t]'),function(b){b.setAttribute('aria-pressed',b.dataset.t===st.t)});el.querySelector('.aviso-talle').textContent='';}
+  else if(e.target.classList.contains('sumar')){
+    if(!st.t){el.querySelector('.aviso-talle').textContent='Elegí un talle para sumarla.';return;}
+    var col=p.c[st.c];bolsa.push({p:p,c:col,t:st.t});volar(el,F(col[2],300));setTimeout(pintar,reduce?0:700);
+    var b=e.target;b.classList.add('ok');b.textContent='¡En la bolsa!';setTimeout(function(){b.classList.remove('ok');b.textContent='Sumar a la bolsa'},1400);}});
+function volar(el,img){if(reduce)return;var r=el.querySelector('.corte').getBoundingClientRect(),c=$('#abrir').getBoundingClientRect();var v=document.createElement('div');v.className='volador';v.style.backgroundImage='url("'+img+'")';
+  v.style.left=r.left+r.width/2-45+'px';v.style.top=r.top+r.height/2-55+'px';document.body.appendChild(v);
+  var dx=c.left+c.width/2-(r.left+r.width/2),dy=c.top+c.height/2-(r.top+r.height/2);
+  v.animate([{transform:'scale(1.8)'},{transform:'translate('+dx*.4+'px,'+(dy*.4-80)+'px) scale(1) rotate(-15deg)',offset:.45},{transform:'translate('+dx+'px,'+dy+'px) scale(.15) rotate(-40deg)',opacity:.5}],{duration:750,easing:'cubic-bezier(.5,0,.6,1)'}).onfinish=function(){v.remove();var b=$('#abrir');b.classList.remove('salta');void b.offsetWidth;b.classList.add('salta');};}
+function pintar(){var it=$('#items'),tot=0;it.innerHTML='';
+  bolsa.forEach(function(x,i){tot+=x.p.p;var d=document.createElement('div');d.className='item';d.innerHTML='<div class="mini" style="background-image:url(\''+F(x.c[2],200)+'\')"></div><div><h4>'+x.p.n+'</h4><small>'+x.c[0]+' · '+x.t+' · '+fmt.format(x.p.p)+'</small></div><button class="quitar" data-i="'+i+'">Quitar</button>';it.appendChild(d);});
+  if(!bolsa.length)it.innerHTML='<p class="vacio">Tu bolsa está vacía.<br>Elegí un talle en la tienda.</p>';
+  $('#total').textContent=fmt.format(tot);$('#cuenta').textContent=bolsa.length;$('#pedir').disabled=!bolsa.length;
+  var falta=60000-tot;$('#envioTxt').textContent=falta>0?'Te faltan '+fmt.format(falta)+' para el envío gratis.':'¡Tenés envío gratis!';$('#envioBar').style.width=Math.min(100,tot/600)+'%';}
+pintar();
+$('#items').addEventListener('click',function(e){if(e.target.dataset.i!==undefined){bolsa.splice(+e.target.dataset.i,1);pintar();}});
+function abrir(on){$('#cajon').classList.toggle('on',on);$('#velo').classList.toggle('on',on);$('#cajon').setAttribute('aria-hidden',!on);if(on)$('#cerrar').focus();}
+function modal(on){$('#modal').classList.toggle('on',on);if(on)$('#mcerrar').focus();}
+$('#abrir').onclick=function(){abrir(true)};$('#cerrar').onclick=function(){abrir(false)};$('#velo').onclick=function(){abrir(false);modal(false)};$('#mcerrar').onclick=function(){modal(false)};
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){abrir(false);modal(false)}});
+$('#pedir').onclick=function(){var l=['¡Hola Hilván! Quiero hacer este pedido:',''],tot=0;bolsa.forEach(function(x){tot+=x.p.p;l.push('• '+x.p.n+', '+x.c[0].toLowerCase()+', talle '+x.t+' ('+fmt.format(x.p.p)+')')});
+  l.push('','Total: '+fmt.format(tot),tot>=60000?'Envío: gratis':'¿Me pasan el costo de envío?');$('#burbuja').textContent=l.join('\n');modal(true);};
+})();
+</script>
+</body>
+</html>

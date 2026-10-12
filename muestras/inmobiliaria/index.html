@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Umbral · Inmobiliaria de muestra</title>
+<meta name="description" content="Web de muestra para una inmobiliaria, con buscador de propiedades y consultas. Hecha por Trama.">
+<meta name="theme-color" content="#1F3A2E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F3A2E'/%3E%3Cpath d='M18 50V26a14 14 0 0 1 28 0v24' stroke='%23C59B4A' stroke-width='5' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Albert+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../kit/armado.css">
+<style>
+:root{
+  --bosque:#1F3A2E; --bosque-2:#2C4D3E; --piedra:#E7E9E4; --piedra-2:#D6DAD2; --bronce:#C59B4A; --tinta:#14201A; --blanco:#FFFFFF; --gris:#56645C;
+  --f-display:"DM Serif Display",Georgia,serif;
+  --f-texto:"Albert Sans",ui-sans-serif,system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--piedra);color:var(--tinta);font:17px/1.6 var(--f-texto);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;margin:0;line-height:1;letter-spacing:-.01em;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:1220px;margin:0 auto;padding-inline:20px}
+:focus-visible{outline:3px solid var(--bronce);outline-offset:3px;border-radius:6px}
+
+.nav{position:absolute;inset:0 0 auto 0;z-index:20;color:#fff}
+.nav .wrap{display:flex;align-items:center;gap:20px;height:78px}
+.logo{display:flex;align-items:center;gap:10px;font:400 28px/1 var(--f-display);text-decoration:none}
+.logo svg{width:30px}
+.nav nav{margin-left:auto;display:flex;gap:24px;font-weight:600;font-size:15px}
+.nav nav a{text-decoration:none;opacity:.9}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:10px;padding:15px 22px;font-weight:700;text-decoration:none;border:0;transition:transform .3s var(--ease)}
+.btn:hover{transform:translateY(-2px)}
+.btn-b{background:var(--bronce);color:var(--tinta)}
+.btn-v{background:var(--bosque);color:#fff}
+.btn-l{background:transparent;box-shadow:inset 0 0 0 2px currentColor}
+.nav .btn{padding:11px 16px;font-size:15px}
+@media (max-width:760px){.nav nav{display:none}.nav .btn{margin-left:auto}}
+
+/* héroe */
+.heroe{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.heroe .tiras{position:absolute;inset:0}
+.heroe::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,32,26,.55) 0%,rgba(20,32,26,.1) 35%,rgba(20,32,26,.85) 100%);pointer-events:none}
+.heroe-in{position:relative;z-index:1;width:100%;padding-bottom:56px}
+.heroe h1{font-size:clamp(52px,8vw,124px);max-width:12ch}
+.heroe h1 em{color:var(--bronce)}
+.buscador{margin-top:32px;background:var(--blanco);color:var(--tinta);border-radius:18px;padding:10px;display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,.7fr) auto;gap:8px;align-items:center;max-width:920px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.ops{display:flex;background:var(--piedra);border-radius:12px;padding:4px}
+.ops button{border:0;background:transparent;border-radius:9px;padding:10px 14px;font-weight:700;font-size:15px}
+.ops button[aria-pressed="true"]{background:var(--bosque);color:#fff}
+.buscador label{display:flex;flex-direction:column;padding:4px 12px;border-left:1.5px solid var(--piedra-2)}
+.buscador label small{font-size:12px;color:var(--gris);font-weight:600}
+.buscador select{border:0;background:transparent;font-weight:600;padding:2px 0;outline:0}
+@media (max-width:820px){.buscador{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.ops{grid-column:1/-1}.buscador .btn{grid-column:1/-1;justify-content:center}.buscador label{border-left:0;background:var(--piedra);border-radius:10px}}
+
+/* recorrido */
+.recorrido{background:var(--bosque);color:#fff;position:relative}
+.rec-pin{min-height:100svh;display:flex;align-items:center;padding-block:72px;overflow:hidden}
+.recorrido.fija{height:520vh}
+.recorrido.fija .rec-pin{position:sticky;top:0;height:100svh;min-height:0}
+.rec-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.6fr);gap:44px;align-items:center;width:100%}
+.ventana{position:relative}
+.ventana .mosaico{aspect-ratio:3/2;width:100%;border-radius:6px}
+.plano{position:absolute;right:-16px;bottom:-16px;width:150px;background:var(--piedra);border-radius:12px;padding:10px;box-shadow:0 20px 40px -20px rgba(0,0,0,.6)}
+.plano svg{width:100%}
+.plano rect.amb{fill:#fff;stroke:var(--tinta);stroke-width:2;transition:fill .4s}
+.plano rect.amb.on{fill:var(--bronce)}
+.rec h2{font-size:clamp(34px,4vw,54px)}
+.amb-nombre{font:400 clamp(50px,6vw,84px)/1 var(--f-display);color:var(--bronce);margin-top:20px;font-style:italic}
+.amb-dato{font-weight:700;margin-top:8px;letter-spacing:.02em}
+.amb-txt{margin-top:14px;color:#CFDCD4;max-width:30ch;min-height:4.8em}
+@media (max-width:900px){.rec-grid{grid-template-columns:minmax(0,1fr);gap:20px}.rec-pin{padding-block:40px}.plano{width:100px;right:-6px}.amb-nombre{font-size:40px;margin-top:8px}.rec h2{font-size:28px}.amb-txt{min-height:5em;font-size:16px}}
+
+/* propiedades */
+.props{padding:110px 0 100px}
+.cab{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.cab h2{font-size:clamp(46px,6.4vw,88px);color:var(--bosque)}
+.cab p{color:var(--gris)}
+.filtros{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:28px 0 30px}
+.filtros .ops{background:var(--blanco)}
+.rango{display:flex;align-items:center;gap:10px;background:var(--blanco);border-radius:12px;padding:8px 14px;font-weight:600;font-size:15px}
+.rango input{accent-color:var(--bosque)}
+.grilla{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 22px}
+@media (max-width:980px){.grilla{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.grilla{grid-template-columns:minmax(0,1fr)}}
+.prop{background:var(--blanco);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.prop .ft{aspect-ratio:4/3;position:relative}
+.prop .op{position:absolute;left:12px;top:12px;z-index:2;background:var(--blanco);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:700}
+.fav{position:absolute;right:12px;top:12px;z-index:2;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.92);display:grid;place-items:center;transition:transform .3s var(--ease)}
+.fav:hover{transform:scale(1.1)}
+.fav svg{width:20px}
+.fav[aria-pressed="true"] path{fill:#D2453A;stroke:#D2453A}
+.prop .tx{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.prop .precio{font:400 28px/1 var(--f-display);color:var(--bosque)}
+.prop h3{font:600 18px/1.25 var(--f-texto);letter-spacing:0}
+.prop .zona{color:var(--gris);font-size:15px}
+.feat{display:flex;gap:14px;font-size:14px;color:var(--gris);border-top:1.5px solid var(--piedra);padding-top:10px;margin-top:auto}
+.consultar{margin-top:12px;border:0;background:var(--bosque);color:#fff;border-radius:10px;padding:12px;font-weight:700}
+.sin{color:var(--gris);padding:30px 0;grid-column:1/-1}
+
+.tasar{padding:0 0 110px}
+.tasar .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;align-items:stretch;border-radius:28px;overflow:hidden;background:var(--bosque);color:#fff;padding:0}
+.tasar .ft{min-height:380px}
+.tasar .tx{padding:48px}
+.tasar h2{font-size:clamp(38px,4.6vw,62px)}
+.tasar p{margin:18px 0 26px;color:#CFDCD4;max-width:34ch}
+@media (max-width:820px){.tasar .wrap{grid-template-columns:minmax(0,1fr);margin-inline:20px}.tasar .ft{min-height:240px}.tasar .tx{padding:28px}}
+.pie{background:var(--tinta);color:var(--piedra);padding:56px 0 130px}
+.pie .gr{font:400 clamp(80px,17vw,240px)/.85 var(--f-display);color:var(--bronce)}
+.pie p{margin-top:16px;font-size:15px}
+
+.modal{position:fixed;inset:0;display:grid;place-items:center;padding:16px;z-index:50;background:rgba(20,32,26,.55);opacity:0;pointer-events:none;transition:opacity .3s}
+.modal.on{opacity:1;pointer-events:auto}
+.caja{background:var(--blanco);border-radius:22px;max-width:460px;width:100%;overflow:hidden;transform:translateY(24px);transition:transform .45s var(--ease)}
+.modal.on .caja{transform:none}
+.caja .ft{aspect-ratio:16/8}
+.caja .in{padding:22px}
+.caja h3{font-size:30px;color:var(--bosque)}
+.burbuja{background:#DCF8C6;color:#1b2a1f;border-radius:14px 14px 4px 14px;padding:12px 14px;font-size:14px;white-space:pre-wrap;margin:14px 0}
+.nota{font-size:14px;color:var(--gris)}
+.caja .acciones{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M18 56V26a14 14 0 0 1 28 0v30" stroke="#C59B4A" stroke-width="5" fill="none"/></svg>Umbral</a>
+    <nav aria-label="Secciones"><a href="#props">Propiedades</a><a href="#recorrido">Recorridos</a><a href="#tasar">Tasaciones</a></nav>
+    <a class="btn btn-b" href="#props">Ver propiedades</a>
+  </div>
+</header>
+
+<main>
+<section class="heroe">
+  <div id="tirasHeroe" role="img" aria-label="Casa moderna iluminada al atardecer"></div>
+  <div class="wrap heroe-in">
+    <h1>La casa a la que <em>vas a volver.</em></h1>
+    <form class="buscador" id="buscador" onsubmit="return false" aria-label="Buscar propiedades">
+      <div class="ops" role="group" aria-label="Operación" data-grupo="op">
+        <button type="button" data-v="venta" aria-pressed="true">Comprar</button><button type="button" data-v="alquiler" aria-pressed="false">Alquilar</button><button type="button" data-v="temporario" aria-pressed="false">Temporario</button>
+      </div>
+      <label><small>Zona</small><select id="zona"><option value="">Todas las zonas</option><option>Centro</option><option>Los Álamos</option><option>Costa del Lago</option></select></label>
+      <label><small>Ambientes</small><select id="amb"><option value="0">Cualquiera</option><option value="2">2 o más</option><option value="3">3 o más</option><option value="4">4 o más</option></select></label>
+      <button class="btn btn-v" id="buscar" type="submit">Buscar</button>
+    </form>
+  </div>
+</section>
+
+<section class="recorrido" id="recorrido" aria-label="Recorrido por una propiedad">
+  <div class="rec-pin">
+    <div class="wrap rec-grid">
+      <div class="ventana">
+        <div id="mosaicoRec" role="img" aria-label="Fotos de los ambientes de una casa"></div>
+        <div class="plano" aria-hidden="true"><svg viewBox="0 0 120 90"><rect class="amb" data-a="0" x="4" y="4" width="112" height="82" rx="3" style="fill:none"/><rect class="amb" data-a="1" x="8" y="8" width="60" height="44"/><rect class="amb" data-a="2" x="72" y="8" width="40" height="30"/><rect class="amb" data-a="3" x="8" y="56" width="104" height="26"/></svg></div>
+      </div>
+      <div class="rec sobre">
+        <h2>Recorrela antes de ir.</h2>
+        <div class="amb-nombre" id="ambNombre">Fachada</div>
+        <div class="amb-dato" id="ambDato">220 m² cubiertos</div>
+        <p class="amb-txt" id="ambTxt"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="props" id="props">
+  <div class="wrap">
+    <div class="cab"><h2>Propiedades</h2><p id="contador"></p></div>
+    <div class="filtros">
+      <div class="ops" role="group" aria-label="Operación" id="opsLista">
+        <button data-v="" aria-pressed="true">Todas</button><button data-v="venta" aria-pressed="false">Venta</button><button data-v="alquiler" aria-pressed="false">Alquiler</button><button data-v="temporario" aria-pressed="false">Temporario</button>
+      </div>
+      <label class="rango"><input type="checkbox" id="soloFav"> Solo favoritas</label>
+    </div>
+    <div class="grilla" id="grilla"></div>
+  </div>
+</section>
+
+<section class="tasar" id="tasar">
+  <div class="wrap">
+    <div class="ft" id="fotoTasar" data-cortes="4"></div>
+    <div class="tx"><h2>¿Querés vender o alquilar la tuya?</h2><p>La tasamos sin cargo, le sacamos fotos profesionales y la publicamos acá y en los portales.</p><a class="btn btn-b" href="https://wa.me/5493519070196?text=Hola%20Trama%2C%20vi%20la%20web%20de%20inmobiliaria%20de%20muestra%20y%20quiero%20una%20as%C3%AD" target="_blank" rel="noopener">Pedir tasación</a></div>
+  </div>
+</section>
+</main>
+
+<footer class="pie"><div class="wrap"><div class="gr">Umbral</div><p>Inmobiliaria inventada para mostrar cómo se ve una web de propiedades hecha por Trama. Propiedades, zonas y precios de ejemplo.</p><p class="creditos">Fotos: Unsplash.</p></div></footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mtit">
+  <div class="caja">
+    <div class="ft" id="mFoto"></div>
+    <div class="in">
+      <h3 id="mtit"></h3>
+      <p class="nota">En una web real, «Consultar» abre WhatsApp con este mensaje listo:</p>
+      <div class="burbuja" id="burbuja"></div>
+      <div class="acciones"><a class="btn btn-v" href="https://wa.me/5493519070196?text=Hola%20Trama%2C%20vi%20la%20web%20de%20inmobiliaria%20de%20muestra%20y%20quiero%20una%20as%C3%AD" target="_blank" rel="noopener">Quiero una web así</a><button class="btn btn-l" id="mcerrar">Cerrar</button></div>
+    </div>
+  </div>
+</div>
+<div class="trama"><span>Sitio de muestra hecho por Trama</span><a href="https://trama-dev.netlify.app/#proyectos">Quiero uno así</a></div>
+
+<script src="../kit/armado.js"></script>
+<script>
+(function(){
+var A=Armado,F=A.foto;
+function $(s){return document.querySelector(s)}
+var ars=new Intl.NumberFormat('es-AR',{style:'currency',currency:'ARS',maximumFractionDigits:0});
+var usd=new Intl.NumberFormat('es-AR',{maximumFractionDigits:0});
+
+A.tiras($('#tirasHeroe'),F('1748063578185-3d68121b11ff',2000),7);
+$('#fotoTasar').setAttribute('data-foto',F('1600596542815-ffad4c1539a9',1100));A.cortes($('#tasar'));
+
+/* recorrido */
+var AMB=[
+ ['Fachada','220 m² cubiertos','Casa de dos plantas sobre lote de 600 m², con galería y cochera para dos autos.','1580587771525-78b9dba3b914'],
+ ['Living','32 m² · doble altura','Ventanales al jardín, piso de madera y salida directa a la galería.','1616047006789-b7af5afb8c20'],
+ ['Cocina','14 m² · integrada','Isla central, mesada de granito y lugar para el lavavajillas.','1453614512568-c4024d13c247'],
+ ['Comedor','18 m² · con hogar','Mesa para ocho, hogar a leña y vista al parque.','1616486338812-3dadae4b4ace']];
+var sec=$('#recorrido'),ambs=[].slice.call(sec.querySelectorAll('rect.amb')),act=-1;
+var mos=A.mosaico($('#mosaicoRec'),AMB.map(function(x){return F(x[3],1500)}),{cols:8,rows:5,semilla:17,abre:600});
+A.fija(sec,function(p){var r=mos(p),i=r.foto;if(i===act)return;act=i;$('#ambNombre').textContent=AMB[i][0];$('#ambDato').textContent=AMB[i][1];$('#ambTxt').textContent=AMB[i][2];ambs.forEach(function(e){e.classList.toggle('on',+e.dataset.a===i&&i>0)});});
+
+/* propiedades */
+var P=[
+ {id:1,t:'Casa moderna con pileta',op:'venta',z:'Costa del Lago',amb:4,ba:3,m2:220,pr:285000,f:'1613977257363-707ba9348227'},
+ {id:2,t:'Casa en dos plantas con jardín',op:'venta',z:'Los Álamos',amb:5,ba:2,m2:180,pr:198000,f:'1513584684374-8bab748fbf90'},
+ {id:3,t:'Departamento luminoso con balcón',op:'alquiler',z:'Centro',amb:3,ba:1,m2:75,pr:650000,f:'1583847268964-b28dc8f51f92'},
+ {id:4,t:'Casa blanca con parque',op:'alquiler',z:'Los Álamos',amb:4,ba:2,m2:140,pr:890000,f:'1523217582562-09d0def993a6'},
+ {id:5,t:'Casa de piedra con vista',op:'temporario',z:'Costa del Lago',amb:4,ba:3,m2:200,pr:120000,huesp:6,f:'1722421492323-eaf9c401befe'},
+ {id:6,t:'Loft con chimenea',op:'temporario',z:'Centro',amb:2,ba:1,m2:60,pr:85000,huesp:3,f:'1598928506311-c55ded91a20c'},
+ {id:7,t:'Casa con pileta y quincho',op:'venta',z:'Costa del Lago',amb:5,ba:3,m2:260,pr:340000,f:'1512917774080-9991f1c4c750'},
+ {id:8,t:'Departamento con living amplio',op:'alquiler',z:'Centro',amb:2,ba:1,m2:58,pr:540000,f:'1616047006789-b7af5afb8c20'}];
+var OPN={venta:'Venta',alquiler:'Alquiler',temporario:'Temporario'};
+function precio(x){return x.op==='venta'?'USD '+usd.format(x.pr):ars.format(x.pr)+(x.op==='alquiler'?' / mes':' / noche');}
+var filtro={op:'',zona:'',amb:0,fav:false},favs={};
+function pintar(){var g=$('#grilla');g.innerHTML='';var L=P.filter(function(x){return (!filtro.op||x.op===filtro.op)&&(!filtro.zona||x.z===filtro.zona)&&x.amb>=filtro.amb&&(!filtro.fav||favs[x.id])});
+  $('#contador').textContent=L.length+(L.length===1?' propiedad':' propiedades');
+  if(!L.length){g.innerHTML='<p class="sin">No hay propiedades con esos filtros. Probá con otra zona o menos ambientes.</p>';return;}
+  L.forEach(function(x){var el=document.createElement('article');el.className='prop';
+    el.innerHTML='<div class="ft" data-foto="'+F(x.f,800)+'" data-cortes="3"><span class="op">'+OPN[x.op]+'</span><button class="fav" aria-pressed="'+!!favs[x.id]+'" aria-label="Guardar en favoritas"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.8-8 11-8 11z" fill="none" stroke="#14201A" stroke-width="2"/></svg></button></div>'+
+      '<div class="tx"><span class="precio">'+precio(x)+'</span><h3>'+x.t+'</h3><span class="zona">'+x.z+'</span><div class="feat"><span>'+x.amb+' amb.</span><span>'+x.ba+(x.ba>1?' baños':' baño')+'</span><span>'+x.m2+' m²</span>'+(x.huesp?'<span>'+x.huesp+' huésp.</span>':'')+'</div><button class="consultar">Consultar</button></div>';
+    el.querySelector('.fav').onclick=function(e){e.stopPropagation();favs[x.id]=!favs[x.id];this.setAttribute('aria-pressed',!!favs[x.id]);if(!A.reduce)this.animate([{transform:'scale(1.4)'},{transform:'scale(1)'}],{duration:350});if(filtro.fav)pintar();};
+    el.querySelector('.consultar').onclick=function(){consultar(x)};g.appendChild(el);});
+  A.cortes(g);}
+function botones(grupo,cb){grupo.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(grupo.children,function(x){x.setAttribute('aria-pressed',x===b)});cb(b.dataset.v);});}
+botones($('#opsLista'),function(v){filtro.op=v;pintar();});
+var opBusq='venta';botones(document.querySelector('[data-grupo="op"]'),function(v){opBusq=v;});
+$('#soloFav').onchange=function(){filtro.fav=this.checked;pintar();};
+$('#buscar').onclick=function(){filtro.op=opBusq;filtro.zona=$('#zona').value;filtro.amb=+$('#amb').value;
+  [].forEach.call($('#opsLista').children,function(x){x.setAttribute('aria-pressed',x.dataset.v===opBusq)});pintar();$('#props').scrollIntoView({behavior:A.reduce?'auto':'smooth'});};
+pintar();
+function consultar(x){$('#mtit').textContent=x.t;$('#mFoto').style.background='center/cover url("'+F(x.f,900)+'")';
+  $('#burbuja').textContent='¡Hola Umbral! Vi en la web la propiedad «'+x.t+'» en '+x.z+' ('+precio(x)+').\n¿Sigue disponible? Me gustaría coordinar una visita.';
+  $('#modal').classList.add('on');$('#mcerrar').focus();}
+$('#mcerrar').onclick=function(){$('#modal').classList.remove('on')};
+$('#modal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('on')});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')$('#modal').classList.remove('on')});
+})();
+</script>
+</body>
+</html>
