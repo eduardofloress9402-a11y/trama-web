@@ -6,16 +6,16 @@
 <meta name="robots" content="noindex">
 <title>Trama · Software a medida</title>
 <meta name="description" content="Trama: webs, sistemas de gestión y automatización con IA para emprendedores, pymes y empresas.">
-<meta name="theme-color" content="#13162A">
+<meta name="theme-color" content="#0E1022">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1080 1080'%3E%3Crect width='1080' height='1080' rx='200' fill='%2320264A'/%3E%3Cg transform='translate(270 140) scale(1.1)'%3E%3Cpath d='M108 0H232V472A58 58 0 0 0 290 530H410A62 62 0 0 1 410 654H290A182 182 0 0 1 108 472Z' fill='%23F2F3F7'/%3E%3Crect x='0' y='172' width='380' height='96' fill='%23F0B23A'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300..600&family=Inter:wght@400..600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300..700&family=Inter:wght@400..600&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
 :root{
-  --canvas:#13162A; --card:#1B1F36; --surface:#252A45; --hairline:rgba(237,238,245,.14);
-  --ivory:#EDEEF5; --ash:#BFC3D6; --slate:#7C809C; --hilo:#F0B23A; --hilo-2:#FFD27A; --indigo:#20264A; --papel:#F2F3F7; --tinta:#12142A;
+  --noche:#0E1022; --noche-2:#161A33; --card:#1C2140; --hairline:rgba(237,238,245,.13);
+  --ivory:#EDEEF5; --ash:#B9BDD3; --slate:#767A99; --hilo:#F0B23A; --hilo-2:#FFD27A; --lav:#8E9BFF; --tinta:#12142A;
   --f-display:"Inter Tight","Inter",ui-sans-serif,system-ui,sans-serif;
   --f-texto:"Inter",ui-sans-serif,system-ui,sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
@@ -24,143 +24,149 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--canvas);color:var(--ivory);font:400 16px/1.5 var(--f-texto);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{margin:0;background:var(--noche);color:var(--ivory);font:400 16px/1.5 var(--f-texto);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
 img,video{display:block;max-width:100%}
-h1,h2,h3{margin:0;font-family:var(--f-display);font-weight:300;letter-spacing:-.02em;text-wrap:balance}
+h1,h2,h3{margin:0;font-family:var(--f-display);letter-spacing:-.03em;text-wrap:balance}
 p{margin:0}
-.wrap{max-width:1200px;margin:0 auto;padding-inline:24px}
-.mono{font:500 12px/1 var(--f-mono);letter-spacing:.06em;color:var(--slate)}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:24px}
+.mono{font:500 12px/1 var(--f-mono);letter-spacing:.08em;color:var(--slate);text-transform:none}
 :focus-visible{outline:2px solid var(--hilo);outline-offset:4px;border-radius:6px}
 ::selection{background:var(--hilo);color:var(--tinta)}
 
-/* botones */
-.pill{display:inline-flex;align-items:center;gap:10px;border-radius:40px;padding:12px 22px;font:480 15px/1 var(--f-texto);text-decoration:none;border:1px solid transparent;transition:background .4s ease,color .4s ease,border-color .4s ease,letter-spacing .8s var(--glide)}
-.pill:hover{letter-spacing:.02em}
+.pill{display:inline-flex;align-items:center;gap:10px;border-radius:40px;padding:13px 22px;font:500 15px/1 var(--f-texto);text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background .4s,border-color .4s,transform .6s var(--glide)}
+.pill:hover{transform:translateY(-2px)}
 .pill-hilo{background:var(--hilo);color:var(--tinta)}
 .pill-hilo:hover{background:var(--hilo-2)}
-.pill-ghost{border-color:rgba(237,238,245,.35);color:var(--ivory)}
+.pill-ghost{border-color:rgba(237,238,245,.35);color:var(--ivory);background:rgba(14,16,34,.25)}
 .pill-ghost:hover{border-color:var(--ivory)}
 
 /* barra */
-.barra{position:fixed;inset:0 0 auto 0;z-index:40;transition:background .5s ease,backdrop-filter .5s ease}
-.barra.solida{background:rgba(19,22,42,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--hairline)}
-.barra .wrap{display:flex;align-items:center;gap:24px;height:72px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:500 21px/1 var(--f-display);letter-spacing:-.03em}
+.barra{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .5s,backdrop-filter .5s}
+.barra.solida{background:rgba(14,16,34,.7);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--hairline)}
+.barra .wrap{display:flex;align-items:center;gap:20px;height:72px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:600 21px/1 var(--f-display);letter-spacing:-.03em}
 .logo svg{width:30px;height:30px}
-.barra nav{display:flex;gap:4px;margin-left:auto}
-.barra nav a{text-decoration:none;font:400 15px/1 var(--f-texto);padding:10px 16px;border-radius:40px;color:var(--ash);transition:color .3s,background .3s}
-.barra nav a:hover{color:var(--ivory);background:rgba(237,238,245,.06)}
+.barra nav{display:flex;gap:2px;margin-left:auto}
+.barra nav a{text-decoration:none;font-size:15px;padding:10px 15px;border-radius:40px;color:var(--ash);transition:color .3s,background .3s}
+.barra nav a:hover{color:var(--ivory);background:rgba(237,238,245,.07)}
 .barra .acc{display:flex;gap:8px}
-@media (max-width:900px){.barra nav{display:none}.barra .acc{margin-left:auto}.barra .pill-ghost{display:none}}
+@media (max-width:920px){.barra nav{display:none}.barra .acc{margin-left:auto}.barra .pill-ghost{display:none}}
+.progreso{position:fixed;left:0;top:0;height:2px;background:var(--hilo);z-index:60;transform-origin:left;transform:scaleX(0)}
 
-/* héroe: luz líquida detrás de un título enorme */
-.heroe{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;isolation:isolate}
-.liquido{position:absolute;inset:-20%;z-index:-2;filter:blur(70px) saturate(1.15)}
-.liquido i{position:absolute;border-radius:50%;mix-blend-mode:screen;will-change:transform}
-.liquido .a{width:60vmax;height:60vmax;left:40%;top:-10%;background:radial-gradient(circle at 40% 40%,#F0B23A 0%,rgba(240,178,58,.0) 62%);animation:fluye1 22s ease-in-out infinite alternate}
-.liquido .b{width:70vmax;height:70vmax;left:-10%;top:10%;background:radial-gradient(circle at 50% 50%,#3A4AA8 0%,rgba(58,74,168,0) 60%);animation:fluye2 26s ease-in-out infinite alternate}
-.liquido .c{width:50vmax;height:50vmax;left:55%;top:35%;background:radial-gradient(circle at 50% 50%,#9A3B4F 0%,rgba(154,59,79,0) 62%);animation:fluye3 19s ease-in-out infinite alternate}
-.liquido .d{width:40vmax;height:40vmax;left:15%;top:-15%;background:radial-gradient(circle,#7FC8B0 0%,rgba(127,200,176,0) 60%);opacity:.55;animation:fluye2 30s ease-in-out infinite alternate-reverse}
-@keyframes fluye1{to{transform:translate(-18vw,14vh) scale(1.25) rotate(40deg)}}
-@keyframes fluye2{to{transform:translate(16vw,-10vh) scale(.85) rotate(-30deg)}}
-@keyframes fluye3{to{transform:translate(-22vw,-16vh) scale(1.3)}}
-.heroe::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(19,22,42,.55) 0%,rgba(19,22,42,.15) 40%,rgba(19,22,42,.95) 100%)}
-.grano{position:absolute;inset:0;z-index:-1;opacity:.12;mix-blend-mode:overlay;pointer-events:none}
-.heroe .wrap{width:100%;padding-bottom:56px}
-.heroe h1{font-size:clamp(64px,12.4vw,196px);line-height:.86;letter-spacing:-.045em;font-weight:300}
-.heroe h1 .ln{display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.08em}
-.heroe h1 .ln>span{display:block;transform:translateY(105%);animation:sube 1.4s var(--glide) forwards}
-.heroe h1 .ln:nth-child(2)>span{animation-delay:.12s;font-weight:480;color:var(--hilo)}
+/* 1. Portada: hilos que se tejen */
+.telar{position:relative;height:260vh}
+.telar-pin{position:sticky;top:0;height:100svh;overflow:hidden}
+#hilos{position:absolute;inset:0;width:100%;height:100%;display:block}
+.telar-pin::after{content:"";position:absolute;inset:auto 0 0 0;height:30%;background:linear-gradient(transparent,var(--noche));pointer-events:none}
+.capa{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:0 24px 9vh;max-width:1240px;margin:0 auto;pointer-events:none;z-index:2}
+.capa *{pointer-events:auto}
+.uno h1{font-size:clamp(60px,11.5vw,184px);line-height:.86;font-weight:300;letter-spacing:-.05em}
+.uno h1 b{display:block;font-weight:600;color:var(--hilo)}
+.uno h1 .ln{display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.08em}
+.uno h1 .ln>span{display:block;transform:translateY(105%);animation:sube 1.5s var(--glide) .2s forwards}
+.uno h1 .ln:nth-child(2)>span{animation-delay:.32s}
 @keyframes sube{to{transform:none}}
-.heroe-pie{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-top:40px;flex-wrap:wrap;opacity:0;animation:aparece 1.2s var(--glide) .6s forwards}
+.uno .pista{display:flex;align-items:center;gap:14px;margin-top:36px;color:var(--ash);font-size:15px;opacity:0;animation:aparece 1s ease 1.2s forwards}
+.uno .pista i{width:22px;height:36px;border:1.5px solid var(--ash);border-radius:12px;position:relative}
+.uno .pista i::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:var(--hilo);animation:rueda 1.8s ease-in-out infinite}
+@keyframes rueda{50%{transform:translateY(9px);opacity:.3}}
 @keyframes aparece{to{opacity:1}}
-.heroe-pie p{max-width:440px;font-size:18px;line-height:1.45;color:var(--ash)}
-.heroe-pie .acc{display:flex;gap:10px;flex-wrap:wrap}
-.insignia{position:absolute;right:24px;top:110px;width:112px;height:112px;animation:gira 24s linear infinite;opacity:.85}
-@keyframes gira{to{transform:rotate(360deg)}}
-@media (max-width:700px){.insignia{width:84px;height:84px;top:92px}}
+.dos{opacity:0;justify-content:center}
+.dos .bloque{max-width:560px}
+.dos h2{font-size:clamp(36px,4.6vw,66px);line-height:1;font-weight:400;letter-spacing:-.035em}
+.dos h2 em{font-style:normal;color:var(--hilo)}
+.dos p{color:var(--ash);font-size:18px;margin-top:22px;max-width:44ch}
+.dos .acc{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+@media (max-width:860px){.dos{justify-content:flex-end}.dos .bloque{max-width:none}}
 
-/* cinta */
-.cinta{border-block:1px solid var(--hairline);overflow:hidden;white-space:nowrap;padding:20px 0}
-.cinta div{display:inline-block;animation:corre 40s linear infinite}
-.cinta span{font:300 30px/1 var(--f-display);color:var(--ash);margin-right:48px;letter-spacing:-.01em}
-.cinta span i{font-style:normal;color:var(--hilo);margin-right:48px}
-@keyframes corre{to{transform:translateX(-50%)}}
-
-/* manifiesto: las palabras se encienden al bajar */
-.manifiesto{padding:152px 0 112px}
-.manifiesto p{font:300 clamp(32px,4.6vw,64px)/1.12 var(--f-display);letter-spacing:-.025em;max-width:1000px}
-.manifiesto p span{color:rgba(237,238,245,.18);transition:color .6s ease}
+/* 2. Manifiesto */
+.manifiesto{padding:160px 0 120px}
+.manifiesto p{font:300 clamp(32px,4.8vw,70px)/1.08 var(--f-display);letter-spacing:-.03em;max-width:1080px}
+.manifiesto p span{color:rgba(237,238,245,.14);transition:color .5s}
 .manifiesto p span.on{color:var(--ivory)}
 .manifiesto p span.on.h{color:var(--hilo)}
-.cifras{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:88px;border-top:1px solid var(--hairline)}
-.cifra{padding:28px 24px 0 0}
-.cifra b{display:block;font:300 clamp(48px,6vw,84px)/1 var(--f-display);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
-.cifra span{color:var(--ash);font-size:15px}
-@media (max-width:640px){.cifras{grid-template-columns:minmax(0,1fr)}.cifra{padding:22px 0;border-bottom:1px solid var(--hairline)}}
 
-/* encabezado de sección */
-.cab{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:56px}
-.cab h2{font-size:clamp(44px,6.4vw,94px);line-height:.92;letter-spacing:-.04em;max-width:13ch}
+/* 3. Cifras que se arman */
+.cifras{position:relative;height:190vh}
+.cifras-pin{position:sticky;top:0;height:100svh;display:flex;align-items:center;overflow:hidden}
+.cifras-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;width:100%}
+.cifra{border-top:1px solid var(--hairline);padding-top:24px}
+.num{position:relative;display:block;font:300 clamp(80px,13vw,210px)/.9 var(--f-display);letter-spacing:-.06em;height:1em;white-space:nowrap}
+.num .base{visibility:hidden}
+.num i{position:absolute;inset:0;font-style:normal;will-change:transform}
+.num i:nth-child(odd){color:var(--ivory)}
+.num i:nth-child(even){color:var(--ivory)}
+.cifra.hilo .num i{color:var(--hilo)}
+.cifra p{color:var(--ash);margin-top:20px;font-size:16px;max-width:24ch;opacity:0;transform:translateY(16px);transition:opacity .8s,transform .8s var(--glide)}
+.cifra.lista p{opacity:1;transform:none}
+@media (max-width:760px){.cifras-grid{grid-template-columns:minmax(0,1fr);gap:8px}.num{font-size:96px}.cifra{padding-top:12px}.cifra p{margin-top:8px;font-size:15px}}
+
+/* 4. Galería horizontal */
+.galeria{position:relative}
+.gal-pin{position:sticky;top:0;height:100svh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding-top:64px}
+.gal-cab{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;padding:0 24px;max-width:1240px;margin:0 auto 4vh;width:100%}
+.gal-cab h2{font-size:clamp(36px,5vw,72px);font-weight:300;line-height:.95;letter-spacing:-.04em}
+.contador{white-space:nowrap;font:300 clamp(28px,3vw,44px)/1 var(--f-display);font-variant-numeric:tabular-nums;color:var(--ash)}
+.contador b{color:var(--hilo);font-weight:400}
+.pista-gal{display:flex;gap:3vw;padding-left:max(24px,calc((100vw - 1240px)/2 + 24px));will-change:transform}
+.panel{flex:none;width:min(74vw,1000px);text-decoration:none;display:flex;flex-direction:column;gap:18px}
+.panel .marco{position:relative;height:56vh;overflow:hidden;border-radius:14px;background:var(--card)}
+.panel .marco img,.panel .marco video{position:absolute;inset:-6% -10%;width:120%;height:112%;object-fit:cover;will-change:transform}
+.panel .marco::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(14,16,34,.6));pointer-events:none}
+.panel .etq{position:absolute;left:20px;bottom:20px;z-index:2;padding:10px 16px;border-radius:40px;font-size:20px;line-height:1}
+.panel .pie-p{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:22px;align-items:baseline}
+.panel .n{font:500 13px/1 var(--f-mono);color:var(--hilo)}
+.panel h3{font:400 clamp(28px,3vw,44px)/1 var(--f-display);letter-spacing:-.03em}
+.panel p{color:var(--ash);font-size:15px;max-width:52ch;grid-column:2}
+.panel .ver{grid-row:1;grid-column:3;font-size:14px;color:var(--ivory);border-bottom:1px solid var(--hilo);padding-bottom:2px;white-space:nowrap}
+.tipo{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:6%;background:radial-gradient(120% 90% at 85% 10%,rgba(240,178,58,.18),transparent 60%),var(--card)}
+.tipo b{position:relative;z-index:1;max-width:14ch;font:300 clamp(30px,4.4vw,68px)/.95 var(--f-display);letter-spacing:-.05em;color:var(--ivory)}
+.tipo b em{font-style:normal;color:var(--hilo)}
+.tipo ul{position:relative;z-index:1;list-style:none;padding:0;margin:28px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+.tipo li{border:1px solid var(--hairline);border-radius:40px;padding:8px 14px;font-size:14px;color:var(--ash)}
+.tipo svg{position:absolute;right:-2%;bottom:-18%;width:34%;opacity:.12}
+@media (max-width:760px){.gal-cab h2{font-size:30px}.panel{width:86vw}.panel .marco{height:48vh}.panel .pie-p{grid-template-columns:auto minmax(0,1fr)}.panel .ver{grid-row:auto;grid-column:2;justify-self:start}.gal-cab{margin-bottom:3vh}}
+
+/* 5. Servicios apilados */
+.servicios{padding:140px 0 60px}
+.cab{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:60px}
+.cab h2{font-size:clamp(44px,6.4vw,96px);line-height:.9;font-weight:300;letter-spacing:-.045em;max-width:12ch}
 .cab p{max-width:380px;color:var(--ash);font-size:17px}
 .cab .mono{display:block;margin-bottom:22px}
+.pila{display:flex;flex-direction:column;gap:6vh;padding-bottom:10vh}
+.carta{position:sticky;top:calc(96px + var(--i)*26px);min-height:62vh;border-radius:22px;padding:clamp(28px,4vw,56px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;transform-origin:50% 0;box-shadow:0 -20px 60px -30px rgba(0,0,0,.6)}
+.carta:nth-child(1){background:#1C2140}
+.carta:nth-child(2){background:#252B55}
+.carta:nth-child(3){background:var(--hilo);color:var(--tinta)}
+.carta .mono{color:var(--hilo)}
+.carta:nth-child(3) .mono{color:var(--tinta)}
+.carta h3{font:300 clamp(48px,7vw,110px)/.9 var(--f-display);letter-spacing:-.05em}
+.carta p{font-size:19px;color:var(--ash);margin-top:20px;max-width:30ch}
+.carta:nth-child(3) p{color:#3A3014}
+.carta ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;border-top:1px solid currentColor}
+.carta li{padding:16px 0;border-bottom:1px solid rgba(127,127,160,.3);font-size:18px;display:flex;justify-content:space-between;gap:16px}
+.carta li::after{content:"↗";opacity:.6}
+@media (max-width:800px){.carta{grid-template-columns:minmax(0,1fr);min-height:0;top:calc(84px + var(--i)*16px)}}
 
-/* proyectos: filas a todo el ancho */
-.proyectos{padding:72px 0 40px}
-.obra{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:48px;align-items:end;padding:48px 0;border-top:1px solid var(--hairline);text-decoration:none}
-.obra:nth-child(even){grid-template-columns:minmax(0,.65fr) minmax(0,1.35fr)}
-.obra:nth-child(even) .media{order:2}
-.media{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--card);clip-path:inset(0 0 100% 0);transition:clip-path 1.25s var(--glide)}
-.media.dentro{clip-path:inset(0 0 0 0)}
-.media img,.media video{width:100%;height:100%;object-fit:cover;transform:scale(1.15);transition:transform 1.6s var(--glide)}
-.media.dentro img,.media.dentro video{transform:scale(1)}
-.obra:hover .media img,.obra:hover .media video{transform:scale(1.04)}
-.media .marca{position:absolute;left:18px;bottom:18px;padding:10px 16px;border-radius:40px;font-size:20px;line-height:1}
-.ficha .mono{display:flex;justify-content:space-between;margin-bottom:18px}
-.ficha h3{font-size:clamp(34px,3.6vw,54px);line-height:.98;letter-spacing:-.035em}
-.ficha p{color:var(--ash);margin-top:16px;font-size:16px;max-width:38ch}
-.ficha .pill{margin-top:24px}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
-.chips span{font:500 11px/1 var(--f-mono);letter-spacing:.04em;color:var(--ash);border:1px solid var(--hairline);border-radius:40px;padding:7px 11px}
-@media (max-width:860px){.obra,.obra:nth-child(even){grid-template-columns:minmax(0,1fr);gap:22px;padding:36px 0}.obra:nth-child(even) .media{order:0}}
+/* 6. Proceso: un hilo que se dibuja */
+.proceso{padding:80px 0 120px}
+.camino{position:relative;margin-top:20px}
+.camino svg.linea{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.camino svg.linea path{fill:none;stroke:var(--hilo);stroke-width:2.5;stroke-linecap:round}
+.camino svg.linea path.fondo{stroke:var(--hairline)}
+.etapa{position:relative;width:min(46%,480px);padding:56px 0}
+.etapa:nth-child(odd){margin-left:auto}
+.etapa .n{font:300 clamp(72px,9vw,140px)/.85 var(--f-display);letter-spacing:-.05em;color:var(--slate);transition:color .8s}
+.etapa h3{font:500 32px/1.05 var(--f-display);margin-top:14px}
+.etapa p{color:var(--ash);margin-top:12px;font-size:17px}
+.etapa.on .n{color:var(--hilo)}
+@media (max-width:760px){.etapa,.etapa:nth-child(odd){width:auto;margin-left:42px;padding:34px 0}}
 
-.otros{padding:24px 0 112px}
-.otros h3{font:500 12px/1 var(--f-mono);letter-spacing:.06em;color:var(--slate);margin-bottom:12px}
-.linea{display:grid;grid-template-columns:70px minmax(0,1fr) minmax(0,1.1fr) auto;gap:24px;align-items:baseline;padding:26px 0;border-top:1px solid var(--hairline);transition:padding .8s var(--glide)}
-.linea:last-child{border-bottom:1px solid var(--hairline)}
-.linea:hover{padding-left:14px}
-.linea b{font:300 clamp(26px,3vw,40px)/1 var(--f-display);letter-spacing:-.03em}
-.linea p{color:var(--ash);font-size:15px}
-.linea .mono{text-align:right;white-space:nowrap}
-@media (max-width:760px){.linea{grid-template-columns:44px minmax(0,1fr)}.linea p{grid-column:2}.linea>.mono:last-child{grid-column:2;text-align:left}}
-
-/* servicios: tarjetas grafito */
-.servicios{padding:112px 0}
-.tarjetas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.tarjeta{background:var(--card);border-radius:12px;padding:32px;display:flex;flex-direction:column;gap:14px;min-height:380px}
-.tarjeta .mono{color:var(--hilo)}
-.tarjeta h3{font-size:34px;font-weight:480;letter-spacing:-.02em;line-height:1.05}
-.tarjeta p{color:var(--ash)}
-.tarjeta ul{list-style:none;margin:auto 0 0;padding:18px 0 0;border-top:1px solid var(--hairline);display:flex;flex-direction:column;gap:10px;font-size:15px}
-.tarjeta li{display:flex;gap:10px}
-.tarjeta li::before{content:"";flex:none;width:6px;height:6px;margin-top:9px;border-radius:50%;background:var(--hilo)}
-@media (max-width:900px){.tarjetas{grid-template-columns:minmax(0,1fr)}.tarjeta{min-height:0}}
-
-/* proceso */
-.proceso{padding:40px 0 112px}
-.pasos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--hairline);position:relative}
-.pasos::before{content:"";position:absolute;left:0;top:-1px;height:1px;width:100%;background:var(--hilo);transform-origin:left;transform:scaleX(var(--p,0));transition:transform .2s linear}
-.paso{padding:28px 24px 0 0}
-.paso .n{font:300 64px/1 var(--f-display);color:var(--slate);letter-spacing:-.04em}
-.paso h3{font-size:26px;font-weight:480;margin-top:18px;letter-spacing:-.02em}
-.paso p{color:var(--ash);margin-top:10px;font-size:15px}
-@media (max-width:900px){.pasos{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:36px}}
-@media (max-width:520px){.pasos{grid-template-columns:minmax(0,1fr)}}
-
-/* presupuesto */
-.presu{padding:112px 0;background:var(--card)}
+/* 7. Presupuesto */
+.presu{padding:120px 0;background:var(--noche-2)}
 .presu .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:64px}
+.presu h2{font-size:clamp(40px,5vw,76px);line-height:.95;font-weight:300;letter-spacing:-.045em;margin-top:22px}
 .presu ul{list-style:none;padding:0;margin:28px 0 0;display:flex;flex-direction:column;gap:12px;color:var(--ash)}
 .presu li::before{content:"— ";color:var(--hilo)}
 .form{display:flex;flex-direction:column;gap:16px}
@@ -179,34 +185,37 @@ p{margin:0}
 .op input:checked+span{background:var(--ivory);color:var(--tinta);border-color:var(--ivory)}
 .op input:focus-visible+span{outline:2px solid var(--hilo);outline-offset:3px}
 .trampa{position:absolute;left:-9999px}
-.enviar{align-self:flex-start;border:0;cursor:pointer;font-size:16px;padding:16px 28px}
+.enviar{align-self:flex-start;font-size:16px;padding:16px 28px}
 .estado{min-height:1.4em;font-size:15px}
 .estado.ok{color:#8FD9A8}.estado.error{color:#E8786B}
 @media (max-width:900px){.presu .wrap{grid-template-columns:minmax(0,1fr);gap:40px}.fila{grid-template-columns:minmax(0,1fr)}}
 
-/* cierre y pie */
-.cierre{padding:152px 0 112px;text-align:left}
-.cierre h2{font-size:clamp(56px,9vw,150px);line-height:.88;letter-spacing:-.045em}
-.cierre h2 span{color:var(--hilo);font-weight:480}
-.cierre .pill{margin-top:44px;font-size:17px;padding:18px 30px}
+/* 8. Cierre */
+.cierre{position:relative;padding:170px 0 130px;overflow:hidden}
+.cierre h2{font:300 clamp(56px,10vw,170px)/.86 var(--f-display);letter-spacing:-.055em}
+.cierre h2 b{font-weight:600;color:var(--hilo)}
+.cierre .pill{margin-top:46px;font-size:17px;padding:18px 30px}
 .pie{border-top:1px solid var(--hairline);padding:40px 0 48px}
 .pie .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;font-size:13px;color:var(--slate);line-height:1.6}
 .pie b{display:block;color:var(--ash);font-weight:500}
 .pie a{text-decoration:none}
 @media (max-width:700px){.pie .wrap{grid-template-columns:minmax(0,1fr)}}
 
-/* aparición deslizada */
-.rv{opacity:0;transform:translateY(36px);transition:opacity 1.25s var(--glide),transform 1.25s var(--glide)}
+.rv{opacity:0;transform:translateY(40px);transition:opacity 1.25s var(--glide),transform 1.25s var(--glide)}
 .rv.dentro{opacity:1;transform:none}
+
 @media (prefers-reduced-motion:reduce){
-  *,*::before{animation:none!important;transition:none!important}
-  .heroe h1 .ln>span{transform:none}.heroe-pie{opacity:1}
-  .rv{opacity:1;transform:none}.media{clip-path:none}.media img,.media video{transform:none}
+  *,*::before,*::after{animation:none!important;transition:none!important}
   html{scroll-behavior:auto}
+  .uno h1 .ln>span{transform:none}.uno .pista{opacity:1}
+  .rv{opacity:1;transform:none}.cifra p{opacity:1;transform:none}
+  .telar,.cifras{height:auto}.telar-pin,.cifras-pin{position:relative;height:auto;min-height:100svh}
+  .dos{position:relative;opacity:1;padding-top:40px}
 }
 </style>
 </head>
 <body>
+<div class="progreso" id="progreso"></div>
 
 <header class="barra" id="barra">
   <div class="wrap">
@@ -217,61 +226,52 @@ p{margin:0}
 </header>
 
 <main id="inicio">
-<section class="heroe" aria-label="Presentación">
-  <div class="liquido" aria-hidden="true"><i class="b"></i><i class="a"></i><i class="c"></i><i class="d"></i></div>
-  <svg class="grano" aria-hidden="true"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
-  <svg class="insignia" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="c" d="M60 60m-48 0a48 48 0 1 1 96 0a48 48 0 1 1-96 0"/></defs><text font-family="IBM Plex Mono,monospace" font-size="10.5" letter-spacing="3.2" fill="#EDEEF5"><textPath href="#c">DESLIZÁ · SOFTWARE A MEDIDA · </textPath></text><circle cx="60" cy="60" r="5" fill="#F0B23A"/></svg>
-  <div class="wrap">
-    <span class="mono" style="color:var(--ash)">Estudio de software a medida · Argentina</span>
-    <h1 style="margin-top:24px"><span class="ln"><span>Tu negocio,</span></span><span class="ln"><span>bien tramado.</span></span></h1>
-    <div class="heroe-pie">
-      <p>Webs, sistemas de gestión y automatización con IA, hechos a la medida de cómo trabaja tu negocio. Para emprendedores, pymes y empresas.</p>
-      <div class="acc"><a class="pill pill-hilo" href="#presupuesto">Pedí tu presupuesto</a><a class="pill pill-ghost" href="#proyectos">Ver proyectos</a></div>
+<section class="telar" id="telar" aria-label="Presentación">
+  <div class="telar-pin">
+    <canvas id="hilos" aria-hidden="true"></canvas>
+    <div class="capa uno" id="capaUno">
+      <span class="mono" style="color:var(--ash);margin-bottom:22px">Estudio de software a medida · Argentina</span>
+      <h1><span class="ln"><span>Tu negocio,</span></span><span class="ln"><span><b>bien tramado.</b></span></span></h1>
+      <div class="pista"><i></i>Bajá y mirá cómo se teje</div>
+    </div>
+    <div class="capa dos" id="capaDos">
+      <div class="bloque">
+        <h2>Cada hilo de tu negocio, <em>tejido en un solo sistema.</em></h2>
+        <p>Webs, sistemas de gestión y automatización con IA, hechos a la medida de cómo trabajás. Para emprendedores, pymes y empresas.</p>
+        <div class="acc"><a class="pill pill-hilo" href="#presupuesto">Pedí tu presupuesto</a><a class="pill pill-ghost" href="#proyectos">Ver proyectos</a></div>
+      </div>
     </div>
   </div>
 </section>
-
-<div class="cinta" aria-hidden="true"><div id="cinta"></div></div>
 
 <section class="manifiesto">
-  <div class="wrap">
-    <p id="manifiesto">Cada negocio tiene su forma de trabajar. Nosotros la entendemos, la ordenamos y la convertimos en *software* que se usa *todos* *los* *días*: sin plantillas, sin vueltas y con una persona del otro lado.</p>
-    <div class="cifras">
-      <div class="cifra rv"><b data-n="15">15</b><span>agentes de IA trabajando en un solo panel</span></div>
-      <div class="cifra rv"><b data-n="9">9</b><span>sistemas y webs construidos y funcionando</span></div>
-      <div class="cifra rv"><b>24/7</b><span>operando sin pausa</span></div>
+  <div class="wrap"><p id="manifiesto">Cada negocio tiene su forma de trabajar. La entendemos, la ordenamos y la convertimos en *software* que se usa *todos* *los* *días*: sin plantillas, sin vueltas y con una persona del otro lado.</p></div>
+</section>
+
+<section class="cifras" id="cifras" aria-label="Trama en números">
+  <div class="cifras-pin">
+    <div class="wrap cifras-grid">
+      <div class="cifra hilo"><span class="num" data-txt="15"></span><p>agentes de IA trabajando en un solo panel</p></div>
+      <div class="cifra"><span class="num" data-txt="9"></span><p>sistemas y webs construidos y funcionando</p></div>
+      <div class="cifra"><span class="num" data-txt="24/7"></span><p>operando sin pausa, todos los días</p></div>
     </div>
   </div>
 </section>
 
-<section class="proyectos" id="proyectos">
-  <div class="wrap">
-    <div class="cab rv"><div><span class="mono">01 — Proyectos</span><h2>Sistemas reales, funcionando hoy.</h2></div><p>Cada proyecto empezó con un problema concreto de un negocio y terminó en una herramienta que se usa todos los días.</p></div>
-    <div id="obras">
-      <article class="obra">
-        <div class="media"><video autoplay muted loop playsinline preload="metadata" poster="media/cc-poster.webp"><source src="media/command-center.webm" type="video/webm"><source src="media/command-center.mp4" type="video/mp4"></video></div>
-        <div class="ficha rv"><div class="mono"><span>Inteligencia artificial</span><span>01</span></div><h3>Command Center</h3><p>Una oficina virtual donde 15 agentes de IA reciben consultas, publican en Instagram, preparan auditorías y avisan si algo falla. Lo importante pasa por aprobación humana.</p><div class="chips"><span>Agentes de IA</span><span>Panel en vivo</span><span>Telegram</span></div></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="otros">
-  <div class="wrap">
-    <h3>Sistemas a medida</h3>
-    <div class="linea rv"><span class="mono">02</span><b>Zafirah Gestión</b><p>Stock, recetas, producción, costos por lote y ventas con margen real para una marca de jabones y velas.</p><span class="mono">Gestión · Pyme</span></div>
-    <div class="linea rv"><span class="mono">03</span><b>FinAudit</b><p>Auditoría financiera automatizada: detecta hallazgos, genera el informe en PDF y redacta el seguimiento.</p><span class="mono">Finanzas · IA</span></div>
-    <div class="linea rv"><span class="mono">04</span><b>Planificador de Cabañas</b><p>El cliente diseña su cabaña de steel frame en 2D y 3D; el profesional revisa y exporta a AutoCAD.</p><span class="mono">Construcción · 3D</span></div>
+<section class="galeria" id="proyectos" aria-label="Proyectos">
+  <div class="gal-pin">
+    <div class="gal-cab"><div><span class="mono" style="display:block;margin-bottom:18px">01 — Proyectos</span><h2>Sistemas reales,<br>funcionando hoy.</h2></div><div class="contador" id="contador"><b>01</b> / 09</div></div>
+    <div class="pista-gal" id="pistaGal"></div>
   </div>
 </section>
 
 <section class="servicios" id="servicios">
   <div class="wrap">
     <div class="cab rv"><div><span class="mono">02 — Servicios</span><h2>Software que crece con tu negocio.</h2></div><p>Arrancamos por lo que necesitás hoy y lo hacemos crecer cuando el negocio lo pide.</p></div>
-    <div class="tarjetas">
-      <div class="tarjeta rv"><span class="mono">Para arrancar</span><h3>Emprendedores</h3><p>Lo esencial para vender y tener el control desde el primer día.</p><ul><li>Página web o tienda online</li><li>Turnos, reservas o pedidos por WhatsApp</li><li>App de stock y ventas en el celular</li></ul></div>
-      <div class="tarjeta rv"><span class="mono">Para ordenar</span><h3>Pymes</h3><p>Todo el negocio en un solo sistema, con números en los que podés confiar.</p><ul><li>Sistemas de gestión a medida</li><li>Compras, producción y ventas</li><li>Costos, márgenes e informes</li></ul></div>
-      <div class="tarjeta rv"><span class="mono">Para escalar</span><h3>Empresas</h3><p>Automatización e inteligencia artificial sobre los procesos que ya tienen.</p><ul><li>Agentes de IA y automatizaciones</li><li>Integración con sus sistemas</li><li>Paneles y reportes en vivo</li></ul></div>
+    <div class="pila">
+      <article class="carta" style="--i:0"><div><span class="mono">Para arrancar</span><h3>Empren&shy;dedores</h3><p>Lo esencial para vender y tener el control desde el primer día.</p></div><ul><li>Página web o tienda online</li><li>Turnos, reservas o pedidos por WhatsApp</li><li>App de stock y ventas en el celular</li></ul></article>
+      <article class="carta" style="--i:1"><div><span class="mono">Para ordenar</span><h3>Pymes</h3><p>Todo el negocio en un solo sistema, con números en los que podés confiar.</p></div><ul><li>Sistemas de gestión a medida</li><li>Compras, producción y ventas</li><li>Costos, márgenes e informes</li></ul></article>
+      <article class="carta" style="--i:2"><div><span class="mono">Para escalar</span><h3>Empresas</h3><p>Automatización e inteligencia artificial sobre los procesos que ya tienen.</p></div><ul><li>Agentes de IA y automatizaciones</li><li>Integración con sus sistemas</li><li>Paneles y reportes en vivo</li></ul></article>
     </div>
   </div>
 </section>
@@ -279,11 +279,12 @@ p{margin:0}
 <section class="proceso" id="proceso">
   <div class="wrap">
     <div class="cab rv"><div><span class="mono">03 — Cómo trabajamos</span><h2>De la primera charla al sistema funcionando.</h2></div></div>
-    <div class="pasos" id="pasos">
-      <div class="paso rv"><span class="n">01</span><h3>Charla</h3><p>Nos contás cómo funciona tu negocio y qué te está frenando.</p></div>
-      <div class="paso rv"><span class="n">02</span><h3>Propuesta</h3><p>Qué vamos a hacer, en cuánto tiempo y cuánto cuesta. Por escrito y claro.</p></div>
-      <div class="paso rv"><span class="n">03</span><h3>Desarrollo</h3><p>Avances frecuentes que podés probar mientras se construye.</p></div>
-      <div class="paso rv"><span class="n">04</span><h3>Entrega y soporte</h3><p>Te lo dejamos funcionando, te enseñamos a usarlo y seguimos cerca.</p></div>
+    <div class="camino" id="camino">
+      <svg class="linea" id="lineaSvg" aria-hidden="true"><path class="fondo" id="lineaFondo"/><path id="linea"/></svg>
+      <div class="etapa"><span class="n">01</span><h3>Charla</h3><p>Nos contás cómo funciona tu negocio y qué te está frenando.</p></div>
+      <div class="etapa"><span class="n">02</span><h3>Propuesta</h3><p>Qué vamos a hacer, en cuánto tiempo y cuánto cuesta. Por escrito y claro.</p></div>
+      <div class="etapa"><span class="n">03</span><h3>Desarrollo</h3><p>Avances frecuentes que podés probar mientras se construye.</p></div>
+      <div class="etapa"><span class="n">04</span><h3>Entrega y soporte</h3><p>Te lo dejamos funcionando, te enseñamos a usarlo y seguimos cerca.</p></div>
     </div>
   </div>
 </section>
@@ -292,7 +293,7 @@ p{margin:0}
   <div class="wrap">
     <div class="rv">
       <span class="mono">04 — Presupuesto</span>
-      <h2 style="font-size:clamp(40px,5vw,72px);line-height:.95;letter-spacing:-.04em;margin-top:22px">Contanos tu idea y te armamos una propuesta.</h2>
+      <h2>Contanos tu idea y te armamos una propuesta.</h2>
       <ul><li>Respondemos cada consulta personalmente</li><li>Te proponemos qué hacer, en cuánto tiempo y cuánto cuesta</li><li>Si preferís, seguimos la charla por WhatsApp</li></ul>
     </div>
     <form class="form rv" id="form-presupuesto" name="presupuesto" method="POST" action="/" data-netlify="true" netlify-honeypot="sitio-web" novalidate>
@@ -326,7 +327,7 @@ p{margin:0}
 <section class="cierre">
   <div class="wrap">
     <span class="mono">05 — Contacto</span>
-    <h2 class="rv" style="margin-top:28px">¿Querés algo así<br>para <span>tu negocio?</span></h2>
+    <h2 class="rv" style="margin-top:28px">¿Tejemos<br>algo <b>juntos?</b></h2>
     <a class="pill pill-hilo rv" href="https://wa.me/5493519070196?text=Hola%20Trama%2C%20quiero%20consultar%20por%20un%20proyecto" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
   </div>
 </section>
@@ -342,68 +343,166 @@ p{margin:0}
 
 <script>
 (function(){
-  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function $(s){return document.querySelector(s)}
-  function U(id,w){return 'https://images.unsplash.com/photo-'+id+'?auto=format&fit=crop&w='+(w||1400)+'&q=78'}
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function $(s){return document.querySelector(s)}
+function clamp(v){return Math.max(0,Math.min(1,v))}
+function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
+function out(t){return 1-Math.pow(1-t,3)}
+function prog(el){var r=el.getBoundingClientRect();return clamp(-r.top/Math.max(1,r.height-innerHeight))}
+function U(id,w){return 'https://images.unsplash.com/photo-'+id+'?auto=format&fit=crop&w='+(w||1600)+'&q=78'}
 
-  /* barra translúcida al bajar */
-  var barra=$('#barra');addEventListener('scroll',function(){barra.classList.toggle('solida',scrollY>40)},{passive:true});
+/* ---------- 1. hilos que se tejen en la "t" ---------- */
+var cv=$('#hilos'),ctx=cv.getContext('2d'),telar=$('#telar'),uno=$('#capaUno'),dos=$('#capaDos');
+var W=0,H=0,DPR=1,P=[],mouse={x:-9999,y:-9999};
+var T_PATH=new Path2D('M108 0H232V472A58 58 0 0 0 290 530H410A62 62 0 0 1 410 654H290A182 182 0 0 1 108 472Z');
+function armar(){
+  DPR=Math.min(2,devicePixelRatio||1);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*DPR;cv.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);
+  var movil=W<760;
+  // muestreo de la "t"
+  var S=300,off=document.createElement('canvas');off.width=S;off.height=S;var o=off.getContext('2d');
+  o.save();o.translate(40,4);o.scale(.44,.44);o.fillStyle='#fff';o.fill(T_PATH);o.fillStyle='#f00';o.fillRect(0,172,380,96);o.restore();
+  var d=o.getImageData(0,0,S,S).data,step=movil?6:4.6,pts=[];
+  for(var y=0;y<S;y+=step)for(var x=0;x<S;x+=step){var k=(Math.floor(y)*S+Math.floor(x))*4;if(d[k+3]>128)pts.push({x:x,y:y,bar:d[k+1]<100});}
+  var size=movil?Math.min(W*.62,H*.42):Math.min(H*.7,W*.42),cx=movil?W*.5:W*.72,cy=movil?H*.3:H*.47;
+  pts.forEach(function(p){p.tx=cx+(p.x/S-.5)*size;p.ty=cy+(p.y/S-.5)*size;});
+  pts.sort(function(a,b){return a.ty-b.ty||a.tx-b.tx});
+  // hilos horizontales: tantos como filas aproximadas
+  var filas=movil?18:26,porFila=Math.ceil(pts.length/filas);P=[];
+  for(var i=0;i<pts.length;i++){var f=Math.floor(i/porFila),j=i%porFila;
+    P.push({f:f,j:j,n:porFila,tx:pts[i].tx,ty:pts[i].ty,bar:pts[i].bar,d:Math.random(),ox:0,oy:0,vx:0,vy:0});}
+  // cada hilo ordenado por x final para que entre "de costado"
+  var porHilo={};P.forEach(function(p){(porHilo[p.f]=porHilo[p.f]||[]).push(p)});
+  Object.keys(porHilo).forEach(function(k){porHilo[k].sort(function(a,b){return a.tx-b.tx}).forEach(function(p,j,arr){p.j=j;p.n=arr.length})});
+  P.filas=filas;P.porHilo=porHilo;
+}
+var t0=performance.now();
+function dibujar(now){
+  var t=(now-t0)/1000,p=reduce?1:prog(telar),w=ease(clamp((p-.08)/.62));
+  ctx.clearRect(0,0,W,H);
+  var filas=P.filas,porHilo=P.porHilo;
+  Object.keys(porHilo).forEach(function(k){
+    var hilo=porHilo[k],f=+k,base=H*(.12+.76*(f+.5)/filas);
+    ctx.beginPath();
+    hilo.forEach(function(q,idx){
+      var u=q.j/Math.max(1,q.n-1),x0=-40+u*(W+80),y0=base+Math.sin(u*6.3+t*.7+f*.55)*(18+12*Math.sin(t*.3+f))+Math.sin(u*17+t*1.3)*4;
+      var e=clamp((w-q.d*.35)/.65);e=ease(e);
+      var x=x0+(q.tx-x0)*e,y=y0+(q.ty-y0)*e;
+      // el mouse empuja los hilos
+      var dx=x-mouse.x,dy=y-mouse.y,dd=dx*dx+dy*dy,R=140*(1-e*.7);
+      if(dd<R*R){var fz=(1-Math.sqrt(dd)/R)*28;q.vx+=dx/Math.sqrt(dd+1)*fz*.12;q.vy+=dy/Math.sqrt(dd+1)*fz*.12;}
+      q.vx*=.86;q.vy*=.86;q.ox+=q.vx;q.oy+=q.vy;q.ox*=.92;q.oy*=.92;
+      x+=q.ox;y+=q.oy;q.x=x;q.y=y;q.e=e;
+      if(idx===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
+    });
+    var a=.55*(1-w)+.04;
+    ctx.strokeStyle=f%5===2?'rgba(240,178,58,'+(a*1.2)+')':'rgba(142,155,255,'+a+')';ctx.lineWidth=1.1;ctx.stroke();
+  });
+  // nudos
+  for(var i=0;i<P.length;i++){var q=P[i],e=q.e||0;
+    var r=.8+1.3*e,col=q.bar?'240,178,58':'237,238,245',al=.35+.65*e;
+    if(!q.bar&&e<.5&&q.f%5===2)col='240,178,58';
+    ctx.fillStyle='rgba('+col+','+al+')';ctx.fillRect(q.x-r,q.y-r,r*2,r*2);}
+  // textos
+  var a1=1-clamp((p-.1)/.25),a2=clamp((p-.62)/.2);
+  uno.style.opacity=reduce?1:a1;uno.style.transform='translateY('+(-60*(1-a1))+'px)';uno.style.filter=a1<1?'blur('+(6*(1-a1))+'px)':'none';
+  dos.style.opacity=reduce?1:a2;dos.style.transform='translateY('+(40*(1-a2))+'px)';
+  dos.style.pointerEvents=a2>.5?'auto':'none';
+  if(!reduce)requestAnimationFrame(dibujar);
+}
+armar();addEventListener('resize',armar);
+addEventListener('pointermove',function(e){var r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;},{passive:true});
+addEventListener('pointerleave',function(){mouse.x=mouse.y=-9999});
+if(reduce){dibujar(performance.now());}else requestAnimationFrame(dibujar);
 
-  /* cinta */
-  var items=['Páginas web','Tiendas online','Turnos y reservas','Sistemas de gestión','Automatización con IA','Agentes inteligentes','Apps a medida'],t='';
-  for(var k=0;k<2;k++)items.forEach(function(x){t+='<span>'+x+'<i>✳</i></span>'});$('#cinta').innerHTML=t;
+/* ---------- 2. manifiesto ---------- */
+var man=$('#manifiesto');
+man.innerHTML=man.textContent.split(' ').map(function(w){var h=w.indexOf('*')>-1;return '<span'+(h?' class="h"':'')+'>'+w.replace(/\*/g,'')+'</span>'}).join(' ');
+var palabras=[].slice.call(man.querySelectorAll('span'));
 
-  /* demos como filas de proyecto */
-  var D=[
-    ['ropa','Hilván','Tienda online · Indumentaria','La colección se arma pieza por pieza al bajar. Talles, stock por color y bolsa con envío gratis.','1490481651871-ab68de25d43d','hilván','#2747D9','#FBE4E7','Syne'],
-    ['turnos','Bruma','Turnos online · Estética','Elegís servicio, día y horario libre, y te llega la confirmación con recordatorio para el calendario.','1634449571010-02389ed0f9b0','bruma','#3A1838','#FFB59E','Young Serif'],
-    ['estudio','Pulso','Reservas · Pilates y yoga','Grilla semanal de clases con cupos en vivo, planes y clase de prueba.','1747239069226-55382c570116','PULSO','#0F3D3E','#D7F36B','Unbounded'],
-    ['cafe','Grano Fino','Pedidos para llevar · Cafetería','Carta con tamaños, pedido para retirar a la hora que elijas y el proceso del café foto por foto.','1596018589878-217d8603c4c6','grano fino','#2B1B14','#C98B4A','Bagel Fat One'],
-    ['inmobiliaria','Umbral','Buscador · Inmobiliaria','Buscador por operación y zona, favoritas, recorrido por ambientes y consulta directa por WhatsApp.','1748063578185-3d68121b11ff','Umbral','#1F3A2E','#C59B4A','DM Serif Display']];
-  var obras=$('#obras');
-  D.forEach(function(d,i){var a=document.createElement('a');a.className='obra';a.href='../muestras/'+d[0]+'/';a.target='_blank';a.rel='noopener';
-    a.innerHTML='<div class="media"><img src="'+U(d[4],1400)+'" alt="Demo '+d[1]+'" loading="lazy"><span class="marca" style="background:'+d[6]+';color:'+d[7]+';font-family:\''+d[8]+'\',serif">'+d[5]+'</span></div>'+
-      '<div class="ficha rv"><div class="mono"><span>'+d[2]+'</span><span>'+('0'+(i+2)).slice(-2)+'</span></div><h3>'+d[1]+'</h3><p>'+d[3]+'</p><span class="pill pill-ghost">Ver demo en vivo</span></div>';
-    obras.appendChild(a);});
-  /* numeración: la lista de sistemas sigue después de las demos */
-  [].forEach.call(document.querySelectorAll('.otros .linea > .mono:first-child'),function(m,i){m.textContent=('0'+(D.length+2+i)).slice(-2)});
+/* ---------- 3. cifras que se arman ---------- */
+var cifras=[].slice.call(document.querySelectorAll('.cifra')),secC=$('#cifras'),N=7;
+cifras.forEach(function(c,ci){var el=c.querySelector('.num'),tx=el.dataset.txt,h='<span class="base">'+tx+'</span>';
+  for(var k=0;k<N;k++){h+='<i style="clip-path:inset('+(k*100/N)+'% 0 '+(100-(k+1)*100/N)+'% 0)">'+tx+'</i>';}
+  el.innerHTML=h;c._i=[].slice.call(el.querySelectorAll('i')).map(function(s,k){return {el:s,x:(Math.random()-.5)*600,y:(Math.random()-.5)*500,r:(Math.random()-.5)*50}});});
+function cifrasPaso(p){cifras.forEach(function(c,ci){var e=out(clamp((p-.05-ci*.12)/.45));
+  c._i.forEach(function(s,k){var ee=out(clamp((e*1.2-k*.025)));s.el.style.transform='translate('+(s.x*(1-ee))+'px,'+(s.y*(1-ee))+'px) rotate('+(s.r*(1-ee))+'deg)';s.el.style.opacity=.15+.85*ee;});
+  c.classList.toggle('lista',e>.95);});}
 
-  /* manifiesto: palabra por palabra */
-  var man=$('#manifiesto');
-  man.innerHTML=man.textContent.split(' ').map(function(w){var h=w.indexOf('*')>-1;return '<span'+(h?' data-h':'')+'>'+w.replace(/\*/g,'')+'</span>'}).join(' ');
-  var palabras=[].slice.call(man.querySelectorAll('span'));
-  palabras.forEach(function(s){if(s.hasAttribute('data-h'))s.classList.add('h')});
-  var pasos=$('#pasos');
-  function alBajar(){
-    var r=man.getBoundingClientRect(),p=(innerHeight*.85-r.top)/(r.height+innerHeight*.35);p=Math.max(0,Math.min(1,p));
-    var n=Math.round(p*palabras.length);palabras.forEach(function(s,i){s.classList.toggle('on',i<n)});
-    var q=pasos.getBoundingClientRect(),v=(innerHeight*.9-q.top)/(q.height+innerHeight*.4);pasos.style.setProperty('--p',Math.max(0,Math.min(1,v)).toFixed(3));
-  }
-  if(reduce)palabras.forEach(function(s){s.classList.add('on')});else{addEventListener('scroll',alBajar,{passive:true});alBajar();}
+/* ---------- 4. galería horizontal ---------- */
+var OBRAS=[
+ {t:'Command Center',r:'Inteligencia artificial',d:'Una oficina virtual donde 15 agentes de IA reciben consultas, publican en Instagram, preparan auditorías y avisan si algo falla.',video:1},
+ {t:'Hilván',r:'Tienda online · Indumentaria',d:'La colección se arma pieza por pieza. Talles, stock por color y bolsa con envío gratis.',f:'1490481651871-ab68de25d43d',l:'../muestras/ropa/',m:['hilván','#2747D9','#FBE4E7','Syne']},
+ {t:'Bruma',r:'Turnos online · Estética',d:'Servicio, día y horario libre, y la confirmación con recordatorio para el calendario.',f:'1634449571010-02389ed0f9b0',l:'../muestras/turnos/',m:['bruma','#3A1838','#FFB59E','Young Serif']},
+ {t:'Pulso',r:'Reservas · Pilates y yoga',d:'Grilla semanal de clases con cupos en vivo, planes y clase de prueba.',f:'1747239069226-55382c570116',l:'../muestras/estudio/',m:['PULSO','#0F3D3E','#D7F36B','Unbounded']},
+ {t:'Grano Fino',r:'Pedidos para llevar · Cafetería',d:'Carta con tamaños y pedido para retirar a la hora que elijas.',f:'1596018589878-217d8603c4c6',l:'../muestras/cafe/',m:['grano fino','#2B1B14','#C98B4A','Bagel Fat One']},
+ {t:'Umbral',r:'Buscador · Inmobiliaria',d:'Buscador por operación y zona, favoritas y recorrido por ambientes.',f:'1748063578185-3d68121b11ff',l:'../muestras/inmobiliaria/',m:['Umbral','#1F3A2E','#C59B4A','DM Serif Display']},
+ {t:'Zafirah Gestión',r:'Gestión · Pyme',d:'Sistema integral para una marca de jabones y velas artesanales.',tipo:['Stock, recetas y <em>ventas</em> en un solo lugar.',['Stock e insumos','Costo por lote','Margen real','Informes']]},
+ {t:'FinAudit',r:'Finanzas · IA',d:'Auditoría financiera automatizada para pequeñas empresas.',tipo:['Los números, <em>auditados</em> solos.',['Detecta hallazgos','Informe en PDF','Seguimiento con IA']]},
+ {t:'Planificador de Cabañas',r:'Construcción · 3D',d:'El cliente diseña su cabaña de steel frame y el profesional revisa y firma.',tipo:['Tu cabaña, en <em>2D y 3D</em>.',['Editor de planos','Vista 3D','Exporta a AutoCAD']]}];
+var pista=$('#pistaGal'),TSVG='<svg viewBox="0 0 520 700"><path d="M108 0H232V472A58 58 0 0 0 290 530H410A62 62 0 0 1 410 654H290A182 182 0 0 1 108 472Z" fill="#EDEEF5"/><rect x="0" y="172" width="380" height="96" fill="#F0B23A"/></svg>';
+OBRAS.forEach(function(o,i){var a=document.createElement(o.l?'a':'div');a.className='panel';if(o.l){a.href=o.l;a.target='_blank';a.rel='noopener'}
+  var m;
+  if(o.video)m='<video autoplay muted loop playsinline preload="metadata" poster="media/cc-poster.webp"><source src="media/command-center.webm" type="video/webm"><source src="media/command-center.mp4" type="video/mp4"></video>';
+  else if(o.f)m='<img src="'+U(o.f,1600)+'" alt="Demo '+o.t+'" loading="lazy"><span class="etq" style="background:'+o.m[1]+';color:'+o.m[2]+';font-family:\''+o.m[3]+'\',serif">'+o.m[0]+'</span>';
+  else m='<div class="tipo"><b>'+o.tipo[0]+'</b><ul>'+o.tipo[1].map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>'+TSVG+'</div>';
+  a.innerHTML='<div class="marco">'+m+'</div><div class="pie-p"><span class="n">'+('0'+(i+1)).slice(-2)+'</span><div><h3>'+o.t+'</h3></div>'+(o.l?'<span class="ver">Ver demo en vivo</span>':'<span class="ver" style="border-color:transparent;color:var(--slate)">'+o.r+'</span>')+'<p>'+(o.l?o.r+' — ':'')+o.d+'</p></div>';
+  pista.appendChild(a);});
+var gal=$('#proyectos'),paneles=[].slice.call(pista.children),cont=$('#contador'),medios=paneles.map(function(p){return p.querySelector('img,video,.tipo')});
+function altoGaleria(){var extra=pista.scrollWidth-innerWidth+ (innerWidth<760?24:80);gal.style.height=(innerHeight+Math.max(0,extra))+'px';gal._extra=Math.max(0,extra);}
+altoGaleria();addEventListener('resize',altoGaleria);
+function galPaso(){var p=prog(gal),x=-gal._extra*p;pista.style.transform='translate3d('+x+'px,0,0)';
+  var idx=Math.min(paneles.length-1,Math.round(p*(paneles.length-1)));cont.innerHTML='<b>'+('0'+(idx+1)).slice(-2)+'</b> / '+('0'+paneles.length).slice(-2);
+  paneles.forEach(function(pn,i){var r=pn.getBoundingClientRect(),c=(r.left+r.width/2-innerWidth/2)/innerWidth;var md=medios[i];if(md&&md.tagName!=='DIV')md.style.transform='translateX('+(-c*5)+'%) scale(1.02)';});}
 
-  /* apariciones deslizadas */
-  var obs=[].slice.call(document.querySelectorAll('.rv,.media'));
-  if(reduce||!('IntersectionObserver' in window))obs.forEach(function(e){e.classList.add('dentro')});
-  else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('dentro');io.unobserve(e.target)}})},{rootMargin:'0px 0px -10% 0px'});obs.forEach(function(e){io.observe(e)});}
+/* ---------- 5. tarjetas que se achican al apilarse ---------- */
+var cartas=[].slice.call(document.querySelectorAll('.carta'));
+function cartasPaso(){cartas.forEach(function(c,i){var sig=cartas[i+1];if(!sig){c.style.transform='none';return}
+  var r=sig.getBoundingClientRect(),top=parseFloat(getComputedStyle(sig).top),d=clamp(1-(r.top-top)/innerHeight);c.style.transform='scale('+(1-d*.06)+')';c.style.filter='brightness('+(1-d*.35)+')';});}
 
-  /* contador de cifras */
-  if(!reduce&&'IntersectionObserver' in window){var io2=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;io2.unobserve(e.target);var el=e.target,fin=+el.dataset.n,t0=performance.now();(function paso(t){var k=Math.min(1,(t-t0)/1400);el.textContent=Math.round(fin*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(paso)})(t0)})});[].forEach.call(document.querySelectorAll('[data-n]'),function(e){io2.observe(e)})}
+/* ---------- 6. hilo del proceso ---------- */
+var camino=$('#camino'),linea=$('#linea'),fondo=$('#lineaFondo'),etapas=[].slice.call(camino.querySelectorAll('.etapa')),largo=0;
+function trazar(){var r=camino.getBoundingClientRect(),w=r.width,movil=w<700,d='';
+  etapas.forEach(function(e,i){var er=e.getBoundingClientRect(),y=er.top-r.top+er.height*.5,x=movil?12:(i%2?w*.25:w*.75);
+    if(i===0)d='M'+(movil?12:w*.5)+' 0 C '+(movil?12:w*.5)+' '+y*.5+', '+x+' '+y*.5+', '+x+' '+y;
+    else{var py=parseFloat(d.split(' ').pop()),px=movil?12:(i%2?w*.75:w*.25);d+=' C '+px+' '+(py+(y-py)*.6)+', '+x+' '+(py+(y-py)*.4)+', '+x+' '+y;}
+    e._y=y;});
+  d+=' L '+(movil?12:(etapas.length%2?w*.75:w*.25))+' '+r.height;
+  linea.setAttribute('d',d);fondo.setAttribute('d',d);$('#lineaSvg').setAttribute('viewBox','0 0 '+w+' '+r.height);
+  largo=linea.getTotalLength();linea.style.strokeDasharray=largo;}
+function procesoPaso(){var r=camino.getBoundingClientRect(),p=clamp((innerHeight*.6-r.top)/r.height);linea.style.strokeDashoffset=largo*(1-p);
+  etapas.forEach(function(e){e.classList.toggle('on',innerHeight*.6-r.top>e._y)});}
+trazar();addEventListener('resize',trazar);
 
-  /* video quieto si se pidió menos movimiento */
-  var v=document.querySelector('video');if(v&&reduce){v.removeAttribute('autoplay');v.pause()}
+/* ---------- bucle de scroll ---------- */
+var barra=$('#barra'),barraP=$('#progreso');
+function alBajar(){
+  barra.classList.toggle('solida',scrollY>40);
+  barraP.style.transform='scaleX('+(scrollY/(document.documentElement.scrollHeight-innerHeight))+')';
+  var r=man.getBoundingClientRect(),pm=clamp((innerHeight*.85-r.top)/(r.height+innerHeight*.35)),n=Math.round(pm*palabras.length);
+  palabras.forEach(function(s,i){s.classList.toggle('on',i<n)});
+  cifrasPaso(prog(secC));galPaso();cartasPaso();procesoPaso();
+}
+if(reduce){palabras.forEach(function(s){s.classList.add('on')});cifrasPaso(1);galPaso();procesoPaso();linea.style.strokeDashoffset=0;}
+else{var pend=false;addEventListener('scroll',function(){if(!pend){pend=true;requestAnimationFrame(function(){pend=false;alBajar()})}},{passive:true});alBajar();}
 
-  /* formulario (formularios de Netlify) */
-  var fm=$('#form-presupuesto'),est=$('#f-estado');
-  fm.addEventListener('submit',function(e){e.preventDefault();
-    var req=[].slice.call(fm.querySelectorAll('[required]')),primero=null;
-    req.forEach(function(el){var mal=!el.value.trim()||(el.type==='email'&&!/^\S+@\S+\.\S+$/.test(el.value));el.setAttribute('aria-invalid',mal?'true':'false');if(mal&&!primero)primero=el});
-    if(primero){est.className='estado error';est.textContent='Revisá los campos marcados: nombre, correo válido, tipo de negocio y mensaje.';primero.focus();return}
-    var btn=fm.querySelector('.enviar');btn.disabled=true;est.className='estado';est.textContent='Enviando…';
-    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(fm)).toString()})
-      .then(function(r){if(!r.ok)throw new Error(r.status);fm.reset();est.className='estado ok';est.textContent='¡Gracias! Recibimos tu consulta y te respondemos por correo a la brevedad.'})
-      .catch(function(){est.className='estado error';est.textContent='No se pudo enviar. Probá de nuevo en un rato o escribinos por WhatsApp al 351 907-0196.'})
-      .then(function(){btn.disabled=false});});
-  fm.addEventListener('input',function(e){if(e.target.getAttribute('aria-invalid')==='true'&&e.target.value.trim())e.target.setAttribute('aria-invalid','false')});
+/* apariciones */
+var rv=[].slice.call(document.querySelectorAll('.rv'));
+if(reduce||!('IntersectionObserver' in window))rv.forEach(function(e){e.classList.add('dentro')});
+else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('dentro');io.unobserve(e.target)}})},{rootMargin:'0px 0px -10% 0px'});rv.forEach(function(e){io.observe(e)});}
+var v=document.querySelector('video');if(v&&reduce){v.removeAttribute('autoplay');v.pause()}
+
+/* formulario (Netlify) */
+var fm=$('#form-presupuesto'),est=$('#f-estado');
+fm.addEventListener('submit',function(e){e.preventDefault();
+  var req=[].slice.call(fm.querySelectorAll('[required]')),primero=null;
+  req.forEach(function(el){var mal=!el.value.trim()||(el.type==='email'&&!/^\S+@\S+\.\S+$/.test(el.value));el.setAttribute('aria-invalid',mal?'true':'false');if(mal&&!primero)primero=el});
+  if(primero){est.className='estado error';est.textContent='Revisá los campos marcados: nombre, correo válido, tipo de negocio y mensaje.';primero.focus();return}
+  var btn=fm.querySelector('.enviar');btn.disabled=true;est.className='estado';est.textContent='Enviando…';
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(fm)).toString()})
+    .then(function(r){if(!r.ok)throw new Error(r.status);fm.reset();est.className='estado ok';est.textContent='¡Gracias! Recibimos tu consulta y te respondemos por correo a la brevedad.'})
+    .catch(function(){est.className='estado error';est.textContent='No se pudo enviar. Probá de nuevo en un rato o escribinos por WhatsApp al 351 907-0196.'})
+    .then(function(){btn.disabled=false});});
+fm.addEventListener('input',function(e){if(e.target.getAttribute('aria-invalid')==='true'&&e.target.value.trim())e.target.setAttribute('aria-invalid','false')});
 })();
 </script>
 </body>
