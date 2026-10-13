@@ -2,3 +2,9 @@
 [build]
   publish = "."
   command = ""
+
+# La vista previa ya es la web principal
+[[redirects]]
+  from = "/nueva/*"
+  to = "/"
+  status = 301
