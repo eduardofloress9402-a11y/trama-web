@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Trama · Software a medida</title>
+<meta name="description" content="Trama: webs, sistemas de gestión y automatización con IA para emprendedores, pymes y empresas.">
+<meta name="theme-color" content="#13162A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1080 1080'%3E%3Crect width='1080' height='1080' rx='200' fill='%2320264A'/%3E%3Cg transform='translate(270 140) scale(1.1)'%3E%3Cpath d='M108 0H232V472A58 58 0 0 0 290 530H410A62 62 0 0 1 410 654H290A182 182 0 0 1 108 472Z' fill='%23F2F3F7'/%3E%3Crect x='0' y='172' width='380' height='96' fill='%23F0B23A'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300..600&family=Inter:wght@400..600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --canvas:#13162A; --card:#1B1F36; --surface:#252A45; --hairline:rgba(237,238,245,.14);
+  --ivory:#EDEEF5; --ash:#BFC3D6; --slate:#7C809C; --hilo:#F0B23A; --hilo-2:#FFD27A; --indigo:#20264A; --papel:#F2F3F7; --tinta:#12142A;
+  --f-display:"Inter Tight","Inter",ui-sans-serif,system-ui,sans-serif;
+  --f-texto:"Inter",ui-sans-serif,system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --glide:cubic-bezier(.19,1,.22,1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--canvas);color:var(--ivory);font:400 16px/1.5 var(--f-texto);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img,video{display:block;max-width:100%}
+h1,h2,h3{margin:0;font-family:var(--f-display);font-weight:300;letter-spacing:-.02em;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:24px}
+.mono{font:500 12px/1 var(--f-mono);letter-spacing:.06em;color:var(--slate)}
+:focus-visible{outline:2px solid var(--hilo);outline-offset:4px;border-radius:6px}
+::selection{background:var(--hilo);color:var(--tinta)}
+
+/* botones */
+.pill{display:inline-flex;align-items:center;gap:10px;border-radius:40px;padding:12px 22px;font:480 15px/1 var(--f-texto);text-decoration:none;border:1px solid transparent;transition:background .4s ease,color .4s ease,border-color .4s ease,letter-spacing .8s var(--glide)}
+.pill:hover{letter-spacing:.02em}
+.pill-hilo{background:var(--hilo);color:var(--tinta)}
+.pill-hilo:hover{background:var(--hilo-2)}
+.pill-ghost{border-color:rgba(237,238,245,.35);color:var(--ivory)}
+.pill-ghost:hover{border-color:var(--ivory)}
+
+/* barra */
+.barra{position:fixed;inset:0 0 auto 0;z-index:40;transition:background .5s ease,backdrop-filter .5s ease}
+.barra.solida{background:rgba(19,22,42,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--hairline)}
+.barra .wrap{display:flex;align-items:center;gap:24px;height:72px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:500 21px/1 var(--f-display);letter-spacing:-.03em}
+.logo svg{width:30px;height:30px}
+.barra nav{display:flex;gap:4px;margin-left:auto}
+.barra nav a{text-decoration:none;font:400 15px/1 var(--f-texto);padding:10px 16px;border-radius:40px;color:var(--ash);transition:color .3s,background .3s}
+.barra nav a:hover{color:var(--ivory);background:rgba(237,238,245,.06)}
+.barra .acc{display:flex;gap:8px}
+@media (max-width:900px){.barra nav{display:none}.barra .acc{margin-left:auto}.barra .pill-ghost{display:none}}
+
+/* héroe: luz líquida detrás de un título enorme */
+.heroe{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;isolation:isolate}
+.liquido{position:absolute;inset:-20%;z-index:-2;filter:blur(70px) saturate(1.15)}
+.liquido i{position:absolute;border-radius:50%;mix-blend-mode:screen;will-change:transform}
+.liquido .a{width:60vmax;height:60vmax;left:40%;top:-10%;background:radial-gradient(circle at 40% 40%,#F0B23A 0%,rgba(240,178,58,.0) 62%);animation:fluye1 22s ease-in-out infinite alternate}
+.liquido .b{width:70vmax;height:70vmax;left:-10%;top:10%;background:radial-gradient(circle at 50% 50%,#3A4AA8 0%,rgba(58,74,168,0) 60%);animation:fluye2 26s ease-in-out infinite alternate}
+.liquido .c{width:50vmax;height:50vmax;left:55%;top:35%;background:radial-gradient(circle at 50% 50%,#9A3B4F 0%,rgba(154,59,79,0) 62%);animation:fluye3 19s ease-in-out infinite alternate}
+.liquido .d{width:40vmax;height:40vmax;left:15%;top:-15%;background:radial-gradient(circle,#7FC8B0 0%,rgba(127,200,176,0) 60%);opacity:.55;animation:fluye2 30s ease-in-out infinite alternate-reverse}
+@keyframes fluye1{to{transform:translate(-18vw,14vh) scale(1.25) rotate(40deg)}}
+@keyframes fluye2{to{transform:translate(16vw,-10vh) scale(.85) rotate(-30deg)}}
+@keyframes fluye3{to{transform:translate(-22vw,-16vh) scale(1.3)}}
+.heroe::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(19,22,42,.55) 0%,rgba(19,22,42,.15) 40%,rgba(19,22,42,.95) 100%)}
+.grano{position:absolute;inset:0;z-index:-1;opacity:.12;mix-blend-mode:overlay;pointer-events:none}
+.heroe .wrap{width:100%;padding-bottom:56px}
+.heroe h1{font-size:clamp(64px,12.4vw,196px);line-height:.86;letter-spacing:-.045em;font-weight:300}
+.heroe h1 .ln{display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.08em}
+.heroe h1 .ln>span{display:block;transform:translateY(105%);animation:sube 1.4s var(--glide) forwards}
+.heroe h1 .ln:nth-child(2)>span{animation-delay:.12s;font-weight:480;color:var(--hilo)}
+@keyframes sube{to{transform:none}}
+.heroe-pie{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-top:40px;flex-wrap:wrap;opacity:0;animation:aparece 1.2s var(--glide) .6s forwards}
+@keyframes aparece{to{opacity:1}}
+.heroe-pie p{max-width:440px;font-size:18px;line-height:1.45;color:var(--ash)}
+.heroe-pie .acc{display:flex;gap:10px;flex-wrap:wrap}
+.insignia{position:absolute;right:24px;top:110px;width:112px;height:112px;animation:gira 24s linear infinite;opacity:.85}
+@keyframes gira{to{transform:rotate(360deg)}}
+@media (max-width:700px){.insignia{width:84px;height:84px;top:92px}}
+
+/* cinta */
+.cinta{border-block:1px solid var(--hairline);overflow:hidden;white-space:nowrap;padding:20px 0}
+.cinta div{display:inline-block;animation:corre 40s linear infinite}
+.cinta span{font:300 30px/1 var(--f-display);color:var(--ash);margin-right:48px;letter-spacing:-.01em}
+.cinta span i{font-style:normal;color:var(--hilo);margin-right:48px}
+@keyframes corre{to{transform:translateX(-50%)}}
+
+/* manifiesto: las palabras se encienden al bajar */
+.manifiesto{padding:152px 0 112px}
+.manifiesto p{font:300 clamp(32px,4.6vw,64px)/1.12 var(--f-display);letter-spacing:-.025em;max-width:1000px}
+.manifiesto p span{color:rgba(237,238,245,.18);transition:color .6s ease}
+.manifiesto p span.on{color:var(--ivory)}
+.manifiesto p span.on.h{color:var(--hilo)}
+.cifras{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:88px;border-top:1px solid var(--hairline)}
+.cifra{padding:28px 24px 0 0}
+.cifra b{display:block;font:300 clamp(48px,6vw,84px)/1 var(--f-display);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.cifra span{color:var(--ash);font-size:15px}
+@media (max-width:640px){.cifras{grid-template-columns:minmax(0,1fr)}.cifra{padding:22px 0;border-bottom:1px solid var(--hairline)}}
+
+/* encabezado de sección */
+.cab{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:56px}
+.cab h2{font-size:clamp(44px,6.4vw,94px);line-height:.92;letter-spacing:-.04em;max-width:13ch}
+.cab p{max-width:380px;color:var(--ash);font-size:17px}
+.cab .mono{display:block;margin-bottom:22px}
+
+/* proyectos: filas a todo el ancho */
+.proyectos{padding:72px 0 40px}
+.obra{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:48px;align-items:end;padding:48px 0;border-top:1px solid var(--hairline);text-decoration:none}
+.obra:nth-child(even){grid-template-columns:minmax(0,.65fr) minmax(0,1.35fr)}
+.obra:nth-child(even) .media{order:2}
+.media{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--card);clip-path:inset(0 0 100% 0);transition:clip-path 1.25s var(--glide)}
+.media.dentro{clip-path:inset(0 0 0 0)}
+.media img,.media video{width:100%;height:100%;object-fit:cover;transform:scale(1.15);transition:transform 1.6s var(--glide)}
+.media.dentro img,.media.dentro video{transform:scale(1)}
+.obra:hover .media img,.obra:hover .media video{transform:scale(1.04)}
+.media .marca{position:absolute;left:18px;bottom:18px;padding:10px 16px;border-radius:40px;font-size:20px;line-height:1}
+.ficha .mono{display:flex;justify-content:space-between;margin-bottom:18px}
+.ficha h3{font-size:clamp(34px,3.6vw,54px);line-height:.98;letter-spacing:-.035em}
+.ficha p{color:var(--ash);margin-top:16px;font-size:16px;max-width:38ch}
+.ficha .pill{margin-top:24px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.chips span{font:500 11px/1 var(--f-mono);letter-spacing:.04em;color:var(--ash);border:1px solid var(--hairline);border-radius:40px;padding:7px 11px}
+@media (max-width:860px){.obra,.obra:nth-child(even){grid-template-columns:minmax(0,1fr);gap:22px;padding:36px 0}.obra:nth-child(even) .media{order:0}}
+
+.otros{padding:24px 0 112px}
+.otros h3{font:500 12px/1 var(--f-mono);letter-spacing:.06em;color:var(--slate);margin-bottom:12px}
+.linea{display:grid;grid-template-columns:70px minmax(0,1fr) minmax(0,1.1fr) auto;gap:24px;align-items:baseline;padding:26px 0;border-top:1px solid var(--hairline);transition:padding .8s var(--glide)}
+.linea:last-child{border-bottom:1px solid var(--hairline)}
+.linea:hover{padding-left:14px}
+.linea b{font:300 clamp(26px,3vw,40px)/1 var(--f-display);letter-spacing:-.03em}
+.linea p{color:var(--ash);font-size:15px}
+.linea .mono{text-align:right;white-space:nowrap}
+@media (max-width:760px){.linea{grid-template-columns:44px minmax(0,1fr)}.linea p{grid-column:2}.linea>.mono:last-child{grid-column:2;text-align:left}}
+
+/* servicios: tarjetas grafito */
+.servicios{padding:112px 0}
+.tarjetas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.tarjeta{background:var(--card);border-radius:12px;padding:32px;display:flex;flex-direction:column;gap:14px;min-height:380px}
+.tarjeta .mono{color:var(--hilo)}
+.tarjeta h3{font-size:34px;font-weight:480;letter-spacing:-.02em;line-height:1.05}
+.tarjeta p{color:var(--ash)}
+.tarjeta ul{list-style:none;margin:auto 0 0;padding:18px 0 0;border-top:1px solid var(--hairline);display:flex;flex-direction:column;gap:10px;font-size:15px}
+.tarjeta li{display:flex;gap:10px}
+.tarjeta li::before{content:"";flex:none;width:6px;height:6px;margin-top:9px;border-radius:50%;background:var(--hilo)}
+@media (max-width:900px){.tarjetas{grid-template-columns:minmax(0,1fr)}.tarjeta{min-height:0}}
+
+/* proceso */
+.proceso{padding:40px 0 112px}
+.pasos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--hairline);position:relative}
+.pasos::before{content:"";position:absolute;left:0;top:-1px;height:1px;width:100%;background:var(--hilo);transform-origin:left;transform:scaleX(var(--p,0));transition:transform .2s linear}
+.paso{padding:28px 24px 0 0}
+.paso .n{font:300 64px/1 var(--f-display);color:var(--slate);letter-spacing:-.04em}
+.paso h3{font-size:26px;font-weight:480;margin-top:18px;letter-spacing:-.02em}
+.paso p{color:var(--ash);margin-top:10px;font-size:15px}
+@media (max-width:900px){.pasos{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:36px}}
+@media (max-width:520px){.pasos{grid-template-columns:minmax(0,1fr)}}
+
+/* presupuesto */
+.presu{padding:112px 0;background:var(--card)}
+.presu .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:64px}
+.presu ul{list-style:none;padding:0;margin:28px 0 0;display:flex;flex-direction:column;gap:12px;color:var(--ash)}
+.presu li::before{content:"— ";color:var(--hilo)}
+.form{display:flex;flex-direction:column;gap:16px}
+.fila{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.campo{display:flex;flex-direction:column;gap:8px;border:0;padding:0;margin:0}
+.campo label,.campo legend{font-size:14px;color:var(--ash);padding:0}
+.campo label span{color:var(--slate)}
+.campo input,.campo select,.campo textarea{font:inherit;color:var(--ivory);background:transparent;border:1px solid rgba(237,238,245,.25);border-radius:32px;padding:14px 20px;transition:border-color .3s}
+.campo textarea{border-radius:20px;resize:vertical}
+.campo select option{color:#12142A}
+.campo input:focus,.campo select:focus,.campo textarea:focus{outline:0;border-color:var(--hilo)}
+[aria-invalid="true"]{border-color:#E8786B!important}
+.opciones{display:flex;flex-wrap:wrap;gap:8px}
+.op input{position:absolute;opacity:0;pointer-events:none}
+.op span{display:inline-block;border:1px solid rgba(237,238,245,.25);border-radius:40px;padding:10px 16px;font-size:14px;cursor:pointer;transition:all .3s}
+.op input:checked+span{background:var(--ivory);color:var(--tinta);border-color:var(--ivory)}
+.op input:focus-visible+span{outline:2px solid var(--hilo);outline-offset:3px}
+.trampa{position:absolute;left:-9999px}
+.enviar{align-self:flex-start;border:0;cursor:pointer;font-size:16px;padding:16px 28px}
+.estado{min-height:1.4em;font-size:15px}
+.estado.ok{color:#8FD9A8}.estado.error{color:#E8786B}
+@media (max-width:900px){.presu .wrap{grid-template-columns:minmax(0,1fr);gap:40px}.fila{grid-template-columns:minmax(0,1fr)}}
+
+/* cierre y pie */
+.cierre{padding:152px 0 112px;text-align:left}
+.cierre h2{font-size:clamp(56px,9vw,150px);line-height:.88;letter-spacing:-.045em}
+.cierre h2 span{color:var(--hilo);font-weight:480}
+.cierre .pill{margin-top:44px;font-size:17px;padding:18px 30px}
+.pie{border-top:1px solid var(--hairline);padding:40px 0 48px}
+.pie .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;font-size:13px;color:var(--slate);line-height:1.6}
+.pie b{display:block;color:var(--ash);font-weight:500}
+.pie a{text-decoration:none}
+@media (max-width:700px){.pie .wrap{grid-template-columns:minmax(0,1fr)}}
+
+/* aparición deslizada */
+.rv{opacity:0;transform:translateY(36px);transition:opacity 1.25s var(--glide),transform 1.25s var(--glide)}
+.rv.dentro{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *,*::before{animation:none!important;transition:none!important}
+  .heroe h1 .ln>span{transform:none}.heroe-pie{opacity:1}
+  .rv{opacity:1;transform:none}.media{clip-path:none}.media img,.media video{transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="barra" id="barra">
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="Trama, inicio"><svg viewBox="0 0 1080 1080" aria-hidden="true"><rect width="1080" height="1080" rx="200" fill="#F0B23A"/><g transform="translate(270 140) scale(1.1)"><path d="M108 0H232V472A58 58 0 0 0 290 530H410A62 62 0 0 1 410 654H290A182 182 0 0 1 108 472Z" fill="#20264A"/><rect x="0" y="172" width="380" height="96" fill="#F2F3F7"/></g></svg>trama</a>
+    <nav aria-label="Secciones"><a href="#proyectos">Proyectos</a><a href="#servicios">Servicios</a><a href="#proceso">Cómo trabajamos</a><a href="#presupuesto">Presupuesto</a></nav>
+    <div class="acc"><a class="pill pill-ghost" href="https://wa.me/5493519070196?text=Hola%20Trama%2C%20quiero%20consultar%20por%20un%20proyecto" target="_blank" rel="noopener">WhatsApp</a><a class="pill pill-hilo" href="#presupuesto">Pedir presupuesto</a></div>
+  </div>
+</header>
+
+<main id="inicio">
+<section class="heroe" aria-label="Presentación">
+  <div class="liquido" aria-hidden="true"><i class="b"></i><i class="a"></i><i class="c"></i><i class="d"></i></div>
+  <svg class="grano" aria-hidden="true"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+  <svg class="insignia" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="c" d="M60 60m-48 0a48 48 0 1 1 96 0a48 48 0 1 1-96 0"/></defs><text font-family="IBM Plex Mono,monospace" font-size="10.5" letter-spacing="3.2" fill="#EDEEF5"><textPath href="#c">DESLIZÁ · SOFTWARE A MEDIDA · </textPath></text><circle cx="60" cy="60" r="5" fill="#F0B23A"/></svg>
+  <div class="wrap">
+    <span class="mono" style="color:var(--ash)">Estudio de software a medida · Argentina</span>
+    <h1 style="margin-top:24px"><span class="ln"><span>Tu negocio,</span></span><span class="ln"><span>bien tramado.</span></span></h1>
+    <div class="heroe-pie">
+      <p>Webs, sistemas de gestión y automatización con IA, hechos a la medida de cómo trabaja tu negocio. Para emprendedores, pymes y empresas.</p>
+      <div class="acc"><a class="pill pill-hilo" href="#presupuesto">Pedí tu presupuesto</a><a class="pill pill-ghost" href="#proyectos">Ver proyectos</a></div>
+    </div>
+  </div>
+</section>
+
+<div class="cinta" aria-hidden="true"><div id="cinta"></div></div>
+
+<section class="manifiesto">
+  <div class="wrap">
+    <p id="manifiesto">Cada negocio tiene su forma de trabajar. Nosotros la entendemos, la ordenamos y la convertimos en *software* que se usa *todos* *los* *días*: sin plantillas, sin vueltas y con una persona del otro lado.</p>
+    <div class="cifras">
+      <div class="cifra rv"><b data-n="15">15</b><span>agentes de IA trabajando en un solo panel</span></div>
+      <div class="cifra rv"><b data-n="9">9</b><span>sistemas y webs construidos y funcionando</span></div>
+      <div class="cifra rv"><b>24/7</b><span>operando sin pausa</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="proyectos" id="proyectos">
+  <div class="wrap">
+    <div class="cab rv"><div><span class="mono">01 — Proyectos</span><h2>Sistemas reales, funcionando hoy.</h2></div><p>Cada proyecto empezó con un problema concreto de un negocio y terminó en una herramienta que se usa todos los días.</p></div>
+    <div id="obras">
+      <article class="obra">
+        <div class="media"><video autoplay muted loop playsinline preload="metadata" poster="media/cc-poster.webp"><source src="media/command-center.webm" type="video/webm"><source src="media/command-center.mp4" type="video/mp4"></video></div>
+        <div class="ficha rv"><div class="mono"><span>Inteligencia artificial</span><span>01</span></div><h3>Command Center</h3><p>Una oficina virtual donde 15 agentes de IA reciben consultas, publican en Instagram, preparan auditorías y avisan si algo falla. Lo importante pasa por aprobación humana.</p><div class="chips"><span>Agentes de IA</span><span>Panel en vivo</span><span>Telegram</span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="otros">
+  <div class="wrap">
+    <h3>Sistemas a medida</h3>
+    <div class="linea rv"><span class="mono">02</span><b>Zafirah Gestión</b><p>Stock, recetas, producción, costos por lote y ventas con margen real para una marca de jabones y velas.</p><span class="mono">Gestión · Pyme</span></div>
+    <div class="linea rv"><span class="mono">03</span><b>FinAudit</b><p>Auditoría financiera automatizada: detecta hallazgos, genera el informe en PDF y redacta el seguimiento.</p><span class="mono">Finanzas · IA</span></div>
+    <div class="linea rv"><span class="mono">04</span><b>Planificador de Cabañas</b><p>El cliente diseña su cabaña de steel frame en 2D y 3D; el profesional revisa y exporta a AutoCAD.</p><span class="mono">Construcción · 3D</span></div>
+  </div>
+</section>
+
+<section class="servicios" id="servicios">
+  <div class="wrap">
+    <div class="cab rv"><div><span class="mono">02 — Servicios</span><h2>Software que crece con tu negocio.</h2></div><p>Arrancamos por lo que necesitás hoy y lo hacemos crecer cuando el negocio lo pide.</p></div>
+    <div class="tarjetas">
+      <div class="tarjeta rv"><span class="mono">Para arrancar</span><h3>Emprendedores</h3><p>Lo esencial para vender y tener el control desde el primer día.</p><ul><li>Página web o tienda online</li><li>Turnos, reservas o pedidos por WhatsApp</li><li>App de stock y ventas en el celular</li></ul></div>
+      <div class="tarjeta rv"><span class="mono">Para ordenar</span><h3>Pymes</h3><p>Todo el negocio en un solo sistema, con números en los que podés confiar.</p><ul><li>Sistemas de gestión a medida</li><li>Compras, producción y ventas</li><li>Costos, márgenes e informes</li></ul></div>
+      <div class="tarjeta rv"><span class="mono">Para escalar</span><h3>Empresas</h3><p>Automatización e inteligencia artificial sobre los procesos que ya tienen.</p><ul><li>Agentes de IA y automatizaciones</li><li>Integración con sus sistemas</li><li>Paneles y reportes en vivo</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="proceso" id="proceso">
+  <div class="wrap">
+    <div class="cab rv"><div><span class="mono">03 — Cómo trabajamos</span><h2>De la primera charla al sistema funcionando.</h2></div></div>
+    <div class="pasos" id="pasos">
+      <div class="paso rv"><span class="n">01</span><h3>Charla</h3><p>Nos contás cómo funciona tu negocio y qué te está frenando.</p></div>
+      <div class="paso rv"><span class="n">02</span><h3>Propuesta</h3><p>Qué vamos a hacer, en cuánto tiempo y cuánto cuesta. Por escrito y claro.</p></div>
+      <div class="paso rv"><span class="n">03</span><h3>Desarrollo</h3><p>Avances frecuentes que podés probar mientras se construye.</p></div>
+      <div class="paso rv"><span class="n">04</span><h3>Entrega y soporte</h3><p>Te lo dejamos funcionando, te enseñamos a usarlo y seguimos cerca.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="presu" id="presupuesto">
+  <div class="wrap">
+    <div class="rv">
+      <span class="mono">04 — Presupuesto</span>
+      <h2 style="font-size:clamp(40px,5vw,72px);line-height:.95;letter-spacing:-.04em;margin-top:22px">Contanos tu idea y te armamos una propuesta.</h2>
+      <ul><li>Respondemos cada consulta personalmente</li><li>Te proponemos qué hacer, en cuánto tiempo y cuánto cuesta</li><li>Si preferís, seguimos la charla por WhatsApp</li></ul>
+    </div>
+    <form class="form rv" id="form-presupuesto" name="presupuesto" method="POST" action="/" data-netlify="true" netlify-honeypot="sitio-web" novalidate>
+      <input type="hidden" name="form-name" value="presupuesto">
+      <p class="trampa" aria-hidden="true"><label>No completar <input name="sitio-web" tabindex="-1" autocomplete="off"></label></p>
+      <input type="hidden" name="subject" value="Nueva consulta desde la web de Trama">
+      <div class="fila">
+        <div class="campo"><label for="f-nombre">Nombre</label><input id="f-nombre" name="nombre" autocomplete="name" required placeholder="Tu nombre"></div>
+        <div class="campo"><label for="f-email">Correo</label><input id="f-email" name="email" type="email" autocomplete="email" required placeholder="tu@correo.com"></div>
+      </div>
+      <div class="fila">
+        <div class="campo"><label for="f-tel">WhatsApp <span>(opcional)</span></label><input id="f-tel" name="whatsapp" type="tel" autocomplete="tel" placeholder="351 000-0000"></div>
+        <div class="campo"><label for="f-negocio">Tu negocio es</label><select id="f-negocio" name="tipo-de-negocio" required><option value="" disabled selected>Elegí una opción</option><option>Emprendimiento</option><option>Pyme</option><option>Empresa</option><option>Otro</option></select></div>
+      </div>
+      <fieldset class="campo"><legend>¿Qué necesitás?</legend>
+        <div class="opciones">
+          <label class="op"><input type="checkbox" name="necesita" value="Página web"><span>Página web</span></label>
+          <label class="op"><input type="checkbox" name="necesita" value="Sistema de gestión"><span>Sistema de gestión</span></label>
+          <label class="op"><input type="checkbox" name="necesita" value="Automatización con IA"><span>Automatización con IA</span></label>
+          <label class="op"><input type="checkbox" name="necesita" value="App a medida"><span>App a medida</span></label>
+          <label class="op"><input type="checkbox" name="necesita" value="Otra cosa"><span>Otra cosa</span></label>
+        </div>
+      </fieldset>
+      <div class="campo"><label for="f-msg">Contanos un poco más</label><textarea id="f-msg" name="mensaje" rows="5" required placeholder="Qué hace tu negocio, qué te gustaría resolver y para cuándo lo necesitás."></textarea></div>
+      <button class="pill pill-hilo enviar" type="submit">Enviar consulta</button>
+      <p class="estado" id="f-estado" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<section class="cierre">
+  <div class="wrap">
+    <span class="mono">05 — Contacto</span>
+    <h2 class="rv" style="margin-top:28px">¿Querés algo así<br>para <span>tu negocio?</span></h2>
+    <a class="pill pill-hilo rv" href="https://wa.me/5493519070196?text=Hola%20Trama%2C%20quiero%20consultar%20por%20un%20proyecto" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+  </div>
+</section>
+</main>
+
+<footer class="pie">
+  <div class="wrap">
+    <div><b>Trama</b>Software a medida<br>Argentina</div>
+    <div><b>Contacto</b><a href="https://wa.me/5493519070196" target="_blank" rel="noopener">WhatsApp 351 907-0196</a><br><a href="mailto:tramadeveloper@gmail.com">tramadeveloper@gmail.com</a></div>
+    <div><b>Redes</b><a href="https://www.instagram.com/tramadeveloper/" target="_blank" rel="noopener">Instagram @tramadeveloper</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function $(s){return document.querySelector(s)}
+  function U(id,w){return 'https://images.unsplash.com/photo-'+id+'?auto=format&fit=crop&w='+(w||1400)+'&q=78'}
+
+  /* barra translúcida al bajar */
+  var barra=$('#barra');addEventListener('scroll',function(){barra.classList.toggle('solida',scrollY>40)},{passive:true});
+
+  /* cinta */
+  var items=['Páginas web','Tiendas online','Turnos y reservas','Sistemas de gestión','Automatización con IA','Agentes inteligentes','Apps a medida'],t='';
+  for(var k=0;k<2;k++)items.forEach(function(x){t+='<span>'+x+'<i>✳</i></span>'});$('#cinta').innerHTML=t;
+
+  /* demos como filas de proyecto */
+  var D=[
+    ['ropa','Hilván','Tienda online · Indumentaria','La colección se arma pieza por pieza al bajar. Talles, stock por color y bolsa con envío gratis.','1490481651871-ab68de25d43d','hilván','#2747D9','#FBE4E7','Syne'],
+    ['turnos','Bruma','Turnos online · Estética','Elegís servicio, día y horario libre, y te llega la confirmación con recordatorio para el calendario.','1634449571010-02389ed0f9b0','bruma','#3A1838','#FFB59E','Young Serif'],
+    ['estudio','Pulso','Reservas · Pilates y yoga','Grilla semanal de clases con cupos en vivo, planes y clase de prueba.','1747239069226-55382c570116','PULSO','#0F3D3E','#D7F36B','Unbounded'],
+    ['cafe','Grano Fino','Pedidos para llevar · Cafetería','Carta con tamaños, pedido para retirar a la hora que elijas y el proceso del café foto por foto.','1596018589878-217d8603c4c6','grano fino','#2B1B14','#C98B4A','Bagel Fat One'],
+    ['inmobiliaria','Umbral','Buscador · Inmobiliaria','Buscador por operación y zona, favoritas, recorrido por ambientes y consulta directa por WhatsApp.','1748063578185-3d68121b11ff','Umbral','#1F3A2E','#C59B4A','DM Serif Display']];
+  var obras=$('#obras');
+  D.forEach(function(d,i){var a=document.createElement('a');a.className='obra';a.href='../muestras/'+d[0]+'/';a.target='_blank';a.rel='noopener';
+    a.innerHTML='<div class="media"><img src="'+U(d[4],1400)+'" alt="Demo '+d[1]+'" loading="lazy"><span class="marca" style="background:'+d[6]+';color:'+d[7]+';font-family:\''+d[8]+'\',serif">'+d[5]+'</span></div>'+
+      '<div class="ficha rv"><div class="mono"><span>'+d[2]+'</span><span>'+('0'+(i+2)).slice(-2)+'</span></div><h3>'+d[1]+'</h3><p>'+d[3]+'</p><span class="pill pill-ghost">Ver demo en vivo</span></div>';
+    obras.appendChild(a);});
+  /* numeración: la lista de sistemas sigue después de las demos */
+  [].forEach.call(document.querySelectorAll('.otros .linea > .mono:first-child'),function(m,i){m.textContent=('0'+(D.length+2+i)).slice(-2)});
+
+  /* manifiesto: palabra por palabra */
+  var man=$('#manifiesto');
+  man.innerHTML=man.textContent.split(' ').map(function(w){var h=w.indexOf('*')>-1;return '<span'+(h?' data-h':'')+'>'+w.replace(/\*/g,'')+'</span>'}).join(' ');
+  var palabras=[].slice.call(man.querySelectorAll('span'));
+  palabras.forEach(function(s){if(s.hasAttribute('data-h'))s.classList.add('h')});
+  var pasos=$('#pasos');
+  function alBajar(){
+    var r=man.getBoundingClientRect(),p=(innerHeight*.85-r.top)/(r.height+innerHeight*.35);p=Math.max(0,Math.min(1,p));
+    var n=Math.round(p*palabras.length);palabras.forEach(function(s,i){s.classList.toggle('on',i<n)});
+    var q=pasos.getBoundingClientRect(),v=(innerHeight*.9-q.top)/(q.height+innerHeight*.4);pasos.style.setProperty('--p',Math.max(0,Math.min(1,v)).toFixed(3));
+  }
+  if(reduce)palabras.forEach(function(s){s.classList.add('on')});else{addEventListener('scroll',alBajar,{passive:true});alBajar();}
+
+  /* apariciones deslizadas */
+  var obs=[].slice.call(document.querySelectorAll('.rv,.media'));
+  if(reduce||!('IntersectionObserver' in window))obs.forEach(function(e){e.classList.add('dentro')});
+  else{var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('dentro');io.unobserve(e.target)}})},{rootMargin:'0px 0px -10% 0px'});obs.forEach(function(e){io.observe(e)});}
+
+  /* contador de cifras */
+  if(!reduce&&'IntersectionObserver' in window){var io2=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;io2.unobserve(e.target);var el=e.target,fin=+el.dataset.n,t0=performance.now();(function paso(t){var k=Math.min(1,(t-t0)/1400);el.textContent=Math.round(fin*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(paso)})(t0)})});[].forEach.call(document.querySelectorAll('[data-n]'),function(e){io2.observe(e)})}
+
+  /* video quieto si se pidió menos movimiento */
+  var v=document.querySelector('video');if(v&&reduce){v.removeAttribute('autoplay');v.pause()}
+
+  /* formulario (formularios de Netlify) */
+  var fm=$('#form-presupuesto'),est=$('#f-estado');
+  fm.addEventListener('submit',function(e){e.preventDefault();
+    var req=[].slice.call(fm.querySelectorAll('[required]')),primero=null;
+    req.forEach(function(el){var mal=!el.value.trim()||(el.type==='email'&&!/^\S+@\S+\.\S+$/.test(el.value));el.setAttribute('aria-invalid',mal?'true':'false');if(mal&&!primero)primero=el});
+    if(primero){est.className='estado error';est.textContent='Revisá los campos marcados: nombre, correo válido, tipo de negocio y mensaje.';primero.focus();return}
+    var btn=fm.querySelector('.enviar');btn.disabled=true;est.className='estado';est.textContent='Enviando…';
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(fm)).toString()})
+      .then(function(r){if(!r.ok)throw new Error(r.status);fm.reset();est.className='estado ok';est.textContent='¡Gracias! Recibimos tu consulta y te respondemos por correo a la brevedad.'})
+      .catch(function(){est.className='estado error';est.textContent='No se pudo enviar. Probá de nuevo en un rato o escribinos por WhatsApp al 351 907-0196.'})
+      .then(function(){btn.disabled=false});});
+  fm.addEventListener('input',function(e){if(e.target.getAttribute('aria-invalid')==='true'&&e.target.value.trim())e.target.setAttribute('aria-invalid','false')});
+})();
+</script>
+</body>
+</html>
