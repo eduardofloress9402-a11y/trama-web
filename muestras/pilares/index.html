@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Pilares · Desarrollos Inmobiliarios</title>
+<meta name="description" content="Muestra de web para Pilares Desarrollos Inmobiliarios, Catamarca. Hecha por Trama.">
+<meta name="theme-color" content="#1C1B19">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231C1B19'/%3E%3Crect x='22' y='16' width='7' height='32' fill='%23F3EEE6'/%3E%3Crect x='35' y='16' width='7' height='32' fill='%23F3EEE6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../kit/armado.css">
+<style>
+:root{
+  --carbon:#1C1B19; --carbon-2:#2A2825; --cal:#F3EEE6; --cal-2:#E4DCCF; --teja:#B5542E; --teja-2:#D27448; --tinta:#1C1B19; --gris:#6B645B; --blanco:#FFFFFF;
+  --f-display:"Cormorant Garamond",Georgia,serif;
+  --f-texto:"Figtree",ui-sans-serif,system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cal);color:var(--tinta);font:17px/1.6 var(--f-texto);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;margin:0;line-height:1;letter-spacing:-.005em;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:1220px;margin:0 auto;padding-inline:20px}
+:focus-visible{outline:3px solid var(--teja-2);outline-offset:3px;border-radius:6px}
+
+/* navegación */
+.nav{position:absolute;inset:0 0 auto 0;z-index:20;color:#fff}
+.nav .wrap{display:flex;align-items:center;gap:20px;height:82px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo svg{width:44px;height:44px;flex:none}
+.logo b{display:block;font:600 26px/1 var(--f-display);letter-spacing:.16em}
+.logo small{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.8;margin-top:3px}
+.nav nav{margin-left:auto;display:flex;gap:26px;font-weight:600;font-size:15px}
+.nav nav a{text-decoration:none;opacity:.9}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:10px;padding:15px 22px;font-weight:700;text-decoration:none;border:0;transition:transform .3s var(--ease),background .3s}
+.btn:hover{transform:translateY(-2px)}
+.btn-t{background:var(--teja);color:#fff}
+.btn-t:hover{background:var(--teja-2)}
+.btn-c{background:var(--carbon);color:#fff}
+.btn-l{background:transparent;box-shadow:inset 0 0 0 2px currentColor}
+.nav .btn{padding:11px 16px;font-size:15px;white-space:nowrap}
+@media (max-width:820px){.nav nav{display:none}.nav .btn{margin-left:auto;padding:10px 13px;font-size:14px}.logo small{display:none}.logo b{font-size:22px}.logo svg{width:38px;height:38px}}
+
+/* héroe */
+.heroe{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--carbon)}
+.heroe .tiras{position:absolute;inset:0}
+.heroe::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,27,25,.65) 0%,rgba(28,27,25,.15) 38%,rgba(28,27,25,.88) 100%);pointer-events:none}
+.heroe-in{position:relative;z-index:1;width:100%;padding-bottom:56px}
+.heroe .pre{font-size:14px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--cal-2)}
+.heroe h1{font-size:clamp(50px,7.6vw,116px);max-width:13ch;margin-top:12px}
+.heroe h1 em{color:var(--teja-2)}
+.buscador{margin-top:30px;background:var(--blanco);color:var(--tinta);border-radius:18px;padding:10px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;gap:8px;align-items:center;max-width:720px;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+.ops{display:flex;background:var(--cal);border-radius:12px;padding:4px}
+.ops button{border:0;background:transparent;border-radius:9px;padding:10px 14px;font-weight:700;font-size:15px}
+.ops button[aria-pressed="true"]{background:var(--carbon);color:#fff}
+.buscador label{display:flex;flex-direction:column;padding:4px 12px;border-left:1.5px solid var(--cal-2)}
+.buscador label:first-child{border-left:0}
+.buscador label small{font-size:12px;color:var(--gris);font-weight:600}
+.buscador select{border:0;background:transparent;font-weight:600;padding:2px 0;outline:0;min-width:0}
+@media (max-width:820px){.buscador{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.buscador .btn{grid-column:1/-1}.buscador label{border-left:0;background:var(--cal);border-radius:10px}}
+
+/* recorrido */
+.recorrido{background:var(--carbon);color:#fff;position:relative}
+.rec-pin{min-height:100svh;display:flex;align-items:center;padding-block:72px;overflow:hidden}
+.recorrido.fija{height:520vh}
+.recorrido.fija .rec-pin{position:sticky;top:0;height:100svh;min-height:0}
+.rec-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:48px;align-items:center;width:100%}
+.ventana .mosaico{aspect-ratio:1/1;width:100%;max-height:78svh;border-radius:6px;margin-inline:auto}
+.rec .pre{font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teja-2)}
+.rec h2{font-size:clamp(34px,4vw,56px);margin-top:10px}
+.amb-nombre{font:500 clamp(48px,6vw,84px)/1 var(--f-display);color:var(--teja-2);margin-top:22px;font-style:italic}
+.amb-txt{margin-top:14px;color:#D9D1C5;max-width:32ch;min-height:4.8em}
+.pasos{display:flex;gap:6px;margin-top:22px}
+.pasos i{width:28px;height:4px;border-radius:2px;background:rgba(255,255,255,.22);transition:background .4s}
+.pasos i.on{background:var(--teja-2)}
+@media (max-width:900px){.rec-grid{grid-template-columns:minmax(0,1fr);gap:20px}.rec-pin{padding-block:36px}.ventana .mosaico{max-height:52svh;width:auto;aspect-ratio:1/1}.amb-nombre{font-size:42px;margin-top:10px}.rec h2{font-size:28px}.amb-txt{min-height:5em;font-size:16px}}
+
+/* propiedades */
+.props{padding:110px 0 100px}
+.cab{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.cab h2{font-size:clamp(46px,6.4vw,92px)}
+.cab p{color:var(--gris)}
+.filtros{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:28px 0 30px}
+.filtros .ops{background:var(--blanco);max-width:100%;overflow-x:auto;scrollbar-width:none}
+.filtros .ops button{white-space:nowrap}
+.grilla{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 22px}
+@media (max-width:980px){.grilla{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.grilla{grid-template-columns:minmax(0,1fr)}}
+.prop{background:var(--blanco);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform .4s var(--ease),box-shadow .4s}
+.prop:hover{transform:translateY(-4px);box-shadow:0 24px 40px -28px rgba(28,27,25,.5)}
+.prop .ft{aspect-ratio:4/3;position:relative}
+.etq{position:absolute;left:12px;top:12px;z-index:2;display:flex;gap:6px}
+.etq span{background:var(--blanco);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:700}
+.etq span.num{background:var(--carbon);color:#fff}
+.nfotos{position:absolute;right:12px;bottom:12px;z-index:2;background:rgba(28,27,25,.75);color:#fff;border-radius:999px;padding:3px 10px;font-size:13px;font-weight:600}
+.prop .tx{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.prop .precio{font:600 26px/1 var(--f-display);color:var(--teja)}
+.prop h3{font:600 18px/1.25 var(--f-texto);letter-spacing:0}
+.prop .zona{color:var(--gris);font-size:15px}
+.feat{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;color:var(--gris);border-top:1.5px solid var(--cal);padding-top:10px;margin-top:auto}
+.consultar{margin-top:12px;border:0;background:var(--carbon);color:#fff;border-radius:10px;padding:12px;font-weight:700}
+.sin{color:var(--gris);padding:30px 0;grid-column:1/-1}
+
+/* tasación */
+.tasar{padding:0 0 110px}
+.tasar .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-radius:28px;overflow:hidden;background:var(--carbon);color:#fff;padding:0}
+.tasar .ft{min-height:400px}
+.tasar .tx{padding:52px 48px}
+.tasar h2{font-size:clamp(38px,4.6vw,64px)}
+.tasar p{margin:18px 0 26px;color:#D9D1C5;max-width:36ch}
+@media (max-width:820px){.tasar .wrap{grid-template-columns:minmax(0,1fr);margin-inline:20px}.tasar .ft{min-height:240px}.tasar .tx{padding:28px}}
+
+/* contacto */
+.contacto{padding:0 0 110px}
+.contacto .gr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.contacto article{background:var(--blanco);border-radius:18px;padding:26px}
+.contacto small{display:block;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teja)}
+.contacto p{margin-top:10px;font-size:19px;font-weight:600}
+.contacto a{text-decoration:none}
+@media (max-width:820px){.contacto .gr{grid-template-columns:minmax(0,1fr)}}
+
+.pie{background:var(--carbon);color:var(--cal-2);padding:56px 0 130px}
+.pie .gr{font:600 clamp(70px,15vw,210px)/.85 var(--f-display);color:var(--cal);letter-spacing:.12em}
+.pie p{margin-top:18px;font-size:15px;max-width:60ch}
+
+/* ficha */
+.modal{position:fixed;inset:0;display:grid;place-items:center;padding:16px;z-index:50;background:rgba(28,27,25,.62);opacity:0;pointer-events:none;transition:opacity .3s}
+.modal.on{opacity:1;pointer-events:auto}
+.caja{background:var(--blanco);border-radius:22px;max-width:720px;width:100%;max-height:calc(100svh - 32px);overflow:auto;transform:translateY(24px);transition:transform .45s var(--ease)}
+.modal.on .caja{transform:none}
+.galeria{position:relative;background:var(--carbon)}
+.galeria img{display:block;width:100%;aspect-ratio:4/3;object-fit:contain;background:var(--carbon)}
+.galeria button{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.92);font-size:22px;font-weight:700;display:grid;place-items:center}
+.galeria .ant{left:12px}.galeria .sig{right:12px}
+.galeria .cont{position:absolute;right:12px;bottom:12px;background:rgba(28,27,25,.75);color:#fff;border-radius:999px;padding:3px 10px;font-size:13px;font-weight:600}
+.miniaturas{display:flex;gap:6px;padding:10px;overflow-x:auto;background:var(--cal)}
+.miniaturas img{width:72px;height:54px;object-fit:cover;border-radius:6px;opacity:.55;cursor:pointer;flex:none;border:2px solid transparent}
+.miniaturas img.on{opacity:1;border-color:var(--teja)}
+.caja .in{padding:22px}
+.caja h3{font-size:34px}
+.caja .zona{color:var(--gris);margin-top:4px}
+.caja .desc{margin-top:12px}
+.burbuja{background:#DCF8C6;color:#1b2a1f;border-radius:14px 14px 4px 14px;padding:12px 14px;font-size:14px;white-space:pre-wrap;margin:14px 0}
+.nota{font-size:14px;color:var(--gris);margin-top:16px}
+.caja .acciones{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="isologo" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="4"/>
+    <path d="M50 8 L86 76 L14 76 Z" fill="none" stroke="currentColor" stroke-width="3"/>
+    <rect x="37" y="30" width="9" height="42" fill="currentColor"/>
+    <rect x="54" y="30" width="9" height="42" fill="currentColor"/>
+    <rect x="33" y="26" width="17" height="5" fill="currentColor"/>
+    <rect x="50" y="26" width="17" height="5" fill="currentColor"/>
+    <rect x="33" y="71" width="17" height="5" fill="currentColor"/>
+    <rect x="50" y="71" width="17" height="5" fill="currentColor"/>
+  </symbol>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#"><svg><use href="#isologo"/></svg><span><b>PILARES</b><small>Desarrollos inmobiliarios</small></span></a>
+    <nav aria-label="Secciones"><a href="#props">Propiedades</a><a href="#recorrido">Recorrido</a><a href="#tasar">Tasaciones</a><a href="#contacto">Contacto</a></nav>
+    <a class="btn btn-t" href="#props">Ver propiedades</a>
+  </div>
+</header>
+
+<main>
+<section class="heroe">
+  <div id="tirasHeroe" role="img" aria-label="Casa de piedra con galería en El Rodeo"></div>
+  <div class="wrap heroe-in">
+    <p class="pre">San Fernando del Valle de Catamarca</p>
+    <h1>Tu próxima propiedad, <em>bien asesorada.</em></h1>
+    <form class="buscador" id="buscador" onsubmit="return false" aria-label="Buscar propiedades">
+      <label><small>Zona</small><select id="zona"><option value="">Todas las zonas</option><option>Capital</option><option>Valle Viejo</option><option>Ambato</option></select></label>
+      <label><small>Tipo</small><select id="tipo"><option value="">Cualquiera</option><option>Casa</option><option>Lote</option></select></label>
+      <button class="btn btn-c" id="buscar" type="submit">Buscar</button>
+    </form>
+  </div>
+</section>
+
+<section class="recorrido" id="recorrido" aria-label="Recorrido por la casa de El Rodeo">
+  <div class="rec-pin">
+    <div class="wrap rec-grid">
+      <div class="ventana"><div id="mosaicoRec" role="img" aria-label="Fotos de la casa de El Rodeo"></div></div>
+      <div class="rec sobre">
+        <p class="pre">Prop. N° 1385 · El Rodeo, Ambato</p>
+        <h2>Recorrela antes de ir.</h2>
+        <div class="amb-nombre" id="ambNombre">Fachada</div>
+        <p class="amb-txt" id="ambTxt"></p>
+        <div class="pasos" id="pasos" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="props" id="props">
+  <div class="wrap">
+    <div class="cab"><h2>Propiedades</h2><p id="contador"></p></div>
+    <div class="filtros">
+      <div class="ops" role="group" aria-label="Tipo de propiedad" id="opsTipo">
+        <button data-v="" aria-pressed="true">Todas</button><button data-v="Casa" aria-pressed="false">Casas</button><button data-v="Lote" aria-pressed="false">Lotes</button>
+      </div>
+      <div class="ops" role="group" aria-label="Zona" id="opsZona">
+        <button data-v="" aria-pressed="true">Todas las zonas</button><button data-v="Capital" aria-pressed="false">Capital</button><button data-v="Valle Viejo" aria-pressed="false">Valle Viejo</button><button data-v="Ambato" aria-pressed="false">Ambato</button>
+      </div>
+    </div>
+    <div class="grilla" id="grilla"></div>
+  </div>
+</section>
+
+<section class="tasar" id="tasar">
+  <div class="wrap">
+    <div class="ft" id="fotoTasar" data-cortes="4"></div>
+    <div class="tx"><h2>¿Querés vender o alquilar tu propiedad?</h2><p>Te brindamos un asesoramiento integral: una tasación correcta y la promoción de tu propiedad, acá y en nuestras redes.</p><a class="btn btn-t" id="btnTasar" target="_blank" rel="noopener">Pedir tasación por WhatsApp</a></div>
+  </div>
+</section>
+
+<section class="contacto" id="contacto" aria-label="Contacto">
+  <div class="wrap">
+    <div class="gr">
+      <article><small>Oficina</small><p>Ayacucho 356<br>San Fernando del Valle de Catamarca</p></article>
+      <article><small>WhatsApp</small><p><a href="https://wa.me/5493834346476">383 434-6476</a><br><a href="https://wa.me/5493834216202">383 421-6202</a></p></article>
+      <article><small>Redes</small><p><a href="https://www.instagram.com/pilaresdesarrollos/" target="_blank" rel="noopener">@pilaresdesarrollos</a><br><a href="https://www.facebook.com/PilaresInmobiliaria.com.ar/" target="_blank" rel="noopener">Facebook</a></p></article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="pie"><div class="wrap"><div class="gr">PILARES</div><p>Muestra preparada por Trama para Pilares Desarrollos Inmobiliarios. Las propiedades y las fotos son las que publican en su Instagram; los precios se consultan.</p></div></footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mtit">
+  <div class="caja">
+    <div class="galeria"><img id="mFoto" alt=""><button class="ant" id="ant" aria-label="Foto anterior">‹</button><button class="sig" id="sig" aria-label="Foto siguiente">›</button><span class="cont" id="mCont"></span></div>
+    <div class="miniaturas" id="mMinis"></div>
+    <div class="in">
+      <h3 id="mtit"></h3>
+      <p class="zona" id="mZona"></p>
+      <p class="desc" id="mDesc"></p>
+      <p class="nota">Al tocar «Consultar», se abre WhatsApp con este mensaje listo:</p>
+      <div class="burbuja" id="burbuja"></div>
+      <div class="acciones"><a class="btn btn-t" id="mWa" target="_blank" rel="noopener">Consultar por WhatsApp</a><button class="btn btn-l" id="mcerrar">Cerrar</button></div>
+    </div>
+  </div>
+</div>
+<div class="trama"><span>Muestra hecha por Trama</span><a href="https://trama-dev.netlify.app/#proyectos">Quiero una así</a></div>
+
+<script src="../kit/armado.js"></script>
+<script>
+(function(){
+var A=Armado;
+function $(s){return document.querySelector(s)}
+function F(n){return 'fotos/'+n+'.jpg'}
+var WA='5493834346476';
+function wa(t){return 'https://wa.me/'+WA+'?text='+encodeURIComponent(t)}
+
+A.tiras($('#tirasHeroe'),F('rodeo-fachada'),7);
+$('#fotoTasar').setAttribute('data-foto',F('sanz-living'));A.cortes($('#tasar'));
+$('#btnTasar').href=wa('Hola Pilares, quiero consultar por una tasación de mi propiedad.');
+
+/* recorrido: casa de El Rodeo */
+var AMB=[
+ ['Fachada','Construcción de piedra con arcos de ladrillo y vereda de baldosa cerámica.','rodeo-fachada'],
+ ['Comedor','Cocina-comedor integrada, con paredes de ladrillo visto.','rodeo-comedor'],
+ ['Cocina','Bajo mesada de madera, alacena y ventana.','rodeo-cocina'],
+ ['Dormitorio','Uno de los dos dormitorios de la casa.','rodeo-dormitorio'],
+ ['Galería','Galería techada para disfrutar el amplio terreno.','rodeo-galeria'],
+ ['Terreno','Amplio terreno con verde y árboles, en El Rodeo.','rodeo-jardin']];
+var pasos=$('#pasos');AMB.forEach(function(){pasos.appendChild(document.createElement('i'))});
+var sec=$('#recorrido'),act=-1;
+var mos=A.mosaico($('#mosaicoRec'),AMB.map(function(x){return F(x[2])}),{cols:7,rows:7,semilla:13,abre:600});
+A.fija(sec,function(p){var r=mos(p),i=r.foto;if(i===act)return;act=i;$('#ambNombre').textContent=AMB[i][0];$('#ambTxt').textContent=AMB[i][1];
+  [].forEach.call(pasos.children,function(e,k){e.classList.toggle('on',k<=i)});});
+
+/* propiedades (de su Instagram) */
+var P=[
+ {id:1385,tipo:'Casa',op:'venta',t:'Casa de piedra con amplio terreno',z:'Ambato',lugar:'El Rodeo, departamento Ambato',
+  feat:['2 dormitorios','1 baño','Cocina-comedor','Amplio terreno'],
+  d:'Casa en venta en El Rodeo. Cuenta con 2 dormitorios, baño, cocina-comedor y un amplio terreno.',
+  fotos:['rodeo-fachada','rodeo-galeria','rodeo-jardin','rodeo-comedor','rodeo-cocina','rodeo-dormitorio']},
+ {id:1390,tipo:'Casa',op:'venta',t:'Casa a una cuadra de Av. Recalde',z:'Capital',lugar:'Padre Santiago Sanz, Capital',
+  feat:['2 dormitorios','2 baños','Garage','Patio'],
+  d:'Casa en venta ubicada en Padre Santiago Sanz, a una cuadra de Av. Recalde. Cuenta con 2 dormitorios, 2 baños, living-comedor, cocina, garage, lavadero y patio.',
+  fotos:['sanz-living','sanz-ambiente','sanz-dormitorio','sanz-cocina','sanz-bano']},
+ {id:1391,tipo:'Lote',op:'venta',t:'Lote de 359,44 m²',z:'Valle Viejo',lugar:'San Isidro, Valle Viejo',
+  feat:['359,44 m²','Frente a calle Facundo Segura','Mensura'],
+  d:'Lote en venta ubicado en San Isidro, Valle Viejo. Superficie de 359,44 m².',
+  fotos:['lote-plano','lote-croquis']}];
+var filtro={tipo:'',zona:''};
+function pintar(){var g=$('#grilla');g.innerHTML='';
+  var L=P.filter(function(x){return (!filtro.tipo||x.tipo===filtro.tipo)&&(!filtro.zona||x.z===filtro.zona)});
+  $('#contador').textContent=L.length+(L.length===1?' propiedad':' propiedades');
+  if(!L.length){g.innerHTML='<p class="sin">No hay propiedades con esos filtros. Probá con otra zona o tipo.</p>';return;}
+  L.forEach(function(x){var el=document.createElement('article');el.className='prop';el.tabIndex=0;
+    el.innerHTML='<div class="ft" data-foto="'+F(x.fotos[0])+'" data-cortes="3"><div class="etq"><span class="num">N° '+x.id+'</span><span>En venta</span></div><span class="nfotos">'+x.fotos.length+' fotos</span></div>'+
+      '<div class="tx"><span class="precio">Consultar precio</span><h3>'+x.t+'</h3><span class="zona">'+x.lugar+'</span><div class="feat">'+x.feat.map(function(f){return '<span>'+f+'</span>'}).join('')+'</div><button class="consultar">Ver fotos y consultar</button></div>';
+    el.onclick=function(){ficha(x)};el.onkeydown=function(e){if(e.key==='Enter')ficha(x)};g.appendChild(el);});
+  A.cortes(g);}
+function botones(grupo,cb){grupo.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(grupo.children,function(x){x.setAttribute('aria-pressed',x===b)});cb(b.dataset.v);});}
+function marcar(grupo,v){[].forEach.call(grupo.children,function(x){x.setAttribute('aria-pressed',x.dataset.v===v)})}
+botones($('#opsTipo'),function(v){filtro.tipo=v;pintar();});
+botones($('#opsZona'),function(v){filtro.zona=v;pintar();});
+$('#buscar').onclick=function(){filtro.zona=$('#zona').value;filtro.tipo=$('#tipo').value;marcar($('#opsZona'),filtro.zona);marcar($('#opsTipo'),filtro.tipo);pintar();
+  $('#props').scrollIntoView({behavior:A.reduce?'auto':'smooth'});};
+pintar();
+
+/* ficha con galería */
+var cur=null,ix=0;
+function mostrar(i){ix=(i+cur.fotos.length)%cur.fotos.length;$('#mFoto').src=F(cur.fotos[ix]);$('#mFoto').alt=cur.t+', foto '+(ix+1);
+  $('#mCont').textContent=(ix+1)+' / '+cur.fotos.length;[].forEach.call($('#mMinis').children,function(m,k){m.classList.toggle('on',k===ix)});}
+function ficha(x){cur=x;$('#mtit').textContent=x.t;$('#mZona').textContent='Prop. N° '+x.id+' · '+x.lugar;$('#mDesc').textContent=x.d;
+  var mm=$('#mMinis');mm.innerHTML='';x.fotos.forEach(function(f,k){var im=new Image();im.src=F(f);im.alt='';im.loading='lazy';im.onclick=function(){mostrar(k)};mm.appendChild(im)});
+  var multi=x.fotos.length>1;$('#ant').hidden=!multi;$('#sig').hidden=!multi;
+  var msg='Hola Pilares, vi en la web la propiedad N° '+x.id+' ('+x.t+', '+x.lugar+'). ¿Sigue disponible? Me gustaría saber el precio y coordinar una visita.';
+  $('#burbuja').textContent=msg;$('#mWa').href=wa(msg);mostrar(0);$('#modal').classList.add('on');$('#mcerrar').focus();}
+$('#ant').onclick=function(){mostrar(ix-1)};$('#sig').onclick=function(){mostrar(ix+1)};
+function cerrar(){$('#modal').classList.remove('on')}
+$('#mcerrar').onclick=cerrar;
+$('#modal').addEventListener('click',function(e){if(e.target===this)cerrar()});
+document.addEventListener('keydown',function(e){if(!$('#modal').classList.contains('on'))return;if(e.key==='Escape')cerrar();if(e.key==='ArrowRight')mostrar(ix+1);if(e.key==='ArrowLeft')mostrar(ix-1);});
+})();
+</script>
+<script defer src="https://web-production-a459e.up.railway.app/trama/tracker.js"></script>
+</body>
+</html>
